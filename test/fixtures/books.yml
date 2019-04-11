@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author: MyString
+  saled_at: 2019-04-11 17:55:43
+  price: 1
+  description: MyText
+  image: MyString
+  borrowed_num: 1
+
+two:
+  title: MyString
+  author: MyString
+  saled_at: 2019-04-11 17:55:43
+  price: 1
+  description: MyText
+  image: MyString
+  borrowed_num: 1
