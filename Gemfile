@@ -51,6 +51,12 @@ group :development do
   gem 'brakeman', require: false
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'letter_opener_web'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
