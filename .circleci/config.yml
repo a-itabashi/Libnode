@@ -52,6 +52,10 @@ jobs: # a collection of steps
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
+      - run: bundle exec rubocop
+
+      - run: bundle exec brakeman
+
       # - run:
       #     name: Database setup
       #     command: bundle exec rake db:schema:load --trace
