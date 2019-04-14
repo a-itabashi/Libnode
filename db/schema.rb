@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_140802) do
+ActiveRecord::Schema.define(version: 2019_04_14_121817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -60,15 +60,6 @@ ActiveRecord::Schema.define(version: 2019_04_14_140802) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "upvotes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "book_id", null: false
-    t.uuid "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_upvotes_on_book_id"
-    t.index ["user_id"], name: "index_upvotes_on_user_id"
-  end
-
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.string "uid", null: false
@@ -84,6 +75,4 @@ ActiveRecord::Schema.define(version: 2019_04_14_140802) do
   add_foreign_key "book_categories", "categories"
   add_foreign_key "book_places", "books"
   add_foreign_key "book_places", "places"
-  add_foreign_key "upvotes", "books"
-  add_foreign_key "upvotes", "users"
 end
