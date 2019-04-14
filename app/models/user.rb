@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :upvotes, dependent: :destroy
 
+  validates :uid, :name, :email, :image, :admin, presence: true
+
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(token)
