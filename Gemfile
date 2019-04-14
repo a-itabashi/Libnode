@@ -80,3 +80,6 @@ gem 'html2slim'
 
 # .envファイルを利用
 gem 'dotenv-rails'
+
+# ログイン機能
+gem 'devise'
