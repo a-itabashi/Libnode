@@ -77,3 +77,6 @@ gem 'active_model_serializers'
 # ViewをSlimで記述
 gem 'slim-rails'
 gem 'html2slim'
+
+# .envファイルを利用
+gem 'dotenv-rails'
