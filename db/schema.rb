@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_024741) do
+ActiveRecord::Schema.define(version: 2019_04_14_121817) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "book_categories", force: :cascade do |t|
@@ -59,7 +60,7 @@ ActiveRecord::Schema.define(version: 2019_04_14_024741) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "uid", null: false
     t.string "name", null: false
     t.string "email", null: false
