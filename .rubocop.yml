@@ -72,11 +72,7 @@ Metrics/PerceivedComplexity:
 
 AllCops:
   # target ruby version
-  TargetRubyVersion: 2.2
-
-  Include:
-    - '**/Rakefile'
-    - '**/config.ru'
+  TargetRubyVersion: 2.5.5
 
   Exclude:
     - 'db/**/*'
