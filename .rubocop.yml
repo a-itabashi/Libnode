@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 # Railsのチェックを有効にする
 Rails:
   Enabled: true

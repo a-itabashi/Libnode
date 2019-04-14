@@ -1,5 +1,5 @@
 class Place < ApplicationRecord
-  DEFAULT_NUMBER_OF_DIGITS = 2.freeze
+  DEFAULT_NUMBER_OF_DIGITS = 2
 
   has_many :book_places, dependent: :destroy
   has_many :books, through: :book_places
