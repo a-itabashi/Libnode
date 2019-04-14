@@ -1,0 +1,40 @@
+h1 It's new registration form
+
+= form_with model: @book_registrations_form, url: admin_registrations_path do |form|
+  p
+    = form.label :title
+    = form.text_field :title
+  p
+    = form.label :author
+    = form.text_field :author
+  p
+    = form.label :saled_at
+    = form.date_field :saled_at
+  p
+    = form.label :price
+    = form.number_field :price
+  p
+    = form.label :description
+    = form.text_field :description
+  p
+    = form.label :image
+    = form.file_field :image
+
+
+  = form.fields_for :categories do |category_fields|
+    p
+      = category_fields.label :name
+      = category_fields.text_field :name
+
+  = form.fields_for :places do |place_fields|
+    p
+      = place_fields.label :shelf
+      = place_fields.number_field :shelf
+    p
+      = place_fields.label :column
+      = place_fields.number_field :column
+    p
+      = place_fields.label :row
+      = place_fields.number_field :row
+
+  = form.submit
