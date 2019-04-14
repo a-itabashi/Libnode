@@ -83,3 +83,4 @@ gem 'dotenv-rails'
 
 # ログイン機能
 gem 'devise'
+gem 'omniauth-google-oauth2'
