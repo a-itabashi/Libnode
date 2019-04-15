@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :registrations, only: %i[new edit create]
   end
 
+  get 'book_collection_list', to: 'pages#book_collection_list'
+
   root to: 'admin/registrations#new'
 end
