@@ -4,7 +4,7 @@ class UpvotesController < ApplicationController
     @book = @upvote.book
 
     @upvote.save
-    render json: @upvote
+    respond_to :js
   end
 
   def destroy
@@ -12,7 +12,7 @@ class UpvotesController < ApplicationController
     @book = @upvote.book
 
     @like.destroy
-    render json: @upvote
+    respond_to :js
   end
 
   private
