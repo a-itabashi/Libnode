@@ -11,7 +11,7 @@ class UpvotesController < ApplicationController
     @upvote = Upvote.find(params[:id])
     @book = @upvote.book
 
-    @like.destroy
+    @upvote.destroy
     respond_to :js
   end
 
