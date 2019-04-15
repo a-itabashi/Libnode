@@ -8,4 +8,8 @@ class Book < ApplicationRecord
   has_many :upvotes, dependent: :destroy
 
   validates :title, presence: true
+
+  def upvoted_by(user)
+    Upvote.find_by(book_id: id, user_id: user.id)
+  end
 end

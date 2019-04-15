@@ -1,0 +1,2 @@
+$('#vote-button-<%= @book.id.to_s %>').
+  html('<%= link_to "いいねする", book_upvotes_path(@book), method: :POST, remote: true %>');

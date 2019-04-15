@@ -1,0 +1,2 @@
+$('#vote-button-<%= @book.id.to_s %>').
+  html('<%= link_to "いいね解除", upvote_path(@upvote), method: :DELETE, remote: true %>');

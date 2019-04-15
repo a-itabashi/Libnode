@@ -84,3 +84,9 @@ gem 'dotenv-rails'
 # ログイン機能
 gem 'devise'
 gem 'omniauth-google-oauth2'
+
+# jQuery
+gem 'jquery-rails'
+
+# CORS設定
+gem 'rack-cors'
