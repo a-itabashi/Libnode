@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    render json:[@book.image, @book.title, @book.author]
+    render json: [@book.image, @book.title, @book.author]
     # render json: @book, adapter: :json
   end
 end
