@@ -3,16 +3,14 @@ class UpvotesController < ApplicationController
     @upvote = current_user.upvotes.build(upvote_params)
     @book = @upvote.book
 
-    @upvote.save
-    respond_to :js
+    respond_to :js if @upvote.save
   end
 
   def destroy
     @upvote = Upvote.find(params[:id])
     @book = @upvote.book
 
-    @upvote.destroy
-    respond_to :js
+    respond_to :js if @upvote.destroy
   end
 
   private
