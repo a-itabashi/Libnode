@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_020156) do
     t.bigint "book_id", null: false
     t.uuid "user_id", null: false
     t.datetime "return_date", null: false
-    t.boolean "is_return", default: false, null: false
+    t.boolean "is_return", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_borrow_lists_on_book_id"
