@@ -90,3 +90,6 @@ gem 'jquery-rails'
 
 # CORS設定
 gem 'rack-cors'
+
+# Bootstrap
+gem 'bootstrap'
