@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: one
+  user: one
+  return_date: 2019-04-16 11:01:56
+  is_return: false
+
+two:
+  book: two
+  user: two
+  return_date: 2019-04-16 11:01:56
+  is_return: false
