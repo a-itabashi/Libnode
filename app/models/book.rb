@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   has_many :places, through: :book_places
 
   has_many :upvotes, dependent: :destroy
+  has_many :borrow_lists, dependent: :destroy
 
   validates :title, presence: true
 

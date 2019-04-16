@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_14_140802) do
+ActiveRecord::Schema.define(version: 2019_04_16_020156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(version: 2019_04_14_140802) do
     t.integer "borrowed_num", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "borrow_lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "return_date", null: false
+    t.boolean "is_return", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_borrow_lists_on_book_id"
+    t.index ["user_id"], name: "index_borrow_lists_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -83,6 +94,8 @@ ActiveRecord::Schema.define(version: 2019_04_14_140802) do
   add_foreign_key "book_categories", "categories"
   add_foreign_key "book_places", "books"
   add_foreign_key "book_places", "places"
+  add_foreign_key "borrow_lists", "books"
+  add_foreign_key "borrow_lists", "users"
   add_foreign_key "upvotes", "books"
   add_foreign_key "upvotes", "users"
 end
