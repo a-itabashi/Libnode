@@ -11,6 +11,6 @@ class Book < ApplicationRecord
   validates :title, presence: true
 
   def upvoted_by(user)
-    Upvote.find_by(book_id: id, user_id: user.id)
+    Upvote.find_by(book_id: id, user_id: user.id) unless user.nil?
   end
 end

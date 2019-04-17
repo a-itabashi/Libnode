@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :upvotes, dependent: :destroy
   has_many :borrow_lists, dependent: :destroy
 
-  validates :uid, :name, :email, :image, :admin, presence: true
+  validates :uid, :name, :email, :image, presence: true
 
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
