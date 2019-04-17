@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   get 'book_collection_list', to: 'pages#book_collection_list'
+  get 'borrow', to: 'pages#borrow'
 
   root to: 'pages#book_collection_list'
 end
