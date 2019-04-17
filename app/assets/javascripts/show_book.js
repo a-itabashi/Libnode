@@ -20,10 +20,11 @@ $(function () {
           upvotes
           // ...inputResponse,
         } = response;
+        console.log(places[0].shelf);
 
-        let target = new Array(Object.keys(response))
+        let emptyTarget = new Array(Object.keys(response))
 
-        target[0].forEach(function(v){
+        emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
 
@@ -33,11 +34,10 @@ $(function () {
         $("#book-description").append(description);
         $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
+        $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
         categories.forEach(function(v){
           $("#book-categories").append(v);
         });
-
-
       }).fail(function() {
     });
     // return false;
