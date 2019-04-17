@@ -31,7 +31,6 @@ $(function () {
         $("#book-author").append(author);
         $("#book-saled-at").append(saled_at);
         $("#book-description").append(description);
-        $("#book-places").append(places);
         $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
         categories.forEach(function(v){
