@@ -29,7 +29,7 @@ FactoryBot.define do
     name { "カテゴリA" }
   end
 
-  factory :category do
+  factory :book_category do
     category { 1 }
     book { 1 }
   end
@@ -39,14 +39,21 @@ FactoryBot.define do
     column { 22 }
     row { 33 }
   end
+
+  factory :book_place do
+    place { 1 }
+    book { 1 }
+  end
 end
 
 user_a = FactoryBot.create(:user)
-book_a = FactoryBot.create(:book)
 category_a = FactoryBot.create(:category)
 category_b = FactoryBot.create(:category, name: "カテゴリB")
 place_a = FactoryBot.create(:place)
 
-FactoryBot.create(:book_category, book: book_a, category: category_a)
-FactoryBot.create(:book_category, book: book_a, category: category_b)
-FactoryBot.create(:book_place, book: book_a, place: place_a)
+10. times do |n|
+  book_a = FactoryBot.create(:book, title: "タイトル#{n}")
+  FactoryBot.create(:book_category, book: book_a, category: category_a)
+  FactoryBot.create(:book_category, book: book_a, category: category_b)
+  FactoryBot.create(:book_place, book: book_a, place: place_a)
+end
