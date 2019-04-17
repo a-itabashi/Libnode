@@ -9,7 +9,8 @@
     li
       = link_to "蔵書登録", new_admin_registration_path
     li
-      = link_to "貸出", borrow_path
+      button.btn.btn-primary.borrow-button data-target="#modal1" data-toggle="modal" type="button"
+        | 貸出
 
     - if user_signed_in?
       = render "layouts/sidebar/login"

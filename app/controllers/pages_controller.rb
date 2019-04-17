@@ -3,6 +3,4 @@ class PagesController < ApplicationController
     @books = Book.all
     render 'book_collection_list/book_collection_list'
   end
-
-  def borrow; end
 end
