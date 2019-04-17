@@ -24,6 +24,6 @@ $.ajaxSetup({
 
 $(function() {
   $(".borrow-button").click(function(e) {
-    $('#borrow-modal1').modal('show');
+    $('#borrow-modal').modal('show');
   });
 })
