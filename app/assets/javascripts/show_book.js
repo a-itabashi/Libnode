@@ -10,24 +10,36 @@ $(function () {
         dataType: 'json',
       }).done(function(response) {
         const {
-          author,
-          borrowed_num,
-          description,
-          id,
-          image,
-          price,
-          saled_at,
           title,
+          author,
+          saled_at,
+          description,
+          image,
+          categories,
+          places,
+          upvotes
           // ...inputResponse,
         } = response;
-        $(".book-image").empty();
-        $(".book-title").empty();
-        $(".book-author").empty();
-        $(".book-image").append("<img src=" + image + ">");
-        $(".book-title").append(title);
-        $(".book-author").append(author);
+
+        let emptyTarget = new Array(Object.keys(response))
+        emptyTarget[0].forEach(function(v){
+          $(`#book-${v}`).empty();
+        });
+
+        $("#book-title").append(title);
+        $("#book-author").append(author);
+        $("#book-saled_at").append(saled_at);
+        $("#book-description").append(description);
+        $("#book-upvotes").append(upvotes);
+        $("#book-image").append("<img src=" + image + ">");
+        // places[0]以外に値は入らない
+        if ( typeof places[0] === "undefind" ){
+          $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
+        }
+        categories.forEach(function(v){
+          $("#book-categories").append(v);
+        });
       }).fail(function() {
     });
-    // return false;
   });
 });
