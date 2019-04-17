@@ -10,26 +10,43 @@ require 'factory_bot_rails'
 
 FactoryBot.define do
   factory :user do
-    name { "勤勉なエンジニアA" }
+    name { "勤勉なエンジニア" }
+    email { "test@example.com"}
+    uid { 123456789 }
+    image { "test" }
   end
 
-  factory :portfolio do
-    explanation { "xxx" }
+  factory :book do
+    title { "本のタイトル" }
+    author { "著名な著者" }
+    saled_at { 2019/1/1 }
+    price { 100000 }
+    description { "教養が身につきます" }
+    image { "https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png" }
   end
 
-  factory :comment do
-    content { "Awesome!" }
+  factory :category do
+    name { "カテゴリA" }
   end
 
-  factory :correction do
-    sentence { "Not Good" }
+  factory :category do
+    category { 1 }
+    book { 1 }
+  end
+
+  factory :place do
+    shelf { 11 }
+    column { 22 }
+    row { 33 }
   end
 end
 
 user_a = FactoryBot.create(:user)
-portfolio_a = FactoryBot.create(:portfolio, user: user_a)
+book_a = FactoryBot.create(:book)
+category_a = FactoryBot.create(:category)
+category_b = FactoryBot.create(:category, name: "カテゴリB")
+place_a = FactoryBot.create(:place)
 
-3.times do |n|
-  FactoryBot.create(:comment, content: "content#{n}", user: user_a, portfolio: portfolio_a)
-  FactoryBot.create(:correction, sentence: "content#{n}", user: user_a, portfolio: portfolio_a)
-end
+FactoryBot.create(:book_category, book: book_a, category: category_a)
+FactoryBot.create(:book_category, book: book_a, category: category_b)
+FactoryBot.create(:book_place, book: book_a, place: place_a)
