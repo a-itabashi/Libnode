@@ -30,8 +30,9 @@ $(function () {
         $("#book-title").append(title);
         $("#book-author").append(author);
         $("#book-saled-at").append(saled_at);
-        $("#book-upvotes").append(upvotes);
         $("#book-description").append(description);
+        $("#book-places").append(places);
+        $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
         categories.forEach(function(v){
           $("#book-categories").append(v);
