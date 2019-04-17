@@ -30,7 +30,7 @@ $(function () {
 
         $("#book-title").append(title);
         $("#book-author").append(author);
-        $("#book-saled-at").append(saled_at);
+        $("#book-saled_at").append(saled_at);
         $("#book-description").append(description);
         $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
