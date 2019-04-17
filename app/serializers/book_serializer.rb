@@ -11,7 +11,7 @@ class BookSerializer < ActiveModel::Serializer
 
   def places
     object.places.map do |place|
-      "棚: #{place.shelf} 行: #{place.row} 列: #{place.column}"
+      [place.shelf, place.column, place.row]
     end
   end
 
