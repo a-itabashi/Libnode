@@ -20,6 +20,4 @@
                   - else
                     = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
     .col-md-3
-      .book-image
-      .book-title
-      .book-author
+      = render "book_collection_list/book_detail"
