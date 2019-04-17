@@ -1,0 +1,6 @@
+li
+  = link_to "ログアウト", destroy_user_session_path, method: :delete
+li
+  = current_user.name
+li
+  = image_tag current_user.image, style: "height: 50px; width: 50px;"
