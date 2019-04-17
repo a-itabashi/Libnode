@@ -8,12 +8,8 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    - unless user_signed_in?
-      = link_to user_google_oauth2_omniauth_authorize_path do
-        = image_tag "google_signin_logo.png"
-    - else
-      p
-        = "#{current_user.name}: ログイン中"
-        = image_tag current_user.image, style: "height: 50px; width: 50px;"
-        = link_to "ログアウト", destroy_user_session_path, method: :delete
-    = yield
+    #wrapper.active
+      = render "layouts/sidebar/sidebar"
+      #page-content-wrapper
+        .page-content.inset
+          = yield
