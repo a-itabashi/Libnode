@@ -25,7 +25,7 @@ $(function () {
         $(".book-author").empty();
         $(".book-image").append("<img src=" + image + ">");
         $(".book-title").append(title);
-        $(".book-author").append(author);
+        $(".book-author").append("著者: " + author);
       }).fail(function() {
     });
     // return false;
