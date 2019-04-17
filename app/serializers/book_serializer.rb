@@ -3,6 +3,7 @@ class BookSerializer < ActiveModel::Serializer
 
   has_many :categories
   has_many :places
+  has_many :upvotes
 
   def categories
     object.categories.map(&:name)
@@ -12,5 +13,9 @@ class BookSerializer < ActiveModel::Serializer
     object.places.map do |place|
       "棚: #{place.shelf} 行: #{place.row} 列: #{place.column}"
     end
+  end
+
+  def upvotes
+    object.upvotes.length
   end
 end
