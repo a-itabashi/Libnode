@@ -20,10 +20,8 @@ $(function () {
           upvotes
           // ...inputResponse,
         } = response;
-        console.log(places[0].shelf);
 
         let emptyTarget = new Array(Object.keys(response))
-
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
@@ -34,12 +32,14 @@ $(function () {
         $("#book-description").append(description);
         $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
-        $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
+        // places[0]以外に値は入らない
+        if ( typeof places[0] === "undefind" ){
+          $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
+        }
         categories.forEach(function(v){
           $("#book-categories").append(v);
         });
       }).fail(function() {
     });
-    // return false;
   });
 });
