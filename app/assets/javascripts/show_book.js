@@ -10,22 +10,34 @@ $(function () {
         dataType: 'json',
       }).done(function(response) {
         const {
-          author,
-          borrowed_num,
-          description,
-          id,
-          image,
-          price,
-          saled_at,
           title,
+          author,
+          saled_at,
+          description,
+          image,
+          categories,
+          places,
+          upvotes
           // ...inputResponse,
         } = response;
-        $(".book-image").empty();
-        $(".book-title").empty();
-        $(".book-author").empty();
-        $(".book-image").append("<img src=" + image + ">");
-        $(".book-title").append(title);
-        $(".book-author").append("著者: " + author);
+
+        let target = new Array(Object.keys(response))
+
+        target[0].forEach(function(v){
+          $(`#book-${v}`).empty();
+        });
+
+        $("#book-title").append(title);
+        $("#book-author").append(author);
+        $("#book-saled-at").append(saled_at);
+        $("#book-upvotes").append(upvotes);
+        $("#book-description").append(description);
+        $("#book-image").append("<img src=" + image + ">");
+        categories.forEach(function(v){
+          $("#book-categories").append(v);
+        });
+
+
       }).fail(function() {
     });
     // return false;
