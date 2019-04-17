@@ -14,5 +14,5 @@ Rails.application.routes.draw do
 
   get 'book_collection_list', to: 'pages#book_collection_list'
 
-  root to: 'admin/registrations#new'
+  root to: 'pages#book_collection_list'
 end
