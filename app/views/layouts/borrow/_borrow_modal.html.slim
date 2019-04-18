@@ -7,7 +7,15 @@
           span aria-hidden="true"  &times;
       .modal-body
         .container
+          = form_with url: borrow_list_index_path do |form|
+            p
+              = form.label "書籍番号"
+              = form.number_field :book_id
+            p
+              = form.label "返却予定日"
+              = form.date_field :saled_at
 
+            = form.submit
       .modal-footer
         button.btn.btn-secondary data-dismiss="modal" type="button"  Close
         button.btn.btn-primary type="button"  OK
