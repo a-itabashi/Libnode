@@ -8,22 +8,9 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = render "layouts/borrow/borrow_modal"
     #wrapper.active
       = render "layouts/sidebar/sidebar"
       #page-content-wrapper
         .page-content.inset
           = yield
-
-
-    #borrow-modal.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
-      .modal-dialog.modal-dialog-centered.modal-lg role="document"
-        .modal-content
-          .modal-header
-            h5#label1.modal-title Modal title
-            button.close aria-label="Close" data-dismiss="modal" type="button"
-              span aria-hidden="true"  &times;
-          .modal-body
-            | Modal body
-          .modal-footer
-            button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-            button.btn.btn-primary type="button"  OK
