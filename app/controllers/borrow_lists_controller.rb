@@ -10,8 +10,8 @@ class BorrowListsController < ApplicationController
   end
 
   def destroy
-    @borrow_list = current_user.borrow_lists.find_by(book_id: params[:book_id])
-    if @borrow_list != nil && @borrow_list.update(is_return: true)
+    @borrow_list = current_user.borrow_lists.where(book_id: params[:book_id]).find_by(is_return: false)
+    if !@borrow_list.nil? && @borrow_list.update(is_return: true)
       flash[:success] = '返却処理が完了しました！'
     else
       flash[:danger] = '返却処理が失敗しました！'
