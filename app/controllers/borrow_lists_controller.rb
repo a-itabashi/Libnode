@@ -1,6 +1,6 @@
 class BorrowListsController < ApplicationController
   def create
-    @borrow_list = BookList.new(borrow_list_params)
+    @borrow_list = BorrowList.new(borrow_list_params)
 
     @borrow_list.save
   end
