@@ -7,7 +7,7 @@
           span aria-hidden="true"  &times;
       .modal-body
         .container
-          = form_with url: borrow_lists_index_path do |form|
+          = form_with url: borrow_lists_path do |form|
             p
               = form.label "書籍番号"
               = form.number_field :book_id
