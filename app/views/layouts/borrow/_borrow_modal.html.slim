@@ -14,10 +14,7 @@
             p
               = form.label "返却予定日"
               = form.date_field :return_date
+
             .modal-footer
               button.btn.btn-secondary data-dismiss="modal" type="button"  Close
               = form.submit id: "borrow-list-submit-button", class:"btn btn-primary"
-
-      / .modal-footer
-        / button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-        / button.btn.btn-primary type="button"  OK

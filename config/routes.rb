@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :upvotes, only: %i(create destroy), shallow: true
   end
 
-  resources :borrow_lists, only: %i[create, destroy]
+  resources :borrow_lists, only: %i[create destroy]
 
   namespace :admin do
     resources :registrations, only: %i[new edit create]

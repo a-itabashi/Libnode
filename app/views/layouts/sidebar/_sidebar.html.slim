@@ -11,6 +11,9 @@
     li
       button.btn.btn-primary.borrow-button data-target="#modal1" data-toggle="modal" type="button"
         | 貸出
+    li
+      button.btn.btn-primary.return-button data-target="#modal1" data-toggle="modal" type="button"
+        | 返却
 
     - if user_signed_in?
       = render "layouts/sidebar/login"
