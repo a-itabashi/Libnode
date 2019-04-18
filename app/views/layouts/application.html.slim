@@ -8,8 +8,14 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
+    = render "layouts/borrow/borrow_modal"
+    = render "layouts/return/return_modal"
     #wrapper.active
       = render "layouts/sidebar/sidebar"
       #page-content-wrapper
         .page-content.inset
+          - flash.each do |key, value|
+            - key = "info" if key == "notice"
+            - key = "danger"  if key == "alert"
+            = content_tag :div, value, class: "alert alert-#{key}"
           = yield

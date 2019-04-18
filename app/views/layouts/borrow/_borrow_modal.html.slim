@@ -1,0 +1,20 @@
+#borrow-modal.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
+  .modal-dialog.modal-dialog-centered.modal-lg role="document"
+    .modal-content
+      .modal-header
+        h5#label1.modal-title 本を借りる
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+      .modal-body
+        .container
+          = form_with scope: :borrow_list, url: borrow_lists_path, local: true do |form|
+            p
+              = form.label "書籍番号"
+              = form.number_field :book_id
+            p
+              = form.label "返却予定日"
+              = form.date_field :return_date
+
+            .modal-footer
+              button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+              = form.submit id: "borrow-list-submit-button", class:"btn btn-primary"

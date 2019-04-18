@@ -8,6 +8,12 @@
       = link_to "蔵書一覧", root_path
     li
       = link_to "蔵書登録", new_admin_registration_path
+    li
+      button.btn.btn-primary.borrow-button data-target="#modal1" data-toggle="modal" type="button"
+        | 貸出
+    li
+      button.btn.btn-primary.return-button data-target="#modal1" data-toggle="modal" type="button"
+        | 返却
 
     - if user_signed_in?
       = render "layouts/sidebar/login"

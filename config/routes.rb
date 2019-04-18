@@ -8,11 +8,14 @@ Rails.application.routes.draw do
     resources :upvotes, only: %i(create destroy), shallow: true
   end
 
+  resources :borrow_lists, only: %i[create]
+
   namespace :admin do
     resources :registrations, only: %i[new edit create]
   end
 
   get 'book_collection_list', to: 'pages#book_collection_list'
+  delete 'borrow_list/delete', to: 'borrow_lists#destroy'
 
   root to: 'pages#book_collection_list'
 end
