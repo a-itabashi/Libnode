@@ -1,9 +1,9 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :title, :author, :saled_at, :description, :image
+  attributes :title, :author, :saled_at, :description, :image,
+             :upvotes, :available
 
   has_many :categories
   has_many :places
-  has_many :upvotes
 
   def categories
     object.categories.map(&:name)
@@ -21,5 +21,9 @@ class BookSerializer < ActiveModel::Serializer
 
   def upvotes
     object.upvotes.length
+  end
+
+  def available
+    object.borrow_lists.map(&:is_return).all?
   end
 end
