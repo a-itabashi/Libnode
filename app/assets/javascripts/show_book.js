@@ -33,9 +33,7 @@ $(function () {
         $("#book-upvotes").append(upvotes);
         $("#book-image").append("<img src=" + image + ">");
         // places[0]以外に値は入らない
-        if ( typeof places[0] === "undefind" ){
-          $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
-        }
+        $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
         categories.forEach(function(v){
           $("#book-categories").append(v);
         });
