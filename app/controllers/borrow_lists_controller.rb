@@ -1,6 +1,7 @@
 class BorrowListsController < ApplicationController
   def create
     @borrow_list = BorrowList.new(borrow_list_params)
+    binding.pry
 
     @borrow_list.save
   end
