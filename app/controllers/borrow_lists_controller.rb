@@ -10,6 +10,16 @@ class BorrowListsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def destroy
+    @borrow_list = current_user.borrow_list.find_by(book_id: params[:book_id])
+    if @borrow_list.destroy
+      flash[:success] = '返却処理が完了しました！'
+    else
+      flash[:danger] = '返却処理が失敗しました！'
+    end
+    redirect_back(fallback_location: root_path)
+  end
+
   private
 
   def borrow_list_params
