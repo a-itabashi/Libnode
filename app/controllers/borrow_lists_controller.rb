@@ -1,9 +1,7 @@
 class BorrowListsController < ApplicationController
   def create
-    @borrow_list = BorrowList.new(borrow_list_params)
-    binding.pry
-
-    @borrow_list.save
+    @borrow_list = current_user.borrow_lists.build(borrow_list_params)
+    redirect_back(fallback_location: root_path) if @borrow_list.save
   end
 
   private
