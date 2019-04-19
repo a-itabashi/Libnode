@@ -17,7 +17,8 @@ $(function () {
           image,
           categories,
           places,
-          upvotes
+          upvotes,
+          available
           // ...inputResponse,
         } = response;
 
@@ -37,6 +38,15 @@ $(function () {
         categories.forEach(function(v){
           $("#book-categories").append(v);
         });
+        if ( available == true ) {
+          $(".return-detail").hide()
+          $(".borrow-detail").show()
+          $(".borrow-detail").text( "借りる" )
+        } else if ( available == false ) {
+          $(".borrow-detail").hide()
+          $(".return-detail").show()
+          $(".return-detail").text( "返す" )
+        }
       }).fail(function() {
     });
   });
