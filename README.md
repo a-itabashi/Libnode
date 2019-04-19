@@ -52,5 +52,3 @@ https://xd.adobe.com/view/2f831c81-5be2-4dd6-6508-d61386d92ce0-59b2/
 - mechanize
 - ransack
 - gon
-- semantic-ui-sass
-- jquery-rails

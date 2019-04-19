@@ -1,5 +1,5 @@
 $(function () {
-  $(".show-button").click(function(e) {
+  $(".show-book").click(function(e) {
     if (e) e.preventDefault();
     // if (e) e.stopProvagation();
     let set_id = $(this).attr('id')

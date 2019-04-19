@@ -1,0 +1,39 @@
+.container-fluid
+  .row
+    .col-md-9
+      .row
+        h2 書籍一覧画面
+      .row
+        table
+          thead
+            tr
+              th Title
+              th colspan= 2
+
+          tbody
+            - @books.each do |book|
+
+              .row
+                .col-sm-6.col-md-3
+                  .card.img-thumbnail
+                    img.card-img-top alt="画像" src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png" /
+                    .card-body.px-2.py-3
+                      h5.card-title
+                        = book.title
+                      p.card-text コンテンツ コンテンツ コンテンツ コンテンツ
+                      p.mb-0
+                        a.btn.btn-primary.btn-sm href="#"  ボタン
+                        a.btn.btn-secondary.btn-sm href="#"  ボタン
+
+              / tr
+              /   td = book.title
+              /   td
+              /     button.show-button id="#{book.id}" 詳細
+              /   td
+              /     div id= "vote-button-#{book.id.to_s}"
+              /       - if book.upvoted_by(current_user).present?
+              /         = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
+              /       - else
+              /         = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
+    .col-md-3
+      = render "book_collection_list/book_detail"

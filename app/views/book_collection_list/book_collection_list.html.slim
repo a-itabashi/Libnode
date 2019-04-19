@@ -4,23 +4,17 @@
       .row
         h2 書籍一覧画面
       .row
-        table
-          thead
-            tr
-              th Title
-              th colspan= 2
-
-          tbody
-            - @books.each do |book|
-              tr
-                td = book.title
-                td
-                  button.show-button id="#{book.id}" 詳細
-                td
-                  div id= "vote-button-#{book.id.to_s}"
-                    - if book.upvoted_by(current_user).present?
-                      = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
-                    - else
-                      = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
+        - @books.each do |book|
+          .card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
+            img.card-img-top alt="画像" src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png" /
+            .card-body.px-2.py-3
+              .card-title
+                = book.title
+            .card-footer.text-center
+              div id= "vote-button-#{book.id.to_s}" class="vote-button"
+                - if book.upvoted_by(current_user).present?
+                  = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
+                - else
+                  = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
     .col-md-3
       = render "book_collection_list/book_detail"
