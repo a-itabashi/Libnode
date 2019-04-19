@@ -9,11 +9,11 @@
     li
       = link_to "蔵書登録", new_admin_registration_path
     li
-      button.btn.btn-primary.borrow-button data-target="#modal1" data-toggle="modal" type="button"
-        | 貸出
+      p data-target="#modal1" data-toggle="modal" class="borrow-button"
+        | 借りる
     li
-      button.btn.btn-primary.return-button data-target="#modal1" data-toggle="modal" type="button"
-        | 返却
+      p data-target="#modal1" data-toggle="modal" class="return-button"
+        | 返す
 
     - if user_signed_in?
       = render "layouts/sidebar/login"
