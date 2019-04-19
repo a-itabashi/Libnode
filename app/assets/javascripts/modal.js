@@ -18,7 +18,7 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
-    $(".book-number").val("");
+    $('input[name="book_id"]').val("");
   });
 
   $("#borrow-list-submit-button").click(function() {
