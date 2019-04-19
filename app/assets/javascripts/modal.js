@@ -2,6 +2,7 @@ $(function() {
   const modals = ["borrow", "return"];
 
   modals.forEach(function(v) {
+
     $(`.${v}-button`).click(function() {
       $(`#${v}-modal`).modal("show");
     });
