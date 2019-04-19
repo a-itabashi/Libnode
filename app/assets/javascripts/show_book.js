@@ -39,13 +39,11 @@ $(function () {
           $("#book-categories").append(v);
         });
         if ( available == true ) {
-          $(".return-detail").hide()
-          $(".borrow-detail").show()
-          $(".borrow-detail").text( "借りる" )
+          $(".return-detail").hide().removeAttr('id');
+          $(".borrow-detail").show().attr("id", `${set_id}`).text( "借りる" )
         } else if ( available == false ) {
-          $(".borrow-detail").hide()
-          $(".return-detail").show()
-          $(".return-detail").text( "返す" )
+          $(".borrow-detail").hide().removeAttr('id');
+          $(".return-detail").show().attr("id", `${set_id}`).text( "返す" )
         }
       }).fail(function() {
     });

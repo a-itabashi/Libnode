@@ -10,7 +10,7 @@
           = form_with url: borrow_list_delete_path, method: :delete, local: true do |form|
             p
               = form.label "書籍番号"
-              = form.number_field :book_id
+              = form.number_field :book_id, class: "book-number"
 
             .modal-footer
               button.btn.btn-secondary data-dismiss="modal" type="button"  Close
