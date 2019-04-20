@@ -12,9 +12,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :registrations, only: %i[new edit create]
-  end
-
-  namespace :rakuten_api do
     get 'fetch_books', to: 'fetch_books#search'
   end
 
