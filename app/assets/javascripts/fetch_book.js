@@ -23,7 +23,11 @@ $(function () {
         $("#book-saled_at").val(saled_at);
         $("#book-price").val(price);
         $("#book-description").val(description);
-        $("#book-image")[0].files[0].name(image);
+
+        // $(".image-file-field").css("display", "none");
+        $(".image-file-field").hide();
+        $("#book-image").val(image);
+        $(".area").append("<img src=" + image + ">");
       }).fail(function() {
     });
   });
