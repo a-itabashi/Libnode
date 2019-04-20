@@ -14,8 +14,13 @@ Rails.application.routes.draw do
     resources :registrations, only: %i[new edit create]
   end
 
+  namespace :rakuten_api do
+    get 'book_search', to: 'book_search#search'
+  end
+
   get 'book_collection_list', to: 'pages#book_collection_list'
   delete 'borrow_list/delete', to: 'borrow_lists#destroy'
+
 
   root to: 'pages#book_collection_list'
 end
