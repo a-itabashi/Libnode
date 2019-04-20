@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :rakuten_api do
-    get 'book_search', to: 'book_search#search'
+    get 'fetch_books', to: 'fetch_books#search'
   end
 
   get 'book_collection_list', to: 'pages#book_collection_list'
