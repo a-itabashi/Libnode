@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    @books = Book.all.borrow_lists.where(is_return: false)
   end
 
   def show

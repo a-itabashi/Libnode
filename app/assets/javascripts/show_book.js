@@ -38,12 +38,15 @@ $(function () {
         categories.forEach(function(v){
           $("#book-categories").append(v);
         });
+
         if ( available == true ) {
-          $(".return-detail").hide().removeAttr('id');
+          $(".btn-lending").hide().removeAttr('id');
           $(".borrow-detail").show().attr("id", `${set_id}`).text( "借りる" )
+          $("#book-image").removeClass("black-filter");
         } else if ( available == false ) {
           $(".borrow-detail").hide().removeAttr('id');
-          $(".return-detail").show().attr("id", `${set_id}`).text( "返す" )
+          $(".btn-lending").show().text( "貸出中" )
+          $("#book-image").addClass("black-filter");
         }
       }).fail(function() {
     });

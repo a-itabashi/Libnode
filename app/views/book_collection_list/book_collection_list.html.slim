@@ -6,7 +6,10 @@
       .row
         - @books.each do |book|
           .card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
-            img.card-img-top alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
+            - if book.borrow_lists.where(is_return: false).present?
+              img.card-img-top.black-filter alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
+            - else
+              img.card-img-top alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
             .card-body.px-2.py-3
               .card-title
                 = book.title
