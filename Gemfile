@@ -94,3 +94,6 @@ gem 'rack-cors'
 
 # Bootstrap
 gem 'bootstrap'
+
+# 楽天APIを使用
+gem 'rakuten_web_service'
