@@ -39,6 +39,8 @@ $(function () {
         $("#book-categories").val(categories);
         console.log(set_id)
         $(".book-delete").attr("id", `${set_id}`)
+        // TODO: ドメイン名を変更
+        $(".update-form").attr("action", `http://localhost:3000/admin/registrations/${set_id}`).attr("method", "PATCH")
       }).fail(function() {
     });
   });
