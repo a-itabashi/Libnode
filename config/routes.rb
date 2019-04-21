@@ -7,13 +7,14 @@ Rails.application.routes.draw do
   resources :users, only: %i[show], controller: 'users/users'
 
   resources :books, only: %i[index show] do
-    resources :upvotes, only: %i(create destroy), shallow: true
+    resources :upvotes, only: %i[create destroy], shallow: true
   end
 
   resources :borrow_lists, only: %i[create]
 
   namespace :admin do
     resources :registrations, only: %i[new edit create]
+    resources :books, only: %i[edit update destroy]
     get 'fetch_books', to: 'fetch_books#search'
   end
 
