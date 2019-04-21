@@ -27,10 +27,10 @@
       / お気に入りの本
       #pills-upvote.tab-pane.fade.show.active aria-labelledby="pills-upvote-tab" role="tabpanel"
         .row
-          - @books = Book.find(current_user.upvotes.pluck(:book_id))
-          = render partial: "layouts/cards/book_card_without_filter_and_upvote_button", collection: @books, as: :book
+          - books = Book.find(@user.upvotes.pluck(:book_id))
+          = render partial: "layouts/cards/book_card_without_filter_and_upvote_button", collection: books, as: :book
       / 過去に借りた本
       #pills-history.tab-pane.fade aria-labelledby="pills-history-tab" role="tabpanel"
         .row
-          - @books = Book.find(current_user.borrow_lists.pluck(:book_id))
-          = render partial: "layouts/cards/book_card_without_filter", collection: @books, as: :book
+          - books = Book.find(@user.borrow_lists.pluck(:book_id))
+          = render partial: "layouts/cards/book_card_without_filter", collection: books, as: :book
