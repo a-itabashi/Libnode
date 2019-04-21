@@ -37,6 +37,8 @@ $(function () {
 
         $("#book-places").val(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
         $("#book-categories").val(categories);
+        console.log(set_id)
+        $(".book-delete").attr("id", `${set_id}`)
       }).fail(function() {
     });
   });

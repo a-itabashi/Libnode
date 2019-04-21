@@ -1,6 +1,6 @@
 .book-detail-wrapper
   .container
-    = form_with model: @book_registrations_form, url: admin_registrations_path do |form|
+    = form_with model: @book_registrations_form, url: admin_registrations_path, method: :PATCH do |form|
       .d-flex.align-items-center
         img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
       p
@@ -35,3 +35,6 @@
           = category_fields.text_field :name, class:"mb-3", id:"book-categories"
 
       = form.submit "更新", class: "btn btn-primary"
+
+      button.book-delete.btn.btn-sm.btn-danger
+        | この書籍を削除する
