@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :borrow_lists, only: %i[create]
 
   namespace :admin do
-    resources :registrations, only: %i[new edit create]
+    resources :registrations
     resources :books, only: %i[update destroy]
     get 'book_collection_list/edit', to: 'books#edit'
     get 'fetch_books', to: 'fetch_books#search'
