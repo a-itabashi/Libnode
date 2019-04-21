@@ -1,0 +1,28 @@
+.book-detail-wrapper
+  .container
+    .d-flex.align-items-center
+      img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
+    h3#book-title
+      | アドミンタイトル！
+    p
+      | 著者:
+      span#book-author
+    p
+      | 発売日:
+      span#book-saled_at
+    p
+      span#book-places
+    p
+      | お気に入り数:
+      span#book-upvotes
+    textarea#book-description cols="28" rows="4"
+      | 本の詳細が表示されます。
+    p
+      | カテゴリ:
+      span#book-categories
+
+    button#book-available.borrow-detail.btn.btn-primary
+      | 借りる
+
+    button#book-available.btn-lending.btn.btn-danger
+      | 貸出中
