@@ -5,6 +5,10 @@ class BookSerializer < ActiveModel::Serializer
   has_many :categories
   has_many :places
 
+  def saled_at
+    object.saled_at.strftime('%Y-%m-%d') if object.saled_at.present?
+  end
+
   def categories
     object.categories.map(&:name)
   end
