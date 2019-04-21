@@ -1,3 +1,50 @@
-h1 マイページ
-
-= @user.name
+.container-fluid
+  .row
+    h2 マイページ
+  .row
+    .col-md-6
+      .card.mb-3 style=("max-width: 540px;")
+        .row.no-gutters
+          .col-md-4
+            img.card-img src="#{user.image}" style="width: 130px;" /
+          .col-md-8.text-center
+            .card-body
+              h4.card-title
+                = user.name
+              p.card-text
+                = user.email
+    .col-md-6.mt-5
+      .row
+        / ピル部分
+        ul#pills-tab.nav.nav-pills.mb-3 role="tablist"
+          li.nav-item
+            a#pills-home-tab.nav-link.active aria-controls="pills-upvote" aria-selected="true" data-toggle="pill" href="#pills-upvote" role="tab"  お気に入りの本
+          li.nav-item
+            a#pills-profile-tab.nav-link aria-controls="pills-history" aria-selected="false" data-toggle="pill" href="#pills-history" role="tab"  過去に借りた本
+  .row
+    / パネル部分
+    #pills-tabContent.tab-content
+      / お気に入りの本
+      #pills-upvote.tab-pane.fade.show.active aria-labelledby="pills-upvote-tab" role="tabpanel"
+        .row
+          - Book.find(current_user.upvotes.pluck(:book_id)).each do |book|
+            .card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
+              img.card-img-top alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
+              .card-body.px-2.py-3
+                .card-title
+                  = book.title
+      / 過去に借りた本
+      #pills-history.tab-pane.fade aria-labelledby="pills-history-tab" role="tabpanel"
+        .row
+          - Book.find(current_user.borrow_lists.pluck(:book_id)).each do |book|
+            .card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
+              img.card-img-top alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
+              .card-body.px-2.py-3
+                .card-title
+                  = book.title
+              .card-footer.text-center
+                div id= "vote-button-#{book.id.to_s}" class="vote-button"
+                  - if book.upvoted_by(current_user).present?
+                    = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
+                  - else
+                    = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
