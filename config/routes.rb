@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :registrations, only: %i[new edit create]
-    resources :books, only: %i[edit update destroy]
+    resources :books, only: %i[update destroy]
+    get 'book_collection_list/edit', to: 'books#edit'
     get 'fetch_books', to: 'fetch_books#search'
   end
 
   get 'book_collection_list', to: 'pages#book_collection_list'
   delete 'borrow_list/delete', to: 'borrow_lists#destroy'
-
 
   root to: 'pages#book_collection_list'
 end
