@@ -1,0 +1,11 @@
+.card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
+  img.card-img-top alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
+  .card-body.px-2.py-3
+    .card-title
+      = book.title
+  .card-footer.text-center
+    div id= "vote-button-#{book.id.to_s}" class="vote-button"
+      - if book.upvoted_by(current_user).present?
+        = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
+      - else
+        = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
