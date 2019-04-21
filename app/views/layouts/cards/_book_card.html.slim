@@ -1,4 +1,5 @@
-.card.img-thumbnail.border-info.mr-3.mb-3.show-book id="#{book.id}" style="width: 160px;"
+.card.img-thumbnail.border-info.mr-3.mb-3 id="#{book.id}" style="width: 160px;" class="#{controller.action_name == 'edit' ? "edit-book" : "show-book"}"
+
   - if book.borrow_lists.where(is_return: false).present?
     img.card-img-top.black-filter alt="画像" src="#{book.image}" style="height: auto; width: 150;" /
   - else

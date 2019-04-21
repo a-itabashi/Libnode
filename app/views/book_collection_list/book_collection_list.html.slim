@@ -7,6 +7,6 @@
         = render partial: "layouts/cards/book_card", collection: @books, as: :book
     .col-md-3
       - if controller.controller_name == "books" && controller.action_name == "edit"
-        = render "book_collection_list/book_detail_admin"
+        = render "book_collection_list/book_detail_edit"
       - else
         = render "book_collection_list/book_detail"
