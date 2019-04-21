@@ -4,7 +4,8 @@ $(function () {
     // if (e) e.stopProvagation();
     let set_id = $(this).attr('id')
       $.ajax({
-        url: `books/${set_id}`,
+        // TODO: ドメイン名を変更
+        url: `http://localhost:3000/books/${set_id}`,
         type: 'get',
         data: { set_id },
         dataType: 'json',
