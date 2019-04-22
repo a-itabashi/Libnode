@@ -6,4 +6,7 @@
       .row
         = render partial: "layouts/cards/book_card", collection: @books, as: :book
     .col-md-3
-      = render "book_collection_list/book_detail"
+      - if controller.controller_name == "books" && controller.action_name == "edit"
+        = render "book_collection_list/book_detail_edit"
+      - else
+        = render "book_collection_list/book_detail"

@@ -1,0 +1,40 @@
+.book-detail-wrapper
+  .container
+    = form_with model: @book_registrations_form, url: admin_registrations_path, method: :patch, class: "update-form" do |form|
+      .d-flex.align-items-center
+        img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
+      p
+        = form.label "タイトル"
+        = form.text_field :title, id:"book-title"
+      p
+        = form.label "著者"
+        = form.text_field :author, id:"book-author"
+      p
+        = form.label "発売日"
+        = form.date_field :saled_at, id:"book-saled_at"
+      = form.fields_for :places do |place_fields|
+        h5 書架情報
+        p
+          = place_fields.label "棚"
+          = place_fields.number_field :shelf, id:"book-shelf"
+        p
+          = place_fields.label "行"
+          = place_fields.number_field :column, id:"book-column"
+        p
+          = place_fields.label "列"
+          = place_fields.number_field :row, id:"book-row"
+
+      p
+        = form.label "説明"
+        = form.text_field :description, id:"book-description"
+
+      = form.fields_for :categories do |category_fields|
+        h5 カテゴリ情報
+        p
+          = category_fields.label "カテゴリ"
+          = category_fields.text_field :name, class:"mb-3", id:"book-categories"
+
+      / = form.submit "更新", class: "btn btn-primary btn-update"
+
+      button.book-delete.btn.btn-sm.btn-danger
+        | この書籍を削除する

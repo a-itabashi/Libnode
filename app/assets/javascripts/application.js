@@ -21,3 +21,9 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
+
+// $(function () {
+//   $(".btn-update").click(function () {
+//     $(this).parents('form').attr('action', $(this).data('action'));
+//   })
+// })

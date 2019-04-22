@@ -17,7 +17,7 @@ $(function () {
           image,
           // ...inputResponse,
         } = response.params;
-        console.log(image);
+        console.log(saled_at);
         $("#book-title").val(title);
         $("#book-author").val(author);
         $("#book-saled_at").val(saled_at);
