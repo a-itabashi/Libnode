@@ -1,0 +1,46 @@
+= form_with model: @book_registrations_form, url: admin_registrations_path do |form|
+  | ISBN番号
+  input type="number" class="mt-3 mb-5 isbn"
+  button.fetch-book.btn.btn-success 自動入力
+  p
+    = form.label "タイトル"
+    = form.text_field :title, id:"book-title"
+  p
+    = form.label "著者"
+    = form.text_field :author, id:"book-author"
+  p
+    = form.label "発売日"
+    = form.date_field :saled_at, id:"book-saled_at"
+  p
+    = form.label "価格"
+    = form.number_field :price, id:"book-price"
+  p
+    = form.label "説明"
+    = form.text_field :description, id:"book-description"
+  p.image-file-field
+    = form.label "画像"
+    = form.file_field :image, class:"mb-3"
+  p.image-text-field
+    = form.label "画像"
+    = form.text_field :image, id:"book-image", class:"mb-3"
+  .area
+
+  = form.fields_for :categories do |category_fields|
+    h5 カテゴリ情報
+    p
+      = category_fields.label "カテゴリ"
+      = category_fields.text_field :name, class:"mb-3"
+
+  = form.fields_for :places do |place_fields|
+    h5 書架情報
+    p
+      = place_fields.label "棚"
+      = place_fields.number_field :shelf
+    p
+      = place_fields.label "行"
+      = place_fields.number_field :column
+    p
+      = place_fields.label "列"
+      = place_fields.number_field :row
+
+  = form.submit "登録", class: "btn btn-primary"
