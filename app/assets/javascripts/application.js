@@ -14,23 +14,6 @@
 //= require rails-ujs
 //= require bootstrap
 //= require activestorage
-//= require jsqrcode/src/alignpat
-//= require jsqrcode/src/bitmat
-//= require jsqrcode/src/bmparser
-//= require jsqrcode/src/datablock
-//= require jsqrcode/src/databr
-//= require jsqrcode/src/datamask
-//= require jsqrcode/src/decoder
-//= require jsqrcode/src/detector
-//= require jsqrcode/src/errorlevel
-//= require jsqrcode/src/findpat
-//= require jsqrcode/src/formatinf
-//= require jsqrcode/src/gf256
-//= require jsqrcode/src/gf256poly
-//= require jsqrcode/src/grid
-//= require jsqrcode/src/qrcode
-//= require jsqrcode/src/rsdecoder
-//= require jsqrcode/src/version
 //= require_tree .
 
 $.ajaxSetup({
@@ -43,3 +26,20 @@ function file_selected(file_field){
   var filename = $(file_field)[0].files[0].name;
   $("#filename").val(filename);
 }
+
+
+$(function () {
+  $(".show-button").click(function() {
+   let set_id = $(this).attr('id')
+   return $.ajax({
+     url: `books/${set_id}`,
+     type: 'get',
+     data: { set_id },
+     dataType: 'json',
+   }).done(function(response) {
+     $(".book-image").append("<img src=" + response[0] + ">")
+     $(".book-title").append(response[1])
+   }).fail(function() {
+   });
+ });
+});
