@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :registrations
+    resources :csv, only: %i[create]
     resources :books, only: %i[update destroy]
     get 'book_collection_list/edit', to: 'books#edit'
     get 'fetch_books', to: 'fetch_books#search'
