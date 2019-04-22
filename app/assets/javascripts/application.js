@@ -14,6 +14,23 @@
 //= require rails-ujs
 //= require bootstrap
 //= require activestorage
+//= require jsqrcode/src/alignpat
+//= require jsqrcode/src/bitmat
+//= require jsqrcode/src/bmparser
+//= require jsqrcode/src/datablock
+//= require jsqrcode/src/databr
+//= require jsqrcode/src/datamask
+//= require jsqrcode/src/decoder
+//= require jsqrcode/src/detector
+//= require jsqrcode/src/errorlevel
+//= require jsqrcode/src/findpat
+//= require jsqrcode/src/formatinf
+//= require jsqrcode/src/gf256
+//= require jsqrcode/src/gf256poly
+//= require jsqrcode/src/grid
+//= require jsqrcode/src/qrcode
+//= require jsqrcode/src/rsdecoder
+//= require jsqrcode/src/version
 //= require_tree .
 
 $.ajaxSetup({
