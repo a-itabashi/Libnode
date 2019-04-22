@@ -1,14 +1,21 @@
 .container-fluid
   .row
-    .col-md-6
+    .col-md-3
       h2 書籍登録画面
-    .col-md-6
+    .col-md-9
       .row
-        / ピル部分
         ul#pills-tab.nav.nav-pills.mb-3 role="tablist"
           li.nav-item
             a#pills-new-tab.nav-link.active aria-controls="pills-new" aria-selected="true" data-toggle="pill" href="#pills-new" role="tab"  新規登録
           li.nav-item
             a#pills-profile-tab.nav-link aria-controls="pills-csv" aria-selected="false" data-toggle="pill" href="#pills-csv" role="tab"  CSVファイルから登録
   .row
-    = render "admin/registrations/form_registration"
+    #pills-tabContent.tab-content
+      / 新規登録
+      #pills-new.tab-pane.fade.show.active aria-labelledby="pills-new-tab" role="tabpanel"
+        .row
+          = render "admin/registrations/form_registration"
+      / CSVファイルから登録
+      #pills-csv.tab-pane.fade aria-labelledby="pills-csv-tab" role="tabpanel"
+        .row
+          h1 Please CSV
