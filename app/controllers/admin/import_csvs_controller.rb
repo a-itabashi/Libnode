@@ -7,7 +7,7 @@ class Admin::ImportCsvsController < Admin::ApplicationController
 
   def create
     registered_count = import_books
-    # redirect_to new_csv_path, notice: "#{registered_count}件登録しました"
+    redirect_to new_admin_csv_path, notice: "#{registered_count}件登録しました"
   end
 
   private

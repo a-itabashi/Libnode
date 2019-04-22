@@ -1,1 +1,11 @@
-h1 Please import CSV
+.container-fluid
+  .row
+    = button_to '通常入力', new_admin_registration_path, method: :get
+  .row
+    = form_tag admin_csv_index_path, method: :post, multipart: true do |f|
+      .search_item
+        = text_field_tag 'filename',"", id: "filename", disabled: true
+        = file_field_tag 'books_file', id: "file_input", style: "display: none;", onchange: "file_selected($(this));"
+        = button_tag 'ファイル選択', class: %i[btn-primary csv_input_btn], type: 'button', onclick: "$('#file_input').click();"
+      div
+        button.btn.btn-primary type="submit"  CSVインポート

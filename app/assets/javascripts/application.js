@@ -22,8 +22,7 @@ $.ajaxSetup({
   }
 });
 
-// $(function () {
-//   $(".btn-update").click(function () {
-//     $(this).parents('form').attr('action', $(this).data('action'));
-//   })
-// })
+function file_selected(file_field){
+  var filename = $(file_field)[0].files[0].name;
+  $("#filename").val(filename);
+}
