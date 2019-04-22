@@ -7,7 +7,12 @@ class Admin::ImportCsvsController < Admin::ApplicationController
 
   def create
     registered_count = import_books
-    redirect_to new_admin_csv_path, notice: "#{registered_count}件登録しました"
+    # TODO: マジックナンバーを無くす
+    if registered_count.to_s.length > 10
+      redirect_to new_admin_csv_path, notice: registered_count.to_s
+    else
+      redirect_to new_admin_csv_path, notice: "#{registered_count}件登録しました"
+    end
   end
 
   private
@@ -16,7 +21,7 @@ class Admin::ImportCsvsController < Admin::ApplicationController
     # 登録処理前のレコード数
     current_book_count = ::Book.count
     books = []
-    # windowsで作られたファイルに対応するので、encoding: "SJIS"を付けている
+    # windowsで作られたファイルに対応するため、encoding: "SJIS"を付けている
     CSV.foreach(params[:books_file].path, headers: true, encoding: 'UTF-8') do |row|
       books << ::Book.new({ title: row['title'],
                             author: row['author'],
@@ -25,9 +30,13 @@ class Admin::ImportCsvsController < Admin::ApplicationController
                             description: row['description'],
                             image: row['image'] })
     end
-    # importメソッドでバルクインサートできる
-    ::Book.import(books)
-    # 何レコード登録できたかを返す
-    ::Book.count - current_book_count
+
+    begin
+      ::Book.import!(books)
+      # 登録したレコード数を返す
+      ::Book.count - current_book_count
+    rescue StandardError => e
+      e
+    end
   end
 end
