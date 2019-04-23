@@ -12,7 +12,6 @@ $(function() {
       $(`#${v}-modal`).modal("show");
       $(".book-number").val(set_id);
     });
-
     hideModal(v);
   });
 })
@@ -26,3 +25,4 @@ function hideModal (target) {
     $(`#${target}-modal`).modal("hide");
   });
 };
+

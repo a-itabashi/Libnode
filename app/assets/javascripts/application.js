@@ -14,7 +14,16 @@
 //= require rails-ujs
 //= require bootstrap
 //= require activestorage
-//= require_tree .
+//= require common
+//= require delete_book
+//= require edit_book
+//= require fetch_book
+//= require modal
+//= require remove_flash_after_fixed_time
+//= require show_book
+//= require sidebar
+//= require read_qr
+//= require jsQR
 
 $.ajaxSetup({
   headers: {
@@ -26,3 +35,20 @@ function file_selected(file_field){
   var filename = $(file_field)[0].files[0].name;
   $("#filename").val(filename);
 }
+
+
+// $(function () {
+//   $(".show-button").click(function() {
+//    let set_id = $(this).attr('id')
+//    return $.ajax({
+//      url: `books/${set_id}`,
+//      type: 'get',
+//      data: { set_id },
+//      dataType: 'json',
+//    }).done(function(response) {
+//      $(".book-image").append("<img src=" + response[0] + ">")
+//      $(".book-title").append(response[1])
+//    }).fail(function() {
+//    });
+//  });
+// });
