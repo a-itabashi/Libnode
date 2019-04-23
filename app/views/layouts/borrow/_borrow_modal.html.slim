@@ -1,4 +1,3 @@
-= javascript_include_tag 'qrcode'
 #borrow-modal.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
   .modal-dialog.modal-dialog-centered.modal-lg role="document"
     .modal-content
@@ -8,20 +7,18 @@
           span aria-hidden="true"  &times;
       .modal-body
         .container
-          = form_with scope: :borrow_list, url: borrow_lists_path, local: true do |form|
-            p
-              = form.label "書籍番号"
-              = form.number_field :book_id, class: "book-number"
-            p
-              = form.label "返却予定日"
-              = form.date_field :return_date
+          .row
+            .col-md-6
+              = render "layouts/qrcode_reader"
+            .col-md-6
+              = form_with scope: :borrow_list, url: borrow_lists_path, local: true do |form|
+                p
+                  = form.label "書籍番号"
+                  = form.number_field :book_id, class: "book-number"
+                p
+                  = form.label "返却予定日"
+                  = form.date_field :return_date
 
-            .modal-footer
-              button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-              = form.submit id: "borrow-list-submit-button", class:"btn btn-primary"
-
-          video#video autoplay="1" height="200" width="300"
-          img#img/
-          div
-            canvas#canvas
-          input#action type="button" value="decode" /
+                .modal-footer
+                  button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+                  = form.submit id: "borrow-list-submit-button", class:"btn btn-primary"
