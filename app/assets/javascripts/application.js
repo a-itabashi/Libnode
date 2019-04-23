@@ -18,6 +18,7 @@
 //= require delete_book
 //= require edit_book
 //= require fetch_book
+//= require import_csv
 //= require modal
 //= require remove_flash_after_fixed_time
 //= require show_book
@@ -30,25 +31,3 @@ $.ajaxSetup({
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
-
-function file_selected(file_field){
-  var filename = $(file_field)[0].files[0].name;
-  $("#filename").val(filename);
-}
-
-
-// $(function () {
-//   $(".show-button").click(function() {
-//    let set_id = $(this).attr('id')
-//    return $.ajax({
-//      url: `books/${set_id}`,
-//      type: 'get',
-//      data: { set_id },
-//      dataType: 'json',
-//    }).done(function(response) {
-//      $(".book-image").append("<img src=" + response[0] + ">")
-//      $(".book-title").append(response[1])
-//    }).fail(function() {
-//    });
-//  });
-// });
