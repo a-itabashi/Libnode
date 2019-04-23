@@ -48,7 +48,13 @@
   width: 100%;
 }
 
-#sidebar_menu li a, .sidebar-nav li a, .sidebar-nav li p{
+.dropdown button {
+  height: 40px;
+  padding: 0;
+  border: none;
+}
+
+#sidebar_menu li a, .sidebar-nav li a, .sidebar-nav li p, .dropdown button {
   color: #fff;
   display: block;
   float: left;
@@ -89,7 +95,7 @@
   text-decoration: none;
 }
 
-.sidebar-nav li a:hover {
+.sidebar-nav li a:hover, .sidebar-nav li p:hover, .dropdown button:hover {
   color: #fff;
   background: rgba(255,255,255,0.2);
   text-decoration: none;
