@@ -1,0 +1,19 @@
+.container-fluid
+  .row
+    h2 ユーザー管理画面
+  .row
+    table.table
+      thead.thead-light
+        tr
+          th ユーザー名
+          th 延滞
+          th 管理者権限
+      tbody
+      - @users.each do |user|
+        tr
+          td
+            = user.name
+          td
+            = user.borrow_lists.where(is_return: false).present?
+          td
+            = user.admin
