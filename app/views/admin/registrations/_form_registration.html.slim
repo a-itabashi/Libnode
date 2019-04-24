@@ -1,7 +1,8 @@
 = form_with model: @book_registrations_form, url: admin_registrations_path, local: true do |form|
-  | ISBN番号
-  input type="number" class="mt-3 mb-5 isbn"
-  button.fetch-book.btn.btn-success 自動入力
+  .isbn-area style="border: solid 2px #333;"
+    | ISBN番号
+    input type="number" class="mt-3 mb-5 isbn"
+    button.fetch-book.btn.btn-success 以下の項目を自動入力
   p
     = form.label "タイトル"
     = form.text_field :title, id:"book-title"
