@@ -1,4 +1,6 @@
 class Admin::RegistrationsController < Admin::ApplicationController
+  before_action :admin?, only: %i[create]
+
   def new
     @book_registrations_form = BookRegistrationForm.new
   end

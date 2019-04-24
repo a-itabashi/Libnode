@@ -9,8 +9,9 @@ $(function () {
         type: 'delete',
         dataType: 'json',
       }).done(function(response) {
+
         // TODO: ドメイン名を変更
-        window.location.href = "http://localhost:3000/admin/book_collection_list/edit";
+        // window.location.href = "http://localhost:3000/admin/book_collection_list/edit";
       }).fail(function() {
     });
   });
