@@ -4,7 +4,7 @@ class Admin::BooksController < Admin::ApplicationController
 
   def edit
     @books = Book.all
-    render 'book_collection_list/book_collection_list'
+    render 'books/index'
   end
 
   # def update

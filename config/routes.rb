@@ -19,12 +19,11 @@ Rails.application.routes.draw do
     post '/become_normal_user/:id', to: 'users#become_normal_user'
     resources :csv, only: %i[new create], controller: 'import_csvs'
     resources :books, only: %i[update destroy]
-    get 'book_collection_list/edit', to: 'books#edit'
+    get 'books/edit', to: 'books#edit'
     get 'fetch_books', to: 'fetch_books#search'
   end
 
-  get 'book_collection_list', to: 'pages#book_collection_list'
   delete 'borrow_list/delete', to: 'borrow_lists#destroy'
 
-  root to: 'pages#book_collection_list'
+  root to: 'books#index'
 end

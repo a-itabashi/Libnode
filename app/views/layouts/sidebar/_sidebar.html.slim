@@ -19,7 +19,7 @@
       .dropdown-menu aria-labelledby="dropdownMenu"
         = button_to "ユーザー管理", admin_users_path, class:"dropdown-item", method:"get"
         = button_to "蔵書登録", new_admin_registration_path, class:"dropdown-item", method:"get"
-        = button_to "蔵書編集", admin_book_collection_list_edit_path, class:"dropdown-item", method:"get"
+        = button_to "蔵書編集", admin_books_edit_path, class:"dropdown-item", method:"get"
 
     - if user_signed_in?
       = render "layouts/sidebar/login"

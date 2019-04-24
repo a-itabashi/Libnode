@@ -100,3 +100,6 @@ gem 'rakuten_web_service'
 
 # CSVをインポート
 gem 'activerecord-import'
+
+# 検索機能
+gem 'ransack'

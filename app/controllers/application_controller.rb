@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :set_search
 
   add_flash_types :success, :info, :warning, :danger
 
@@ -7,6 +8,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   private
+
+  def set_search
+    @search = Book.ransack(params[:q])
+    @search_books = @search.result
+  end
 
   # ログイン後のリダイレクト先をオーバーライド
   def after_sign_in_path_for(_resource)
