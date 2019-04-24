@@ -3,8 +3,15 @@
     .col-md-9
       .row
         h2 書籍一覧画面
+        .searchbox
+          = search_form_for @search, url: books_path do |f|
+            = f.label 'タイトル'
+            = f.text_field :title_cont
+            = f.label 'カテゴリ'
+            = f.collection_select :categories_id_eq, Category.all, :id, :name, include_blank: '指定なし'
+            = f.submit "検索", class: 'search-btn'
       .row
-        = render partial: "layouts/cards/book_card", collection: @books, as: :book
+        = render partial: "layouts/cards/book_card", collection: @search_books, as: :book
     .col-md-3
       - if controller.controller_name == "books" && controller.action_name == "edit"
         = render "books/book_detail_edit"
