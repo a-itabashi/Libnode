@@ -2,7 +2,10 @@
   .row
     .col-md-9
       .row
-        h2 書籍一覧画面
+        - if controller.controller_name == "books" && controller.action_name == "edit"
+          h2 書籍編集画面
+        - else
+          h2 書籍一覧画面
         .searchbox
           = search_form_for @search, url: books_path do |f|
             = f.label 'タイトル'
