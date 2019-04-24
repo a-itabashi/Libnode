@@ -15,7 +15,7 @@
           td
             = user.name
           td
-            = user.borrow_lists.where(is_return: false).present?
+            = overdue?(user)
           td
             = user.admin
           - if user.admin == true
