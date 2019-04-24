@@ -1,6 +1,11 @@
 class Admin::ApplicationController < ApplicationController
-  # ログアウト後のリダイレクト先をオーバーライド
-  def after_sign_out_path_for(_resource)
-    new_admin_registration_path
+  # TODO: 将来的に以下の記述を削除
+  skip_before_action :authenticate_user!
+
+  private
+
+  def admin?
+    authenticate_user! # TODO: 将来的に削除
+    redirect_to root_path, danger: '管理者のみ実行可能なアクションです' unless current_user.nil? || current_user.admin == true
   end
 end
