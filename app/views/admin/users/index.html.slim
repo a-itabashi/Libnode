@@ -18,11 +18,12 @@
             = user.borrow_lists.where(is_return: false).present?
           td
             = user.admin
-          - unless user.admin == true
+          - if user.admin == true
             td
-              = button_to "管理者にする", admin_user_path(user.id), method:"patch"
+              = button_to "管理者から外す", "/admin/become_normal_user/#{user.id}"
           - else
             td
+              = button_to "管理者にする", "/admin/become_admin_user/#{user.id}"
           td
             = button_to "削除する", admin_user_path(user.id), method:"delete"
 
