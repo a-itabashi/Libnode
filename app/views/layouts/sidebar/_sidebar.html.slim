@@ -17,6 +17,7 @@
       button#dropdownMenu.btn.btn-secondary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" data-offset="-5,-20"
         | 管理者メニュー
       .dropdown-menu aria-labelledby="dropdownMenu"
+        = button_to "ユーザー管理", admin_users_path, class:"dropdown-item", method:"get"
         = button_to "蔵書登録", new_admin_registration_path, class:"dropdown-item", method:"get"
         = button_to "蔵書編集", admin_book_collection_list_edit_path, class:"dropdown-item", method:"get"
 
