@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+
   add_flash_types :success, :info, :warning, :danger
 
   # CSRF対策
   protect_from_forgery
+
+  private
 
   # ログイン後のリダイレクト先をオーバーライド
   def after_sign_in_path_for(_resource)
