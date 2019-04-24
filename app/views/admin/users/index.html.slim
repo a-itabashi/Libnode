@@ -18,11 +18,11 @@
             = user.borrow_lists.where(is_return: false).present?
           td
             = user.admin
-          - if user.admin == true
+          - unless user.admin == true
             td
-              = button_to "管理者にする", admin_users_path(user.id), method:"post"
+              = button_to "管理者にする", admin_user_path(user.id), method:"patch"
           - else
             td
           td
-            = button_to "削除する", admin_users_path(user.id), method:"delete"
+            = button_to "削除する", admin_user_path(user.id), method:"delete"
 
