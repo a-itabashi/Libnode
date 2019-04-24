@@ -1,0 +1,29 @@
+.container-fluid
+  .row
+    h2 ユーザー管理画面
+  .row
+    table.table
+      thead.thead-light
+        tr
+          th ユーザー名
+          th 延滞
+          th 管理者
+          th colspan="2"
+      tbody
+      - @users.each do |user|
+        tr
+          td
+            = user.name
+          td
+            = overdue?(user)
+          td
+            = user.admin
+          - if user.admin == true
+            td
+              = button_to "管理者から外す", "/admin/become_normal_user/#{user.id}"
+          - else
+            td
+              = button_to "管理者にする", "/admin/become_admin_user/#{user.id}"
+          td
+            = button_to "削除する", admin_user_path(user.id), method:"delete"
+
