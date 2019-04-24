@@ -11,11 +11,15 @@ li
 li
   = image_tag current_user.image, style: "height: 50px; width: 50px;"
 
-.borrowed_book
-  h5 借りている本
-  ul
-    - return_dates = current_user.borrow_lists.where(is_return: false).pluck(:return_date)
-    - books = Book.find(current_user.borrow_lists.where(is_return: false).pluck(:book_id)).pluck(:title)
-    - return_dates.zip(books).each do |date, book|
-      li = "#{simple_time(date)}ﾏﾃ"
-      = book
+h5#borrowed-book 借りている本
+.borrowed-book
+  - return_dates = current_user.borrow_lists.where(is_return: false).pluck(:return_date)
+  - books = Book.find(current_user.borrow_lists.where(is_return: false).pluck(:book_id)).pluck(:title)
+  - unless books.present?
+    .none
+      | 無し
+  - return_dates.zip(books).each do |date, title|
+    .return-date
+      = "・ #{simple_time(date)}まで"
+    .book-title
+      = title

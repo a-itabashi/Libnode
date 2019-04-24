@@ -54,7 +54,7 @@
   border: none;
 }
 
-#sidebar_menu li a, .sidebar-nav li a, .sidebar-nav li p, .dropdown button {
+#sidebar_menu li a, .sidebar-nav li a, .sidebar-nav li p, .dropdown button{
   color: #fff;
   display: block;
   float: left;
@@ -78,6 +78,27 @@
   color: #fff;
 }
 
+#borrowed-book {
+  margin-top: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.borrowed-book {
+  margin: 2px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #212529;
+  .none {
+    text-align: center;
+  }
+  .return-date {
+    font-weight: 600;
+  }
+  .book-title {
+    padding-bottom: 10px;
+  }
+}
 .sidebar_name {
   padding-top: 25px;
   color: #fff;
