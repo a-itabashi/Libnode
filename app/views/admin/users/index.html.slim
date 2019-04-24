@@ -7,7 +7,8 @@
         tr
           th ユーザー名
           th 延滞
-          th 管理者権限
+          th 管理者
+          th colspan="2"
       tbody
       - @users.each do |user|
         tr
@@ -17,3 +18,11 @@
             = user.borrow_lists.where(is_return: false).present?
           td
             = user.admin
+          - if user.admin == true
+            td
+              = button_to "管理者にする", new_admin_registration_path, id:user.id, method:"post"
+          - else
+            td
+          td
+            = button_to "削除する", new_admin_registration_path, id:user.id, method:"delete"
+
