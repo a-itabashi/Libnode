@@ -3,8 +3,8 @@ $(function() {
 
   modals.forEach(function(v) {
 
-    $(`.${v}-button`).click(function() {
-      $(`#${v}-modal`).modal("show");
+    $(`.${v}-button`).click(function(e) {
+      $(`#${v}-modal`).modal("show", e.target);
     });
 
     $(`.${v}-detail`).click(function() {
@@ -12,6 +12,13 @@ $(function() {
       $(`#${v}-modal`).modal("show");
       $(".book-number").val(set_id);
     });
+
+    $(`#${v}-modal`).on("show.bs.modal", function (event) {
+      var button = $(event.relatedTarget)
+      $("video").removeAttr('id');
+      $("video").attr('id', `video-${button.data("name")}`);
+    })
+
     hideModal(v);
   });
 })
@@ -19,10 +26,15 @@ $(function() {
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
     $('input[name="book_id"]').val("");
+    v = document.getElementById(`video-${target}`)
+    stream = v.srcObject
+    if (stream != null){
+      track = stream.getTracks();
+      track[0].stop();
+    }
   });
 
   $("#borrow-list-submit-button").click(function() {
     $(`#${target}-modal`).modal("hide");
   });
 };
-
