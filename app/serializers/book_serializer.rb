@@ -32,10 +32,6 @@ class BookSerializer < ActiveModel::Serializer
   end
 
   def image
-    if object.image.present?
-      object.image
-    else
-      object.image_raw_url
-    end
+    object.image.presence || object.image_raw_url
   end
 end
