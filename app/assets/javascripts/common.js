@@ -3,5 +3,5 @@
 $(function () {
   $(".borrow-detail").hide();
   $(".return-detail").hide();
-  // $(".image-text-field").hide();
+  $(".image-text-field").hide();
 });
