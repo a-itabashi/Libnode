@@ -61,11 +61,13 @@ group :development do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'letter_opener_web'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'factory_bot_rails'
+  # メールを確認
+  gem "letter_opener"
+  gem 'letter_opener_web'
 end
 
 group :test do
