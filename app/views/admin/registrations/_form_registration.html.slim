@@ -21,9 +21,9 @@
   p.image-file-field
     = form.label "画像"
     = form.file_field :image, class:"mb-3"
-  p.image-text-field
-    = form.label "画像"
-    = form.text_field :image, id:"book-image", class:"mb-3"
+  / p.image-text-field
+  /   = form.label "画像"
+  /   = form.text_field :image, id:"book-image", class:"mb-3"
   .area
 
   = form.fields_for :categories do |category_fields|

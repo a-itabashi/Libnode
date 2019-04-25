@@ -9,30 +9,30 @@
 require 'factory_bot_rails'
 
 FactoryBot.define do
-  factory :user do
-    name { "勤勉なエンジニア" }
-    email { "test@example.com"}
-    uid { 123456789 }
-    image { "test" }
-  end
+  # factory :user do
+  #   name { "勤勉なエンジニア" }
+  #   email { "test@example.com"}
+  #   uid { 123456789 }
+  #   image { "test" }
+  # end
 
-  factory :book do
-    title { "本のタイトル" }
-    author { "著名な著者" }
-    saled_at { 2019/1/1 }
-    price { 100000 }
-    description { "教養が身につきます" }
-    image { "https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png" }
-  end
+  # factory :book do
+  #   title { "本のタイトル" }
+  #   author { "著名な著者" }
+  #   saled_at { 2019/1/1 }
+  #   price { 100000 }
+  #   description { "教養が身につきます" }
+  #   image { "https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png" }
+  # end
 
   factory :category do
     name { "カテゴリA" }
   end
 
-  factory :book_category do
-    category { 1 }
-    book { 1 }
-  end
+  # factory :book_category do
+  #   category { 1 }
+  #   book { 1 }
+  # end
 
   factory :place do
     shelf { 11 }
@@ -40,10 +40,10 @@ FactoryBot.define do
     row { 33 }
   end
 
-  factory :book_place do
-    place { 1 }
-    book { 1 }
-  end
+  # factory :book_place do
+  #   place { 1 }
+  #   book { 1 }
+  # end
 end
 
 user_a = FactoryBot.create(:user)
@@ -64,20 +64,21 @@ titles = [
   "アルゴリズム図鑑 絵で見てわかる26のアルゴリズム"
 ]
 
-images = [
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3977/9784774193977.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2227/9784839962227.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/8768/9784274068768.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/0919/9784297100919.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2457/9784863542457.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/4450/9784798144450.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/2174/9784863542174.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3619/9784774183619.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/3373/9784295003373.jpg?_ex=200x200",
-  "https://thumbnail.image.rakuten.co.jp/@0_mall/book/cabinet/9776/9784798149776.jpg?_ex=200x200"
-]
+# images = [
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/1/1.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/2/2.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/3/3.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/4/4.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/5/5.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/6/6.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/7/7.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/8/8.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/9/9.jpg",
+#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/10/10.jpg"
+# ]
 10.times do |n|
-  book_a = FactoryBot.create(:book, title: titles[n], image: images[n])
+  # S3へアップロードが必要な時に使用
+  book_a = FactoryBot.create(:book, title: titles[n], image: File.open("./public/uploads/tmp/#{n+1}.jpg"))
   FactoryBot.create(:book_category, book: book_a, category: category_a)
   FactoryBot.create(:book_category, book: book_a, category: category_b)
   FactoryBot.create(:book_place, book: book_a, place: place_a)

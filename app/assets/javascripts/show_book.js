@@ -27,13 +27,13 @@ $(function () {
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
-        console.log(image);
+
         $("#book-title").append(title);
         $("#book-author").append(author);
         $("#book-saled_at").append(saled_at);
         $("#book-description").append(description);
         $("#book-upvotes").append(upvotes);
-        $("#book-image").attr("src", image);
+        $("#book-image").attr("src", image.url);
         // places[0]以外に値は入らない
         $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
         categories.forEach(function(v){

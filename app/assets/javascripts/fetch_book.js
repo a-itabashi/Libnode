@@ -25,6 +25,7 @@ $(function () {
         $("#book-description").val(description);
 
         // $(".image-file-field").css("display", "none");
+        console.log(image);
         $(".image-file-field").hide();
         $("#book-image").val(image);
         $(".area").append("<img src=" + image + ">");
