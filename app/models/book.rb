@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  mount_uploader :image, BookImageUploader
+
   has_many :book_categories, dependent: :destroy
   has_many :categories, through: :book_categories
 
