@@ -13,10 +13,8 @@ $(function () {
 
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream) {
-      // let video = document.querySelector('video');
-      // let video = document.getElementById('video');
+      // debugger
       let video = e.target.parentElement.getElementsByTagName("video")[0]
-      // let video = document.getElementById('video2');
       video.srcObject = stream;
       localStream = stream;
 

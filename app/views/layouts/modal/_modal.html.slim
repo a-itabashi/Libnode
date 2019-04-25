@@ -1,20 +1,23 @@
-#return-modal.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
+#modal.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
   .modal-dialog.modal-dialog-centered.modal-lg role="document"
     .modal-content
       .modal-header
-        h5#label1.modal-title 本を返す
+        h5#label1.modal-title 本を借りる
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
       .modal-body
         .container
           .row
             .col-md-6
-              = render "layouts/qrcode_reader"
+              = render "layouts/borrow_qrcode_reader"
             .col-md-6
-              = form_with url: borrow_list_delete_path, method: :delete, local: true do |form|
+              = form_with scope: :borrow_list, url: borrow_lists_path, local: true do |form|
                 p
                   = form.label "書籍番号"
                   = form.number_field :book_id, class: "book-number"
+                p
+                  = form.label "返却予定日"
+                  = form.date_field :return_date
 
                 .modal-footer
                   button.btn.btn-secondary data-dismiss="modal" type="button"  Close
