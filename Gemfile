@@ -110,3 +110,7 @@ gem 'activerecord-import'
 
 # 検索機能
 gem 'ransack'
+
+# 非同期処理
+gem 'sidekiq'
+gem 'redis-namespace'
