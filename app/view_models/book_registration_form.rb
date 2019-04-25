@@ -31,7 +31,7 @@ class BookRegistrationForm
     end
   end
 
-  attr_accessor :title, :author, :saled_at, :price, :description, :image
+  attr_accessor :title, :author, :saled_at, :price, :description, :image, :image_raw_url
 
   def save
     book.assign_attributes(book_params)
@@ -53,7 +53,8 @@ class BookRegistrationForm
       saled_at: saled_at,
       price: price,
       description: description,
-      image: image
+      image: image,
+      image_raw_url: image_raw_url
     }
   end
 

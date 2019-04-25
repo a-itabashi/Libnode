@@ -30,4 +30,12 @@ class BookSerializer < ActiveModel::Serializer
   def available
     object.borrow_lists.map(&:is_return).all?
   end
+
+  def image
+    if object.image.present?
+      object.image
+    else
+      object.image_raw_url
+    end
+  end
 end
