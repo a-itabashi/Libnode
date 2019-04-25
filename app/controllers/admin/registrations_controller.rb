@@ -19,7 +19,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
 
   def book_registration_form_params
     params.require(:book_registration_form).permit(
-      %i[title author saled_at price description image],
+      %i[title author saled_at price description image image_raw_url],
       categories_attributes: %i[name],
       places_attributes: %i[shelf column row]
     )

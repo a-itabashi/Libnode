@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_020156) do
     t.integer "price"
     t.text "description"
     t.string "image"
+    t.string "image_raw_url"
     t.integer "borrowed_num", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

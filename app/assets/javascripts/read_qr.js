@@ -1,5 +1,5 @@
 $(function () {
-  $("#decode-start-button").click(function() {
+  $(".decode-start-button").click(function(e) {
     navigator.mediaDevices = navigator.mediaDevices || ((navigator.mozGetUserMedia || navigator.webkitGetUserMedia) ? {
       getUserMedia: function(c) {
         return new Promise(function(y, n) {
@@ -13,7 +13,10 @@ $(function () {
 
     navigator.mediaDevices.getUserMedia(constraints)
     .then(function(stream) {
-      let video = document.querySelector('video');
+      // let video = document.querySelector('video');
+      // let video = document.getElementById('video');
+      let video = e.target.parentElement.getElementsByTagName("video")[0]
+      // let video = document.getElementById('video2');
       video.srcObject = stream;
       localStream = stream;
 

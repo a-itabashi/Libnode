@@ -116,3 +116,10 @@ gem 'ransack'
 # 非同期処理
 gem 'sidekiq'
 gem 'redis-namespace'
+
+# AWS S3
+gem 'fog-aws'
+
+# 画像アップロード
+gem 'carrierwave'
+gem 'mini_magick'

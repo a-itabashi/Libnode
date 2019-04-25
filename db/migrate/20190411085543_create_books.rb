@@ -7,6 +7,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.integer :price
       t.text :description
       t.string :image
+      t.string :image_raw_url
       t.integer :borrowed_num, default: 0
 
       t.timestamps
