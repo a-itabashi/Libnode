@@ -129,4 +129,7 @@ gem 'mini_magick'
 gem "factory_bot_rails"
 
 # JSでRubyの変数を使用
-gem "gon"
+gem 'gon'
+
+# WEBサーバ
+gem 'unicorn'
