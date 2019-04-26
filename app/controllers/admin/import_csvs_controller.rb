@@ -29,7 +29,7 @@ class Admin::ImportCsvsController < Admin::ApplicationController
                             saled_at: row['saled_at'],
                             price: row['price'],
                             description: row['description'],
-                            image: row['image'] })
+                            image_raw_url: row['image'] })
     end
 
     begin
