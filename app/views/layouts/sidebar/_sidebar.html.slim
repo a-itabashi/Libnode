@@ -7,10 +7,10 @@
     li
       = link_to "蔵書一覧", root_path
     li
-      p data-target="#modal1" data-toggle="modal" data-name="borrow" class="borrow-button"
+      a data-target="#modal1" data-toggle="modal" data-name="borrow" class="borrow-button"
         | 借りる
     li
-      p data-target="#modal1" data-toggle="modal" data-name="return" class="return-button"
+      a data-target="#modal1" data-toggle="modal" data-name="return" class="return-button"
         | 返す
     / TODO: 将来的に管理者ユーザーのみ閲覧可能にする
     span.dropdown.dropright

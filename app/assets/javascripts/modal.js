@@ -26,7 +26,11 @@ $(function() {
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
     $('input[name="book_id"]').val("");
-    v = document.getElementById(`video-${target}`)
+    if (target == "borrow"){
+      v = document.getElementsByTagName("video")[0]
+    }else if (target == "return"){
+      v = document.getElementsByTagName("video")[1]
+    }
     stream = v.srcObject
     if (stream != null){
       track = stream.getTracks();
