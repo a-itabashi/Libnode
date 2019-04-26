@@ -115,6 +115,7 @@ gem 'ransack'
 
 # 非同期処理
 gem 'sidekiq'
+gem 'sidekiq-cron'
 gem 'redis-namespace'
 
 # AWS S3

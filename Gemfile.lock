@@ -121,6 +121,8 @@ GEM
       dotenv (= 2.7.2)
       railties (>= 3.2, < 6.1)
     erubi (1.8.0)
+    et-orbi (1.2.0)
+      tzinfo
     excon (0.64.0)
     execjs (2.7.0)
     factory_bot (5.0.2)
@@ -150,6 +152,9 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
+    fugit (1.2.0)
+      et-orbi (~> 1.1, >= 1.1.8)
+      raabro (~> 1.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -241,6 +246,7 @@ GEM
     psych (3.1.0)
     public_suffix (3.0.3)
     puma (3.12.1)
+    raabro (1.1.6)
     rack (2.0.7)
     rack-cors (1.0.3)
     rack-protection (2.0.5)
@@ -347,6 +353,9 @@ GEM
       rack (>= 1.5.0)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidekiq-cron (1.1.0)
+      fugit (~> 1.1)
+      sidekiq (>= 4.2.1)
     slim (4.0.1)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -443,6 +452,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sidekiq
+  sidekiq-cron
   slim-rails
   spring
   spring-commands-rspec

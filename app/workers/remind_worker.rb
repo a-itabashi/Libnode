@@ -1,6 +1,8 @@
 class RemindWorker
   include Sidekiq::Worker
 
+  sidekiq_options queue: :remind
+
   def perform
     all_user = User.all.includes(:borrow_lists)
     all_user.each do |user|
