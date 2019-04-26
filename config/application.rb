@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Libnode
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.assets.initialize_on_precompile = false
     config.load_defaults 5.2
     config.generators.template_engine = :slim
     config.time_zone = 'Tokyo'
