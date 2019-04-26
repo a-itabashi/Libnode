@@ -5,7 +5,7 @@ $(function () {
     let set_id = $(this).attr('id')
       $.ajax({
         // TODO: ドメイン名を変更
-        url: `http://localhost:3000/books/${set_id}`,
+        url: `${gon.domain}/books/${set_id}`,
         type: 'get',
         data: { set_id },
         dataType: 'json',
@@ -29,7 +29,11 @@ $(function () {
         $("#book-author").val(author);
         $("#book-saled_at").val(saled_at);
         $("#book-description").val(description);
-        $("#book-image").attr("src", image);
+        if (typeof(image.url) == "undefined") {
+          $("#book-image").attr("src", image);
+        }else{
+          $("#book-image").attr("src", image.url);
+        }
         // places[0]以外に値は入らない
         $("#book-shelf").val(places[0].shelf);
         $("#book-column").val(places[0].column);
@@ -40,7 +44,7 @@ $(function () {
         console.log(set_id)
         $(".book-delete").attr("id", `${set_id}`)
         // TODO: ドメイン名を変更
-        $(".update-form").attr("action", `http://localhost:3000/admin/registrations/${set_id}`).attr("method", "PATCH")
+        $(".update-form").attr("action", `${gon.domain}admin/registrations/${set_id}`).attr("method", "PATCH")
       }).fail(function() {
     });
   });
