@@ -11,6 +11,7 @@ $(function() {
       let set_id = $(this).attr("id");
       $(`#${v}-modal`).modal("show");
       $(".book-number").val(set_id);
+      $('input[name="borrow_list[book_id]"]').val(set_id);
     });
 
     $(`#${v}-modal`).on("show.bs.modal", function (event) {
@@ -25,7 +26,9 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
-    $('input[name="book_id"]').val("");
+    $("input[name='borrow_list[book_id]']").val("");
+    $("input[name='return_list[book_id]']").val("");
+
     if (target == "borrow"){
       v = document.getElementsByTagName("video")[0]
     }else if (target == "return"){
