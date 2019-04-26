@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe '書籍機能', type: :system do
-  let!(:book_a) { FactoryBot.create(:book, title: "タイトルA") }
-  let!(:book_b) { FactoryBot.create(:book, title: "タイトルB") }
-  let!(:category_a) { FactoryBot.create(:category, name: "カテゴリA")}
-  let!(:book_category_a) { FactoryBot.create(:book_category, book: book_a, category: category_a)}
+  let!(:book_a) { FactoryBot.create(:book, title: 'タイトルA') }
+  let!(:book_b) { FactoryBot.create(:book, title: 'タイトルB') }
+  let!(:category_a) { FactoryBot.create(:category, name: 'カテゴリA') }
+  let!(:book_category_a) { FactoryBot.create(:book_category, book: book_a, category: category_a) }
 
   before do
     visit books_path
@@ -44,7 +44,7 @@ describe '書籍機能', type: :system do
         sleep 0.5
         fill_in 'borrow_list[return_date]', with: '0020200202'
         click_on 'Save Borrow list'
-        expect(page).to have_selector ".alert-danger", text: "You need to sign in or sign up before continuing."
+        expect(page).to have_selector '.alert-danger', text: 'You need to sign in or sign up before continuing.'
       end
     end
   end
