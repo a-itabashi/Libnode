@@ -127,3 +127,6 @@ gem 'mini_magick'
 
 # seedデータを作成
 gem "factory_bot_rails"
+
+# JSでRubyの変数を使用
+gem "gon"
