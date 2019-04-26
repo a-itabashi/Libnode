@@ -1,5 +1,7 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[become_admin_user become_normal_user destroy]
+  before_action :admin?
+
   def index
     @users = User.all
   end
