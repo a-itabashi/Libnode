@@ -8,13 +8,13 @@
 
 # require 'factory_bot_rails'
 
-# FactoryBot.define do
-#   factory :place do
-#     shelf { 11 }
-#     column { 22 }
-#     row { 33 }
-#   end
-# end
+FactoryBot.define do
+  factory :place do
+    shelf { 11 }
+    column { 22 }
+    row { 33 }
+  end
+end
 
 user_a = FactoryBot.create(:user)
 category_a = FactoryBot.create(:category, name: "カテゴリA")

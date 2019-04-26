@@ -123,3 +123,6 @@ gem 'fog-aws'
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
+
+# seedデータを作成
+gem "factory_bot_rails"
