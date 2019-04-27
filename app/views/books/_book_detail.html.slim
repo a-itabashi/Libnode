@@ -22,8 +22,9 @@
       | カテゴリ:
       span#book-categories
 
-    button#book-available.borrow-detail.btn.btn-primary
-      | 借りる
+    - if login_user?
+      button#book-available.borrow-detail.btn.btn-primary
+        | 借りる
 
-    button#book-available.btn-lending.btn.btn-danger
-      | 貸出中
+      button#book-available.btn-lending.btn.btn-danger
+        | 貸出中
