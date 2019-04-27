@@ -36,10 +36,12 @@ $(function () {
         }
         // places[0]以外に値は入らない
         if (places.length != 0) {
-          $("#book-places").val(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
+          $("#book-shelf").val(places[0].shelf)
+          $("#book-row").val(places[0].row)
+          $("#book-column").val(places[0].column)
         }
         categories.forEach(function(v){
-          $("#book-categories").append(v);
+          $("#book-categories").val(v);
         });
         $(".book-delete").attr("id", `${set_id}`)
         // TODO: ドメイン名を変更
