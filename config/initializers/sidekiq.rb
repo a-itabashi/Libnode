@@ -3,7 +3,7 @@ schedule_file = "config/schedule.yml"
 Sidekiq.configure_server do |config|
   case Rails.env
     when 'production' then
-      config.redis = { url: ENV['RAKUTEN_APP_ID'], namespace: 'sidekiq' }
+      config.redis = { url: ENV['DATABASE_URL'], namespace: 'sidekiq' }
     when 'staging' then
       config.redis = { url: 'redis://stg.redis-example.com:6379', namespace: 'sidekiq' }
     else
@@ -14,7 +14,7 @@ end
 Sidekiq.configure_client do |config|
   case Rails.env
     when 'production' then
-      config.redis = { url: ENV['RAKUTEN_APP_ID'], namespace: 'sidekiq' }
+      config.redis = { url: ENV['DATABASE_URL'], namespace: 'sidekiq' }
     when 'staging' then
       config.redis = { url: 'redis://stg.redis-example.com:6379', namespace: 'sidekiq' }
     else
