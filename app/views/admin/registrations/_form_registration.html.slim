@@ -24,13 +24,17 @@
   p.image-text-field
     = form.label "画像"
     = form.text_field :image_raw_url, id:"book-image", class:"mb-3"
+  p
+   = form.label "カテゴリ"
+   = form.text_field :category_list
+
   .area
 
-  = form.fields_for :categories do |category_fields|
-    h5 カテゴリ情報
-    p
-      = category_fields.label "カテゴリ"
-      = category_fields.text_field :name, class:"mb-3"
+  / = form.fields_for :categories do |category_fields|
+  /   h5 カテゴリ情報
+  /   p
+  /     = category_fields.label "カテゴリ"
+  /     = category_fields.text_field :name, class:"mb-3"
 
   = form.fields_for :places do |place_fields|
     h5 書架情報

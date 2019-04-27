@@ -7,17 +7,17 @@ class BookRegistrationForm
     end
   end
 
-  concerning :CategoriesBuilder do
-    attr_reader :categories_attributes
+  # concerning :CategoriesBuilder do
+  #   attr_reader :categories_attributes
 
-    def categories
-      @cateogries_attributes ||= Category.new
-    end
+  #   def categories
+  #     @cateogries_attributes ||= Category.new
+  #   end
 
-    def categories_attributes=(attributes)
-      @cateogries_attributes = Category.new(attributes)
-    end
-  end
+  #   def categories_attributes=(attributes)
+  #     @cateogries_attributes = Category.new(attributes)
+  #   end
+  # end
 
   concerning :PlacesBuilder do
     attr_reader :places_attributes
@@ -32,7 +32,6 @@ class BookRegistrationForm
   end
 
   attr_accessor :title, :author, :saled_at, :price, :description, :image, :image_raw_url, :category_list
-
   def save
     book.assign_attributes(book_params)
     build_informations
@@ -55,12 +54,12 @@ class BookRegistrationForm
       description: description,
       image: image,
       image_raw_url: image_raw_url,
-      cateogry_list: category_list
+      category_list: category_list
     }
   end
 
   def build_informations
-    book.categories << categories
+    # book.categories << categories
     book.places << places
   end
 end
