@@ -15,6 +15,7 @@
 //= require popper.min
 //= require bootstrap
 //= require activestorage
+//= require category_tag
 //= require common
 //= require delete_book
 //= require edit_book

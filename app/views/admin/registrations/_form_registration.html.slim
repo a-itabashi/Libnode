@@ -26,7 +26,11 @@
     = form.text_field :image_raw_url, id:"book-image", class:"mb-3"
   p
    = form.label "カテゴリ"
-   = form.text_field :category_list
+   = form.text_field :category_list, id: "book-category-form"
+  / p
+  /  = form.label "カテゴリ"
+  /  = form.text_field :category_list, id: "book-category-form"
+
 
   .area
 
