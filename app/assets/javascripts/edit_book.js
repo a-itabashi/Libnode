@@ -35,13 +35,12 @@ $(function () {
           $("#book-image").attr("src", image.url);
         }
         // places[0]以外に値は入らない
-        $("#book-shelf").val(places[0].shelf);
-        $("#book-column").val(places[0].column);
-        $("#book-row").val(places[0].row);
-
-        $("#book-places").val(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
-        $("#book-categories").val(categories);
-        console.log(set_id)
+        if (places.length != 0) {
+          $("#book-places").val(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
+        }
+        categories.forEach(function(v){
+          $("#book-categories").append(v);
+        });
         $(".book-delete").attr("id", `${set_id}`)
         // TODO: ドメイン名を変更
         $(".update-form").attr("action", `${gon.domain}admin/registrations/${set_id}`).attr("method", "PATCH")
