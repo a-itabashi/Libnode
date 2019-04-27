@@ -133,3 +133,6 @@ gem 'gon'
 
 # WEBサーバ
 gem 'unicorn'
+
+# タグ機能
+gem 'acts-as-taggable-on'
