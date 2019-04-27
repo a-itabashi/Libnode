@@ -97,6 +97,7 @@ gem 'omniauth-google-oauth2'
 
 # jQuery
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # CORS設定
 gem 'rack-cors'

@@ -26,6 +26,8 @@
 //= require sidebar
 //= require read_qr
 //= require jsQR
+//= require jquery-ui
+//= require tag-it
 
 $.ajaxSetup({
   headers: {
