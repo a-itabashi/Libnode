@@ -1,8 +1,6 @@
 class BookSerializer < ActiveModel::Serializer
   attributes :title, :author, :saled_at, :description, :image,
-             :upvotes, :available
-
-  has_many :categories
+             :upvotes, :available, :categories
   has_many :places
 
   def saled_at
@@ -10,7 +8,7 @@ class BookSerializer < ActiveModel::Serializer
   end
 
   def categories
-    object.categories.map(&:name)
+    object.category_list
   end
 
   def places
