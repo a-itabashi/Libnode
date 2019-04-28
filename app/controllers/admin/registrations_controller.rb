@@ -7,12 +7,10 @@ class Admin::RegistrationsController < Admin::ApplicationController
 
   def create
     @book_registrations_form = BookRegistrationForm.new(book_registration_form_params)
-
     if @book_registrations_form.save
       redirect_to new_admin_registration_path, success: '書籍の作成が成功しました'
     else
-      # flash.now[:danger] = '書籍の作成に失敗しました'
-      flash.now[:danger] = @book_registrations_form.errors.full_messages
+      flash.now[:danger] = '書籍の作成に失敗しました'
       render :new
     end
   end

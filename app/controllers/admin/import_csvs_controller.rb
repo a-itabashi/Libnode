@@ -23,14 +23,16 @@ class Admin::ImportCsvsController < Admin::ApplicationController
     current_book_count = ::Book.count
     books = []
     # windowsで作られたファイルに対応するため、encoding: "SJIS"を付けている
-    CSV.foreach(params[:books_file].path, headers: true, encoding: 'UTF-8') do |row|
-      books << ::Book.new({ title: row['title'],
-                            author: row['author'],
-                            saled_at: row['saled_at'],
-                            price: row['price'],
-                            description: row['description'],
-                            # TODO: 適切？
-                            image_raw_url: row['image'] })
+    unless params[:books_file].nil?
+      CSV.foreach(params[:books_file].path, headers: true, encoding: 'UTF-8') do |row|
+        books << ::Book.new({ title: row['title'],
+                              author: row['author'],
+                              saled_at: row['saled_at'],
+                              price: row['price'],
+                              description: row['description'],
+                              # TODO: 適切？
+                              image_raw_url: row['image'] })
+      end
     end
 
     begin

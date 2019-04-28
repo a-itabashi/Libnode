@@ -37,7 +37,6 @@ $(function () {
         }else{
           $("#book-image").attr("src", image.url);
         }
-        debugger
         // places[0]以外に値は入らない
         if (places.length != 0) {
           $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
