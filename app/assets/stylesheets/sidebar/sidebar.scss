@@ -78,13 +78,15 @@
   color: #fff;
 }
 
-#borrowed-book {
+#borrowed-book-title {
   margin-top: 30px;
   text-align: center;
   color: #fff;
 }
 
 .borrowed-book {
+  height: 45vh;
+  overflow: scroll;
   margin: 2px;
   background-color: #fff;
   border-radius: 10px;

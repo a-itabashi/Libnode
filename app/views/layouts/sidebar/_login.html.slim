@@ -16,19 +16,12 @@ li
 
 li
   = link_to "マイページ", user_path(current_user.id)
-/ TODO: 将来的にはこちらを有効
-/ span.dropdown.dropright
-/   button#dropdownMenu.btn.btn-secondary.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" data-offset="-5,-20"
-/     | 管理者メニュー
-/   .dropdown-menu aria-labelledby="dropdownMenu"
-/     = button_to "蔵書登録", new_admin_registration_path, class:"dropdown-item", method:"get"
-/     = button_to "蔵書編集", admin_book_collection_list_edit_path, class:"dropdown-item", method:"get"
 li
   = link_to "ログアウト", destroy_user_session_path, method: :delete
 li
   = image_tag current_user.image, style: "height: 50px; width: 50px;"
 
-h5#borrowed-book 借りている本
+h5#borrowed-book-title 借りている本
 .borrowed-book
   - return_dates = current_user.borrow_lists.where(is_return: false).pluck(:return_date)
   - books = Book.find(current_user.borrow_lists.where(is_return: false).pluck(:book_id)).pluck(:title)
