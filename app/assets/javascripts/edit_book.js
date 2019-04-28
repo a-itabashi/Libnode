@@ -41,7 +41,7 @@ $(function () {
           $("#book-column").val(places[0].column)
         }
         categories.forEach(function(v){
-          $("#book-categories").val(v);
+          $("#book-categories").append(`<span id="tag">${v}</span>`);
         });
         $(".book-delete").attr("id", `${set_id}`)
         // TODO: ドメイン名を変更
