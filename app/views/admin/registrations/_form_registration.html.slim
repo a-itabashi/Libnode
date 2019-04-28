@@ -1,3 +1,5 @@
+p
+  .error-area
 = form_with model: @book_registrations_form, url: admin_registrations_path, local: true do |form|
   = render 'layouts/error_messages', model: form.object
   .isbn-area style="border: solid 2px #333;"

@@ -1,6 +1,7 @@
 $(function () {
   $(".fetch-book").click(function(e) {
     if (e) e.preventDefault();
+    $(".error-area").text("");
     let isbn = $(".isbn").val();
       $.ajax({
         url: "/admin/fetch_books",
@@ -17,7 +18,6 @@ $(function () {
           image,
           // ...inputResponse,
         } = response.params;
-
         let emptyTarget = new Array(Object.keys(response.params))
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
@@ -35,6 +35,7 @@ $(function () {
         $("#book-image").val(image);
         $(".area").append("<img src=" + image + ">");
       }).fail(function() {
+        $(".error-area").text("書籍取得エラー");
     });
   });
 });
