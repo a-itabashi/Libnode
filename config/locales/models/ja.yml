@@ -1,0 +1,29 @@
+ja:
+  activerecord:
+    models:
+      book: 書籍
+      borrow_list: 貸出管理表
+      category: カテゴリ
+      place: 場所
+      user: ユーザー
+    attributes:
+      book:
+        title: タイトル
+        author: 著者
+        saled_at: 発売日
+        price: 価格
+        description: 説明
+        image: 画像
+        image_raw_url: 画像
+      borrow_list:
+        return_date: 返却日
+      category:
+        name: カテゴリ名
+      place:
+        shelf: 棚番号
+        column: 列番号
+        row: 行番号
+      user:
+        name: 名前
+        email: メールアドレス
+        image: プロフィール画像
