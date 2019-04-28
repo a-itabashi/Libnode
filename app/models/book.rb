@@ -19,7 +19,7 @@ class Book < ApplicationRecord
   end
 
   def check_book
-    errors.add(:error, '返却期限を入力して下さい') if title.nil?
+    errors.add(:error, 'タイトルを入力して下さい') if title.nil?
   end
 
   def find_or_create_on_categories

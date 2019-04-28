@@ -134,3 +134,6 @@ gem 'gon'
 
 # WEBサーバ
 gem 'unicorn'
+
+# 日本語化
+gem 'rails-i18n'
