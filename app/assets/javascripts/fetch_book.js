@@ -17,7 +17,13 @@ $(function () {
           image,
           // ...inputResponse,
         } = response.params;
-        console.log(saled_at);
+
+        let emptyTarget = new Array(Object.keys(response.params))
+        emptyTarget[0].forEach(function(v){
+          $(`#book-${v}`).empty();
+        });
+        $(".area").empty();
+
         $("#book-title").val(title);
         $("#book-author").val(author);
         $("#book-saled_at").val(saled_at);
@@ -25,7 +31,6 @@ $(function () {
         $("#book-description").val(description);
 
         // $(".image-file-field").css("display", "none");
-        console.log(image);
         $(".image-file-field").hide();
         $("#book-image").val(image);
         $(".area").append("<img src=" + image + ">");
