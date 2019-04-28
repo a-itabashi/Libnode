@@ -36,13 +36,10 @@ class BookRegistrationForm
   def save
     book.assign_attributes(book_params)
     build_informations
-    @error = book.errors.full_messages
-
-    if book.save
-      true
-    else
-      false
-    end
+    {
+      success: !!book.save,
+      errors: book.errors.full_messages
+    }
   end
 
   private
