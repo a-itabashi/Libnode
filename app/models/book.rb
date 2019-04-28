@@ -23,6 +23,10 @@ class Book < ApplicationRecord
   end
 
   def find_or_create_on_categories
-    self.categories = categories&.map { |c| Category.find_or_initialize_by(name: c.name) }
+    category_arr = categories&.map { |category|
+      category_arr = category.name.split(',')
+      category_arr&.map { |c| Category.find_or_initialize_by(name: c) }
+    }
+    self.categories = category_arr[0]
   end
 end
