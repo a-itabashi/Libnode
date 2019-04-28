@@ -41,7 +41,12 @@ function hideModal (target) {
     }
   });
 
-  $("#borrow-list-submit-button").click(function() {
+  $("#borrow-list-submit-button").click(function(e) {
+    if (e) e.preventDefault();
+    //1 ajax
+    //2 body確認
+    //3-1 body 正常ならとじる
+    //3-2 body 正常じゃないなら閉じずにbutton復活
     $(`#${target}-modal`).modal("hide");
   });
 };

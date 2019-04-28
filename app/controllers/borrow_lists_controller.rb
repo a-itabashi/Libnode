@@ -4,7 +4,7 @@ class BorrowListsController < ApplicationController
     if @borrow_list.save
       flash[:success] = '貸出処理が完了しました！'
     else
-      flash[:danger] = '貸出処理が失敗しました！'
+      flash[:danger] = @borrow_list.errors.full_messages[@borrow_list.errors.full_messages.length - 1]
     end
     redirect_back(fallback_location: root_path)
   end

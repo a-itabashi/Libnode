@@ -1,6 +1,14 @@
 .book-detail-wrapper {
   height: 100vh;
   width: 100%;
+  position: fixed;
+  // 下に書く
+  @include mq-down(lg) {
+    display: none;
+  }
+  // @include mq-up(lg) {
+  //   display: none;
+  // }
   .container {
     height: 85%;
     background-color: white;

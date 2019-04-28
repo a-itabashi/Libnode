@@ -6,6 +6,12 @@ class BorrowList < ApplicationRecord
   validates :book_id, :user_id, :return_date, presence: true
   validate :return_date_must_be_future_date
 
+  # def initialize
+  #   @errors = ActiveModel::Errors.new(self)
+  # end
+
+  # attr_reader  :errors
+
   private
 
   def all_books_returned?
@@ -13,6 +19,10 @@ class BorrowList < ApplicationRecord
   end
 
   def return_date_must_be_future_date
-    errors.add(:return_date, '過去の日付は表示できません') if return_date <= Time.zone.today
+    if self.return_date.nil?
+      self.errors.add(:return_date, '空はだめよ')
+      return
+    end
+    self.errors.add(:return_date, '過去の日付は表示できません') if self.return_date <= Time.zone.today
   end
 end
