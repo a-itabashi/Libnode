@@ -23,6 +23,6 @@ class Book < ApplicationRecord
   end
 
   def find_or_create_on_categories
-    self.categories = self.categories&.map { |c| Category.find_or_initialize_by(name: c.name) }
+    self.categories = categories&.map { |c| Category.find_or_initialize_by(name: c.name) }
   end
 end
