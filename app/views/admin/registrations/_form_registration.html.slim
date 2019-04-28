@@ -32,7 +32,7 @@ p
     h5 カテゴリ情報
     p
       = category_fields.label "カテゴリ"
-      = category_fields.text_field :name, class:"mb-3"
+      = category_fields.text_field :name, class:"mb-3", id:"book-category-form"
 
   = form.fields_for :places do |place_fields|
     h5 書架情報
