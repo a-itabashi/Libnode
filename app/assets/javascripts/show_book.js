@@ -42,7 +42,7 @@ $(function () {
           $("#book-places").append(`棚: ${places[0].shelf} 行: ${places[0].row} 列: ${places[0].column}`)
         }
         categories.forEach(function(v){
-          $("#book-categories").append(v);
+          $("#book-categories").append(`<span id="tag">${v}</span>`);
         });
 
         if ( available == true ) {
