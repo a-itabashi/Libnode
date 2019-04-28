@@ -1,7 +1,6 @@
 $(function () {
   $(".fetch-book").click(function(e) {
     if (e) e.preventDefault();
-    $(".error-area").text("");
     let isbn = $(".isbn").val();
       $.ajax({
         url: "/admin/fetch_books",
@@ -9,6 +8,7 @@ $(function () {
         data: { isbn },
         dataType: 'json',
       }).done(function(response) {
+        $(".error-area").text("");
         const {
           title,
           author,
