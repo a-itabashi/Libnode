@@ -1,6 +1,9 @@
 @import "bootstrap";
 @import "bootstrap_override/card";
 @import "sidebar/sidebar";
+@import "tag_it_override/tag_it_override";
+@import "jquery.tagit";
+@import "tagit.ui-zendesk";
 
 body {
   background-color: #EFF3F6;

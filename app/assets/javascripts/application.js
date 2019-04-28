@@ -15,6 +15,7 @@
 //= require popper.min
 //= require bootstrap
 //= require activestorage
+//= require category_tag
 //= require common
 //= require delete_book
 //= require edit_book
@@ -26,6 +27,8 @@
 //= require sidebar
 //= require read_qr
 //= require jsQR
+//= require jquery-ui
+//= require tag-it
 
 $.ajaxSetup({
   headers: {
