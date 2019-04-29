@@ -26,8 +26,7 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
-    // $("input[name='borrow_list[book_id]']").val("");
-    // $("input[name='return_list[book_id]']").val("");
+    $(".book-number").val("")
 
     if (target == "borrow"){
       v = document.getElementsByTagName("video")[0]
