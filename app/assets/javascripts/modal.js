@@ -4,6 +4,9 @@ $(function() {
   modals.forEach(function(v) {
 
     $(`.${v}-button`).click(function(e) {
+      modals.forEach(function (v) {
+        $(`#${v}-modal`).modal("hide");
+      });
       $(`#${v}-modal`).modal("show", e.target);
     });
 
