@@ -4,4 +4,8 @@ $(function () {
   $(".borrow-detail").hide();
   $(".return-detail").hide();
   $(".image-text-field").hide();
+  $(".vote-button.child()").click() {
+    alert("a")
+    window.location.href = `${gon.domain}/books`;
+  }
 });

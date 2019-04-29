@@ -10,6 +10,6 @@
   .card-footer.text-center
     div id= "vote-button-#{book.id.to_s}" class="vote-button"
       - if book.upvoted_by(current_user).present?
-        = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true
+        = link_to "いいね解除", upvote_path(book.upvoted_by(current_user)), method: :DELETE, remote: true, class:"vote-button"
       - else
-        = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true
+        = link_to "いいねする", book_upvotes_path(book), method: :POST, remote: true, class:"vote-button"
