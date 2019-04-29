@@ -30,12 +30,21 @@ $(function () {
         $("#book-author").append(author);
         $("#book-saled_at").append(saled_at);
         $("#book-description").append(description);
+
         if (upvotes.is_push == true) {
-          $("#book-upvotes").append(`<button class="upvote-button" id=${set_id}>いいねする`);
-          upvote();
+          $(".downvote-button").hide();
+          $(".upvote-button").removeAttr('id');
+          $(".upvote-button").attr('id', set_id);
+          $(".upvote-button").show();
         }else{
-          $("#book-upvotes").append(`<button class="downvote-button" id=${set_id}>いいねを取り消す${upvotes.count}`);
+          $(".upvote-button").hide();
+          $(".downvote-button").removeAttr('id');
+          $(".downvote-button").attr('id', set_id);
+          $(".downvote-button").show();
         }
+        $(".upvotes-count").empty();
+        $(".upvotes-count").append(upvotes.count);
+
         if (typeof(image.url) == "undefined") {
           $("#book-image").attr("src", image);
         }else{
