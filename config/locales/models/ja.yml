@@ -15,8 +15,12 @@ ja:
         description: 説明
         image: 画像
         image_raw_url: 画像
+        places: 書架情報
+        categories: カテゴリ
       borrow_list:
         return_date: 返却日
+        book_id: 書籍番号
+        book: 書籍番号
       category:
         name: カテゴリ名
       place:

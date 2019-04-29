@@ -38,12 +38,12 @@ p
     h5 書架情報
     p
       = place_fields.label "棚"
-      = place_fields.number_field :shelf
+      = place_fields.number_field :shelf, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
     p
       = place_fields.label "行"
-      = place_fields.number_field :column
+      = place_fields.number_field :column, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
     p
       = place_fields.label "列"
-      = place_fields.number_field :row
+      = place_fields.number_field :row, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
 
   = form.submit "登録", class: "btn btn-primary"
