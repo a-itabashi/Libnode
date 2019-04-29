@@ -4,6 +4,7 @@ class UpvotesController < ApplicationController
     @book = @upvote.book
 
     respond_to :js if @upvote.save
+    redirect_to root_path
   end
 
   def destroy
@@ -11,6 +12,7 @@ class UpvotesController < ApplicationController
     @book = @upvote.book
 
     respond_to :js if @upvote.destroy
+    redirect_to root_path
   end
 
   private
