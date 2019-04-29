@@ -6,6 +6,7 @@ $(function() {
     $(`.${v}-button`).click(function(e) {
       modals.forEach(function (v) {
         $(`#${v}-modal`).modal("hide");
+        $(".book-number").val("")
       });
       $(`#${v}-modal`).modal("show", e.target);
     });
@@ -29,7 +30,6 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
-    $(".book-number").val("")
 
     if (target == "borrow"){
       v = document.getElementsByTagName("video")[0]
