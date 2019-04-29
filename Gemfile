@@ -65,9 +65,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'factory_bot_rails'
-  # メールを確認
-  gem "letter_opener"
-  gem 'letter_opener_web'
 end
 
 group :test do
@@ -137,3 +134,7 @@ gem 'unicorn'
 
 # 日本語化
 gem 'rails-i18n'
+
+# メールを確認
+gem "letter_opener"
+gem 'letter_opener_web'
