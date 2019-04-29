@@ -4,6 +4,6 @@ RSpec.describe Book, type: :model do
   it 'titleが空ならバリデーションが通らない' do
     book = FactoryBot.build(:book, title: '')
     book.valid?
-    expect(book.errors[:title]).to include("can't be blank")
+    expect(book.errors[:title]).to include('は必ず入力してください')
   end
 end

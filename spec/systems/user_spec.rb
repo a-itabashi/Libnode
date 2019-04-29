@@ -9,24 +9,24 @@ describe 'ログイン', type: :system do
         expect(page).to have_content '蔵書一覧'
       end
 
-      it '借りるモーダルを表示できる' do
-        visit root_path
-        find('.borrow-button').click
-        expect(page).to have_content '本を借りる'
-      end
+      # it '借りるモーダルを表示できる' do
+      #   visit root_path
+      #   find('.borrow-button').click
+      #   expect(page).to have_content '本を借りる'
+      # end
 
-      it '返すモーダルを表示できる' do
-        visit root_path
-        find('.return-button').click
-        expect(page).to have_content '本を返す'
-      end
+      # it '返すモーダルを表示できる' do
+      #   visit root_path
+      #   find('.return-button').click
+      #   expect(page).to have_content '本を返す'
+      # end
 
-      it '書籍登録画面に遷移できる' do
-        visit root_path
-        click_button '管理者メニュー'
-        click_button '蔵書登録'
-        expect(page).to have_content '書籍登録画面'
-      end
+      # it '書籍登録画面に遷移できる' do
+      #   visit root_path
+      #   click_button '管理者メニュー'
+      #   click_button '蔵書登録'
+      #   expect(page).to have_content '書籍登録画面'
+      # end
 
       it 'Googleログイン用のロゴが表示されている' do
         visit root_path
