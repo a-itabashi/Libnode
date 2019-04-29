@@ -42,7 +42,6 @@ https://xd.adobe.com/view/2f831c81-5be2-4dd6-6508-d61386d92ce0-59b2/
 ## 使用予定gem
 - dotenv-rails
 - breakman
-- sidekiq
 - devise
 - omniauth
 - fog-aws
