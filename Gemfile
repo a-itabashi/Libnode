@@ -111,11 +111,6 @@ gem 'activerecord-import'
 # 検索機能
 gem 'ransack'
 
-# 非同期処理
-gem 'sidekiq'
-gem 'sidekiq-cron'
-gem 'redis-namespace'
-
 # AWS S3
 gem 'fog-aws'
 
@@ -128,9 +123,6 @@ gem "factory_bot_rails"
 
 # JSでRubyの変数を使用
 gem 'gon'
-
-# WEBサーバ
-gem 'unicorn'
 
 # 日本語化
 gem 'rails-i18n'
