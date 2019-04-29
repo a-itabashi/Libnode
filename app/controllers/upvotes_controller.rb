@@ -1,9 +1,8 @@
 class UpvotesController < ApplicationController
   def create
     @upvote = current_user.upvotes.build(upvote_params)
-    @book = @upvote.book
-
-    respond_to :js if @upvote.save
+    # @book = @upvote.book
+    render json: @upvote if @upvote.save
   end
 
   def destroy
