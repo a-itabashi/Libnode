@@ -30,7 +30,6 @@ $(function () {
         $("#book-price").val(price);
         $("#book-description").val(description);
 
-        // $(".image-file-field").css("display", "none");
         $(".image-file-field").hide();
         $("#book-image").val(image);
         $(".area").append("<img src=" + image + ">");
