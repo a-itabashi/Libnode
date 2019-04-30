@@ -130,3 +130,6 @@ gem 'rails-i18n'
 # メールを確認
 gem "letter_opener"
 gem 'letter_opener_web'
+
+# アイコン
+gem 'font-awesome-sass'
