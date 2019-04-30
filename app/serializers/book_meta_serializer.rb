@@ -13,7 +13,10 @@ class BookMetaSerializer < ActiveModel::Serializer
   end
 
   def saled_at_formetter
-    Time.strptime(object.sales_date, '%Y年%m月%d日').strftime('%Y-%m-%d') if %w[年 月 日].all? { |i| object.sales_date.include?(i) }
-    Time.strptime(object.sales_date, '%Y年%m月').strftime('%Y-%m') if %w[年 月].all? { |i| object.sales_date.include?(i) }
+    if %w[年 月 日].all? { |i| object.sales_date.include?(i) }
+      Time.strptime(object.sales_date, '%Y年%m月%d日').strftime('%Y-%m-%d')
+    elsif %w[年 月].all? { |i| object.sales_date.include?(i) }
+      Time.strptime(object.sales_date, '%Y年%m月').strftime('%Y-%m')
+    end
   end
 end
