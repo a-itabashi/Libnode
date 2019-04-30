@@ -1,9 +1,10 @@
 class BookSerializer < ActiveModel::Serializer
   attributes :title, :author, :saled_at, :description, :image,
-             :upvotes, :available
+             :available
 
   has_many :categories
   has_many :places
+  has_many :upvotes
 
   def saled_at
     object.saled_at.strftime('%Y-%m-%d') if object.saled_at.present?
@@ -24,7 +25,11 @@ class BookSerializer < ActiveModel::Serializer
   end
 
   def upvotes
-    object.upvotes.length
+    {
+      is_push: object.upvotes.where(user_id: current_user.id).empty?,
+      count: object.upvotes.length,
+      recentry_user: User.where(id: object.upvotes.order(created_at: :desc).limit(3).pluck(:user_id)).pluck(:image)
+    }
   end
 
   def available

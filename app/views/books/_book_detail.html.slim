@@ -13,9 +13,10 @@
     p
       | 場所:
       span#book-places
-    p
-      | お気に入り数:
-      span#book-upvotes
+
+    button.upvote-button いいねする
+    button.downvote-button いいねを取り消す
+    .upvotes-count
     textarea#book-description cols="28" rows="4" disabled="disabled"
       | 本の詳細が表示されます。
     p

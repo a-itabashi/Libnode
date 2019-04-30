@@ -22,7 +22,6 @@ $(function () {
           available
           // ...inputResponse,
         } = response;
-
         let emptyTarget = new Array(Object.keys(response))
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
@@ -31,7 +30,21 @@ $(function () {
         $("#book-author").append(author);
         $("#book-saled_at").append(saled_at);
         $("#book-description").append(description);
-        $("#book-upvotes").append(upvotes);
+
+        if (upvotes.is_push == true) {
+          $(".downvote-button").hide();
+          $(".upvote-button").removeAttr('id');
+          $(".upvote-button").attr('id', set_id);
+          $(".upvote-button").show();
+        }else{
+          $(".upvote-button").hide();
+          $(".downvote-button").removeAttr('id');
+          $(".downvote-button").attr('id', set_id);
+          $(".downvote-button").show();
+        }
+        $(".upvotes-count").empty();
+        $(".upvotes-count").append(upvotes.count);
+
         if (typeof(image.url) == "undefined") {
           $("#book-image").attr("src", image);
         }else{

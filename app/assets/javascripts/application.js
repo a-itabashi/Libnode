@@ -25,6 +25,7 @@
 //= require remove_flash_after_fixed_time
 //= require show_book
 //= require sidebar
+//= require vote
 //= require read_qr
 //= require jsQR
 //= require jquery-ui
