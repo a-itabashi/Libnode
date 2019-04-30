@@ -13,14 +13,9 @@ class Book < ApplicationRecord
 
   validates :title, presence: true, presence: { message: 'は必ず入力してください' }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
-  validate :check_book
 
   def upvoted_by(user)
     Upvote.find_by(book_id: id, user_id: user.id) unless user.nil?
-  end
-
-  def check_book
-    errors.add(:error, 'タイトルを入力して下さい') if title.nil?
   end
 
   def find_or_create_on_categories
