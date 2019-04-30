@@ -1,11 +1,14 @@
 #sidebar-wrapper
   ul#sidebar_menu.sidebar-nav
     li.sidebar-brand
-      a#menu-toggle
-        | Menu
+      = link_to root_path do
+        / = icon('fas', 'book-open')
+        | Libnode
   ul#sidebar.sidebar-nav
     li
-      = link_to "蔵書一覧", root_path
+      = link_to root_path do
+        = icon('fas', 'book')
+        | 蔵書一覧
 
     - if user_signed_in?
       = render "layouts/sidebar/login"

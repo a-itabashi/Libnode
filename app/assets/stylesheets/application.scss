@@ -4,13 +4,23 @@
 @import "tag_it_override/tag_it_override";
 @import "jquery.tagit";
 @import "tagit.ui-zendesk";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "_variables.scss";
 
 body {
   background-color: #EFF3F6;
+  font-family: $base-font-family;
 }
 
 .black-filter {
   filter:brightness(50%);
+}
+
+i {
+  margin-left: -20px;
+  margin-right: 10px;
+  color: white;
 }
 
 
