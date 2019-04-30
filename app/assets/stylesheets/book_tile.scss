@@ -1,0 +1,21 @@
+#masonry-gallery {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  li {
+    &:hover {
+      cursor: pointer;
+    }
+    max-width: 130px;
+    padding: 5px;
+    list-style: none;
+    list-style-image:none
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid hsla(0, 0%, 0%, 0.5);
+    }
+  }
+}

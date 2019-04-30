@@ -1,0 +1,2 @@
+li id="#{book.id}" class="masonry-item #{controller.action_name == 'edit' ? "edit-book" : "show-book"}"
+  img src="#{book.image.present? ? book.image : book.image_raw_url}" class="#{'black-filter' if book.borrow_lists.where(is_return: false).present?}"

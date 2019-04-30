@@ -15,6 +15,7 @@
 //= require popper.min
 //= require bootstrap
 //= require activestorage
+//= require book-tile
 //= require category_tag
 //= require common
 //= require delete_book
@@ -30,6 +31,8 @@
 //= require jsQR
 //= require jquery-ui
 //= require tag-it
+//= require imagesloaded.pkgd.min
+//= require masonry.pkgd.min
 
 $.ajaxSetup({
   headers: {

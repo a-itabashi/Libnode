@@ -23,7 +23,6 @@ i {
   color: white;
 }
 
-
 // breakpoints
 
 $S: 20em;  // 320px / 16
@@ -129,4 +128,4 @@ $breakpoint-down: (
 }
 
 @import "book_detail/book_detail";
-@import "book_cards/book_cards";
+@import "book_tile";
