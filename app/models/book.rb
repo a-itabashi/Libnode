@@ -12,11 +12,10 @@ class Book < ApplicationRecord
   has_many :borrow_lists, dependent: :destroy
 
   validates :title, presence: true, presence: { message: 'は必ず入力してください' }
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
-  validate :check_book
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: proc { |a| a.price.blank? }
 
-  def check_book
-    errors.add(:error, 'タイトルを入力して下さい') if title.nil?
+  def upvoted_by(user)
+    Upvote.find_by(book_id: id, user_id: user.id) unless user.nil?
   end
 
   def find_or_create_on_categories

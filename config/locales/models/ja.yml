@@ -18,7 +18,7 @@ ja:
         places: 書架情報
         categories: カテゴリ
       borrow_list:
-        return_date: 返却日
+        return_date: 返却予定日
         book_id: 書籍番号
         book: 書籍番号
       category:

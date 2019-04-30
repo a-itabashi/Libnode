@@ -1,12 +1,5 @@
-require 'sidekiq/web'
-require 'sidekiq/cron/web'
-
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
-
-  if Rails.env.development?
-    mount Sidekiq::Web => '/sidekiq'
-  end
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope  :user do
@@ -18,6 +11,8 @@ Rails.application.routes.draw do
   resources :books, only: %i[index show] do
     resources :upvotes, only: %i[create destroy], shallow: true
   end
+
+  resources :categories, only: %i[index]
 
   resources :borrow_lists, only: %i[create]
 
