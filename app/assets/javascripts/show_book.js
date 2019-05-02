@@ -36,14 +36,19 @@ $(function () {
           $(".upvote-button").removeAttr('id');
           $(".upvote-button").attr('id', set_id);
           $(".upvote-button").show();
-        }else{
+          $(".upvotes-count").empty();
+          $(".upvotes-count").append(upvotes.count);
+        }else if (upvotes.is_push == false) {
           $(".upvote-button").hide();
           $(".downvote-button").removeAttr('id');
           $(".downvote-button").attr('id', set_id);
           $(".downvote-button").show();
+          $(".upvotes-count").empty();
+          $(".upvotes-count").append(upvotes.count);
+        } else {
+          $(".downvote-button").hide();
+          $(".upvote-button").hide();
         }
-        $(".upvotes-count").empty();
-        $(".upvotes-count").append(upvotes.count);
 
         if (typeof(image.url) == "undefined") {
           $("#book-image").attr("src", image);

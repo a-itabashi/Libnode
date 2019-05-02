@@ -26,7 +26,7 @@ class BookSerializer < ActiveModel::Serializer
 
   def upvotes
     {
-      is_push: object.upvotes.where(user_id: current_user.id).empty?,
+      is_push: current_user.nil? ? 'none' : object.upvotes.where(user_id: current_user.id).empty?,
       count: object.upvotes.length,
       recentry_user: User.where(id: object.upvotes.order(created_at: :desc).limit(3).pluck(:user_id)).pluck(:image)
     }
