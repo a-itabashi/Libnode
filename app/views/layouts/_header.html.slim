@@ -1,0 +1,11 @@
+.row
+  .searchbox
+    = search_form_for @search, url: books_path do |f|
+      = icon("fas", "tag", class: "category-select")
+      = f.collection_select :categories_id_eq, Category.all, :id, :name, include_blank: 'カテゴリ選択'
+      = f.text_field :title_cont, placeholder: 'タイトル検索', class: 'search-text'
+      = button_tag type: 'submit', class: 'search-btn' do
+        = icon("fas", "search")
+
+  - if @search_books.count != Book.count
+    span.search-result 検索結果#{@search_books.count}件

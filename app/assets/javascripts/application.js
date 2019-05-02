@@ -21,6 +21,7 @@
 //= require delete_book
 //= require edit_book
 //= require fetch_book
+//= require header
 //= require import_csv
 //= require modal
 //= require remove_flash_after_fixed_time

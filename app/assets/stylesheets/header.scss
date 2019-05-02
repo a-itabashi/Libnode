@@ -1,0 +1,44 @@
+@import "_variables";
+
+header {
+  height: 40px;
+  background-color: white;
+  .searchbox {
+    margin-left: 123px;
+    i {
+      color: $base-form-color;
+    }
+
+    #q_categories_id_eq {
+      margin-top: 9px;
+      margin-right: 50px;
+      margin-left: -10px;
+      border: none;
+      background-color: white;
+      appearance: none;
+      -webkit-appearance: none;
+      color: $base-form-color;
+    }
+
+    .search-text {
+      position: absolute;
+      margin-top: 6px;
+      width: 300px;
+      color: $base-form-color;
+    }
+
+    .search-btn {
+      border: none;
+      i {
+        position: relative;
+        left: 290px;
+        color: blue;
+      }
+    }
+  }
+  .search-result {
+    margin-top: 8px;
+    margin-left: 300px;
+    color: $base-form-color;
+  }
+}

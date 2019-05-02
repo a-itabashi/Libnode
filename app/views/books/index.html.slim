@@ -1,20 +1,19 @@
 .container-fluid
   .row
     .col-md-9
-      .row
-        - if controller.controller_name == "books" && controller.action_name == "edit"
-          h2 蔵書編集画面
-        - else
-          h2 蔵書一覧画面
-        .searchbox
-          = search_form_for @search, url: books_path do |f|
-            = f.label 'タイトル'
-            = f.text_field :title_cont
-            = f.label 'カテゴリ'
-            = f.collection_select :categories_id_eq, Category.all, :id, :name, include_blank: '指定なし'
-            = f.submit "検索", class: 'search-btn'
-        ul#masonry-gallery
-          = render partial: "layouts/book-tiles/book_tile", collection: @search_books, as: :book
+      / .row
+      /   - if controller.controller_name == "books" && controller.action_name == "edit"
+      /     h2 蔵書編集画面
+      /   - else
+      /     h2 蔵書一覧画面
+        / .searchbox
+        /   = search_form_for @search, url: books_path do |f|
+        /     = f.text_field :title_cont, placeholder: 'タイトル検索'
+        /     = f.label 'カテゴリ'
+        /     = f.collection_select :categories_id_eq, Category.all, :id, :name, include_blank: '指定なし'
+        /     = f.submit "検索", class: 'search-btn'
+      ul#masonry-gallery
+        = render partial: "layouts/book-tiles/book_tile", collection: @search_books, as: :book
     .col-md-3
       - if controller.controller_name == "books" && controller.action_name == "edit"
         = render "books/book_detail_edit"

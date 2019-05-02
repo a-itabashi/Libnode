@@ -6,11 +6,12 @@
 @import "tagit.ui-zendesk";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "_variables.scss";
+@import "_variables";
 
 body {
   background-color: #EFF3F6;
   font-family: $base-font-family;
+  color: $base-color;
 }
 
 .black-filter {
@@ -129,3 +130,4 @@ $breakpoint-down: (
 
 @import "book_detail/book_detail";
 @import "book_tile";
+@import "header";
