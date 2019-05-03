@@ -1,0 +1,16 @@
+.container-fluid
+  .row.profile-wrapper
+    .col-md-2
+      img src="#{@user.image}"
+    .col-md-4.mt-3
+      h4
+        = @user.name
+        = link_to edit_admin_user_path(@user) do
+          = icon('far', 'edit')
+      p
+        = @user.email
+  .row
+    .col-md-6
+      いいねした本
+    .col-md-6
+      借りた本

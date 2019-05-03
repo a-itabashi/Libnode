@@ -1,0 +1,21 @@
+@import '_variables';
+
+.profile-wrapper {
+  background-color: white;
+  img {
+    height: 130px;
+    width: 130px;
+  }
+  i {
+    margin-left: 10px;
+    color: $base-form-color;
+  }
+  .edit-user-table {
+    label {
+      width: 70px;
+    }
+    #user_name, #user_email {
+      width: 400px;
+    }
+  }
+}

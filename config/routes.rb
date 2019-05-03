@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :registrations
-    resources :users, only: %i[index destroy]
+    resources :users, only: %i[index edit update destroy]
     post '/become_admin_user/:id', to: 'users#become_admin_user'
     post '/become_normal_user/:id', to: 'users#become_normal_user'
     resources :csv, only: %i[new create], controller: 'import_csvs'
