@@ -5,8 +5,8 @@ class UpvotesController < ApplicationController
   end
 
   def destroy
-    @upvote = Upvote.where(book_id: params[:id].to_i)
-    render json: @upvote, serializer: UpvoteSerializer if @upvote.delete_all
+    @upvote = current_user.upvotes.find_by(book_id: params[:id])
+    render json: @upvote, serializer: UpvoteSerializer if @upvote.destroy
   end
 
   private

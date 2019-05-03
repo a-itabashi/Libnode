@@ -1,31 +1,25 @@
-.book-detail-wrapper style="top:-5px; right:50px; max-height:100vh; width:280px;"
+.book-detail-wrapper
   .container
     .d-flex.align-items-center
-      img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
-    h3#book-title
-      | タイトル
+      img#book-image.mx-auto src=""
+    h5#book-title
     p
-      | 著者:
       span#book-author
     p
-      | 発売日:
       span#book-saled_at
     p
-      | 場所:
       span#book-places
 
-    button.upvote-button いいねする
-    button.downvote-button いいねを取り消す
-    .upvotes-count
+    p.vote-button
+      = icon('far', 'heart', class: 'upvote-button')
+      = icon('fas', 'heart', class: 'downvote-button')
+      span.upvotes-count
     textarea#book-description cols="28" rows="4" disabled="disabled"
-      | 本の詳細が表示されます。
     p
-      | カテゴリ:
       span#book-categories
 
     - if login_user?
-      button#book-available.borrow-detail.btn.btn-primary
-        | 借りる
+      .d-flex.align-items-center
+        button#book-available.borrow-detail.btn.btn-primary.btn-lg.rounded-pill.mx-auto
+        button#book-available.return-detail.btn-lending.btn.btn-danger.btn-lg.rounded-pill.black-filter.mx-auto
 
-      button#book-available.btn-lending.btn.btn-danger
-        | 貸出中

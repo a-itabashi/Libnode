@@ -1,7 +1,10 @@
 class UpvoteSerializer < ActiveModel::Serializer
-  attributes :count
+  attributes :upvotes
 
-  def count
-    object.blank? ? 0 : object.book.upvotes.count
+  def upvotes
+    {
+      count: object.book.upvotes.count,
+      recentry_user: User.where(id: Upvote.where(book_id: object.book).resentry_3_user).pluck(:image)
+    }
   end
 end

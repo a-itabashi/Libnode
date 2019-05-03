@@ -26,6 +26,7 @@ $(function () {
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
+        $(".book-detail-wrapper").show();
         $("#book-title").append(title);
         $("#book-author").append(author);
         $("#book-saled_at").append(saled_at);
@@ -37,14 +38,20 @@ $(function () {
           $(".upvote-button").attr('id', set_id);
           $(".upvote-button").show();
           $(".upvotes-count").empty();
-          $(".upvotes-count").append(upvotes.count);
+          $(".upvotes-count").append(`${upvotes.count}人がいいね！`);
+          upvotes.recentry_user.forEach(function(v){
+            $(".upvotes-count").append(`<img src=${v}>`);
+          })
         }else if (upvotes.is_push == false) {
           $(".upvote-button").hide();
           $(".downvote-button").removeAttr('id');
           $(".downvote-button").attr('id', set_id);
           $(".downvote-button").show();
           $(".upvotes-count").empty();
-          $(".upvotes-count").append(upvotes.count);
+          $(".upvotes-count").append(`${upvotes.count}人がいいね！`);
+          upvotes.recentry_user.forEach(function(v){
+            $(".upvotes-count").append(`<img src=${v}>`);
+          })
         } else {
           $(".downvote-button").hide();
           $(".upvote-button").hide();
