@@ -1,8 +1,7 @@
 .book-detail-wrapper {
   height: 90vh;
   width: 290px;
-  top:-5px;
-  right:40px;
+  vertical-align: middle;
   position: fixed;
   // 下に書く
   @include mq-down(lg) {
