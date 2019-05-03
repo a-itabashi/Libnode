@@ -49,8 +49,11 @@ $(function () {
           $(".downvote-button").show();
           $(".upvotes-count").empty();
           $(".upvotes-count").append(`${upvotes.count}人がいいね！`);
-          upvotes.recentry_user.forEach(function(v){
+          upvotes.recentry_user.forEach(function(v, i){
             $(".upvotes-count").append(`<img src=${v}>`);
+            if (i == 2 && upvotes.count > 3){
+              $(".upvotes-count").append("...");
+            }
           })
         } else {
           $(".downvote-button").hide();

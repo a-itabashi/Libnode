@@ -14,7 +14,13 @@ $(function upvote () {
       $(".downvote-button").attr('id', set_id);
       $(".downvote-button").show();
       $(".upvotes-count").empty();
-      $(".upvotes-count").append(`${count}人がいいね！<image src=${recentry_user[0]}><image src=${recentry_user[1]}><image src=${recentry_user[2]}>`);
+      $(".upvotes-count").append(`${count}人がいいね！`);
+      recentry_user.forEach(function(v, i){
+        $(".upvotes-count").append(`<img src=${v}>`);
+        if (i == 2 && count > 3){
+          $(".upvotes-count").append("...");
+        }
+      })
     });
   });
 
@@ -34,8 +40,11 @@ $(function upvote () {
       $(".upvote-button").show();
       $(".upvotes-count").empty();
       $(".upvotes-count").append(`${count}人がいいね！`);
-      recentry_user.forEach(function(v){
+      recentry_user.forEach(function(v, i){
         $(".upvotes-count").append(`<img src=${v}>`);
+        if (i == 2 && count > 3){
+          $(".upvotes-count").append("...");
+        }
       })
     });
   });

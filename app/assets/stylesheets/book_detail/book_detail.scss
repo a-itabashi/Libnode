@@ -12,11 +12,12 @@
   // }
   .container {
     height: 85%;
+    margin-top: 50px;
+    padding-top: 15px;
+    overflow: scroll;
     background-color: white;
     border: outset 1px $base-form-color;
     border-radius: 8px;
-    margin-top: 50px;
-    overflow: scroll;
     #book-detail-title {
       width: 100%;
     }
@@ -36,6 +37,7 @@
           height: 15px;
           margin-left: 2px;
           margin-bottom: 2px;
+          border-radius: 50%;
         }
       }
     }
