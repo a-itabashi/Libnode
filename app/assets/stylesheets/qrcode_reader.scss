@@ -1,0 +1,12 @@
+@import '_variables';
+
+video {
+  margin-left: 55px;
+  height: 200px;
+  width: 200px;
+  border: solid 1px $base-form-color;
+}
+
+.decode-start-button {
+  margin-left: 65px;
+}

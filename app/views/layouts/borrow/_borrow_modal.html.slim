@@ -12,13 +12,18 @@
               = render "layouts/qrcode_reader"
             .col-md-6
               = form_with scope: :borrow_list, url: borrow_lists_path, local: true do |form|
-                p
-                  = form.label "書籍番号"
-                  = form.number_field :book_id, class:"book-number"
-                p
-                  = form.label "返却予定日"
-                  = form.date_field :return_date
-
-                .modal-footer
-                  button.btn.btn-secondary data-dismiss="modal" type="button"  Close
+                table.table.table-borderless
+                  tbody
+                    tr
+                      td
+                        = form.label "書籍番号"
+                      td
+                        = form.number_field :book_id, class:"book-number"
+                    tr
+                      td
+                        = form.label "返却予定日"
+                      td
+                        = form.date_field :return_date
+                .modal-footer.borrow-modal-footer
+                  button.btn.btn-secondary data-dismiss="modal" type="button"  閉じる
                   = form.submit id: "borrow-list-submit-button", class:"btn btn-primary"
