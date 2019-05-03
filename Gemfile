@@ -133,3 +133,6 @@ gem 'letter_opener_web'
 
 # アイコン
 gem 'font-awesome-sass'
+
+# 図
+gem 'chart-js-rails'

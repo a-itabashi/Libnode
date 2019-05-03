@@ -17,7 +17,7 @@ class Admin::UsersController < Admin::ApplicationController
   def edit; end
 
   def update
-    redirect_to user_path(@user), success: "ユーザー情報を更新しました" if @user.update!(user_params)
+    redirect_to user_path(@user), success: 'ユーザー情報を更新しました' if @user.update!(user_params)
   end
 
   def destroy
