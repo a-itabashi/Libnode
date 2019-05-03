@@ -9,3 +9,4 @@
 
   - if @search_books.count != Book.count
     span.search-result 検索結果#{@search_books.count}件
+    = link_to '検索解除', books_path, class: 'search-clear'
