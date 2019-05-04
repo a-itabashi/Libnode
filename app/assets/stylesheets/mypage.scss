@@ -19,3 +19,13 @@
     }
   }
 }
+
+.chart-wrapper {
+  margin-top: 120px;
+  .upvote-chart, .borrowed-chart {
+    background-color: white;
+  }
+  i {
+    color: $base-key-color;
+  }
+}

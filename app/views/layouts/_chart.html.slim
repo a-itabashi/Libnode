@@ -1,9 +1,16 @@
 = javascript_include_tag 'draw_chart.js'
-.col-md-6.text-center
-  h3.my-3 いいねした本
-  canvas#upvote-chart
-  = "合計: #{@upvote_count}冊"
-.col-md-6.text-center
-  h3.my-3 借りた本
-  canvas#borrowed-chart
-  = "合計: #{@borrowed_count}冊"
+.row.chart-wrapper
+  .col-md-6.text-center.upvote-chart
+    canvas#upvote-chart
+    h3.my-3
+      = link_to root_path do
+        =icon('fas', 'heart', id: 'chart-upvote-icon')
+        | いいねした本
+    = "合計: #{@upvote_count}冊"
+  .col-md-6.text-center.borrowed-chart
+    canvas#borrowed-chart
+    h3.my-3
+      = link_to root_path do
+        =icon('fas', 'qrcode', id: 'chart-upvote-icon')
+        | 過去に借りた本
+    = "合計: #{@borrowed_count}冊"
