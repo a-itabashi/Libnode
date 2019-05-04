@@ -19,6 +19,7 @@
 //= require category_tag
 //= require common
 //= require delete_book
+//= require draw_chart
 //= require edit_book
 //= require fetch_book
 //= require header

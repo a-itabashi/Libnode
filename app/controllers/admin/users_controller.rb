@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :set_user, only: %i[edit update become_admin_user become_normal_user destroy]
   before_action :admin?
+  before_action :set_user, only: %i[edit update become_admin_user become_normal_user destroy]
 
   def index
     @users = User.all
@@ -14,7 +14,10 @@ class Admin::UsersController < Admin::ApplicationController
     redirect_to admin_users_path, success: "#{@user.name}さんを通常ユーザーに変更しました" if @user.update(admin: false)
   end
 
-  def edit; end
+  def edit
+    set_upvote_chart(@user)
+    set_borrowed_chart(@user)
+  end
 
   def update
     redirect_to user_path(@user), success: 'ユーザー情報を更新しました' if @user.update!(user_params)
