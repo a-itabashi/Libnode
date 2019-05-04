@@ -19,6 +19,38 @@ class ApplicationController < ActionController::Base
     @search_books = @search.result
   end
 
+  def set_upvote_chart
+    categories = []
+    books = Book.where(id: @user.upvotes.pluck(:book_id))
+    books.each do |book|
+      categories << book.categories.pluck(:name)
+    end
+    @upvote_categories = categories.flatten.uniq
+    @upvote_datas = []
+    @upvote_categories.each do |category|
+      @upvote_datas << categories.flatten.count(category)
+    end
+    gon.upvote_categories = @upvote_categories
+    gon.upvote_datas = @upvote_datas
+    @upvote_count = @user.upvotes.count
+  end
+
+  def set_borrowed_chart
+    categories = []
+    books = Book.where(id: @user.borrow_lists.pluck(:book_id))
+    books.each do |book|
+      categories << book.categories.pluck(:name)
+    end
+    @borrowed_categories = categories.flatten.uniq
+    @borrowed_datas = []
+    @borrowed_categories.each do |category|
+      @borrowed_datas << categories.flatten.count(category)
+    end
+    gon.borrowed_categories = @borrowed_categories
+    gon.borrowed_datas = @borrowed_datas
+    @borrowed_count = @user.borrow_lists.count
+  end
+
   # ログイン後のリダイレクト先をオーバーライド
   def after_sign_in_path_for(_resource)
     root_path

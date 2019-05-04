@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
-  before_action :set_user, only: %i[become_admin_user become_normal_user destroy]
   before_action :admin?
+  before_action :set_user, only: %i[become_admin_user become_normal_user destroy]
 
   def index
     @users = User.all
@@ -22,5 +22,9 @@ class Admin::UsersController < Admin::ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email)
   end
 end

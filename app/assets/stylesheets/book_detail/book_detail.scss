@@ -26,6 +26,7 @@
     .vote-button {
       margin-left: 20px;
       float: left;
+      cursor: pointer;
       .upvote-button {
         color: $base-form-color;
       }

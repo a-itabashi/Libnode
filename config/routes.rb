@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  resources :users, only: %i[show], controller: 'users/users'
+  resources :users, only: %i[show edit update], controller: 'users/users'
+  get 'users/:id/upvotes', to: 'users/users#upvotes'
+  get 'users/:id/borrowed_books', to: 'users/users#borrowed_books'
 
   resources :books, only: %i[index show] do
     resources :upvotes, only: %i[create destroy], shallow: true

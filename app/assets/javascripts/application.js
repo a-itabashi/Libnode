@@ -34,6 +34,7 @@
 //= require tag-it
 //= require imagesloaded.pkgd.min
 //= require masonry.pkgd.min
+//= require Chart.min
 
 $.ajaxSetup({
   headers: {
