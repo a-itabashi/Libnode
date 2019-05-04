@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     @search_books = @search.result
   end
 
-  def set_upvote_chart(_user)
+  def set_upvote_chart
     categories = []
     books = Book.where(id: @user.upvotes.pluck(:book_id))
     books.each do |book|
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
     @upvote_count = @user.upvotes.count
   end
 
-  def set_borrowed_chart(_user)
+  def set_borrowed_chart
     categories = []
     books = Book.where(id: @user.borrow_lists.pluck(:book_id))
     books.each do |book|
