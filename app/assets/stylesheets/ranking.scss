@@ -1,0 +1,27 @@
+.ranking-wrapper {
+  .col-md-6 {
+    margin-top: 130px;
+  }
+  canvas {
+    background-color: white;
+  }
+  h3 {
+    background-color: white;
+    margin-bottom: 0;
+  }
+  .book-ranking {
+    background-color: white;
+    li {
+      &:first-child {
+        margin-left: 35px;
+      }
+      margin-left: 17px;
+      width: 100px;
+      list-style: none;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

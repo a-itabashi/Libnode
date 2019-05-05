@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :borrow_lists, only: %i[create]
 
+  resources :rankings, only: %i[index]
+
   namespace :admin do
     resources :registrations
     resources :users, only: %i[index destroy]
