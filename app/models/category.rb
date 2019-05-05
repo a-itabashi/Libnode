@@ -4,8 +4,6 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
 
-  private
-
   class << self
     def how_many_contains(target, search_words)
       search_words.map do |word|
