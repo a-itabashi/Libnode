@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :rankings, only: %i[index]
 
+  resources :trends, only: %i[index]
+
   namespace :admin do
     resources :registrations
     resources :users, only: %i[index destroy]
