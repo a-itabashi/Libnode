@@ -1,14 +1,20 @@
 = javascript_include_tag 'draw_ranking_chart.js'
 
 .container-fluid.ranking-wrapper
-  .row
-    h3 ランキング
   .row.chart-wrapper
     .col-md-6.text-center.upvote-chart
-      canvas#upvote-count-chart
       h3
         | いいね数ランキング
+      canvas#upvote-count-chart
+      .row.book-ranking
+        - @top_5_upvote_images.each do |image|
+          li
+            img src=image
     .col-md-6.text-center.borrowed-chart
-      canvas#borrowed-count-chart
       h3
         | 貸出数ランキング
+      canvas#borrowed-count-chart
+      .row.book-ranking
+        - @top_5_borrowed_images.each do |image|
+          li
+            img src=image

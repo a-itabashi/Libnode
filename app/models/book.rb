@@ -35,19 +35,21 @@ class Book < ApplicationRecord
 
   class << self
     def upvoted_count(books)
-      counts = []
-      books.each do |book|
-        counts << book.upvotes.count
+      books.map do |book|
+        book.upvotes.count
       end
-      counts
     end
 
     def borrowed_count(books)
-      counts = []
-      books.each do |book|
-        counts << book.borrow_lists.count
+      books.map do |book|
+        book.borrow_lists.count
       end
-      counts
+    end
+
+    def pickup_image(books)
+      books.map do |book|
+        book.image.present? ? book.image.url : book.image_raw_url.url
+      end
     end
   end
 end
