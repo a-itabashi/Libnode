@@ -136,3 +136,6 @@ gem 'font-awesome-sass'
 
 # 図
 gem 'chart-js-rails'
+
+# スクレイピング
+gem 'mechanize'
