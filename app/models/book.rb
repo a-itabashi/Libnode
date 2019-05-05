@@ -14,14 +14,12 @@ class Book < ApplicationRecord
   validates :title, presence: true, presence: { message: 'は必ず入力してください' }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: proc { |a| a.price.blank? }
 
+  scope :upvotes, ->(user) { where(id: user.upvotes.pluck(:book_id)) }
+  scope :borrowed, ->(user) { where(id: user.borrow_lists.pluck(:book_id)) }
   scope :top_5_upvotes, -> { find(Upvote.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id)) }
   scope :top_5_borrowed, -> { find(BorrowList.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id)) }
 
   private
-
-  def upvoted_by(user)
-    Upvote.find_by(book_id: id, user_id: user.id) unless user.nil?
-  end
 
   def find_or_create_on_categories
     if categories.present?
@@ -49,6 +47,12 @@ class Book < ApplicationRecord
     def pickup_image(books)
       books.map do |book|
         book.image.present? ? book.image.url : book.image_raw_url.url
+      end
+    end
+
+    def pickup_category_name(books)
+      books.map do |book|
+        book.categories.pluck(:name).flatten
       end
     end
   end
