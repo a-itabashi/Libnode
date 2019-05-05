@@ -37,7 +37,8 @@ task scraiping_from_Amazon: :environment do
           element = page.search("#{target_id} > div:nth-child(#{n}) > div.a-fixed-left-grid.p13n-asin > div")
           title = element.css('div.a-fixed-left-grid-col.a-col-right > a > div').text.strip
           author = get_author(element)
-          link = 'https://www.amazon.co.jp/' + element.css('div.a-fixed-left-grid-col.a-col-right > a').attribute('href').value
+          link = 'https://www.amazon.co.jp/' + \
+                 element.css('div.a-fixed-left-grid-col.a-col-right > a').attribute('href').value
           image = element.css('div.a-fixed-left-grid-col.a-col-left > a > img').attribute('src').value
           Trend.create(title: title, author: author, link: link, image: image)
         end
