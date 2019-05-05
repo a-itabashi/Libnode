@@ -1,1 +1,14 @@
-h1 aaa
+= javascript_include_tag 'draw_ranking_chart.js'
+
+.container-fluid
+  .row
+    h3 ランキング
+  .row.chart-wrapper
+    .col-md-6.text-center.upvote-chart
+      canvas#upvote-count-chart
+      h3
+        | いいね数ランキング
+    .col-md-6.text-center.borrowed-chart
+      canvas#borrowed-count-chart
+      h3
+        | 貸出数ランキング
