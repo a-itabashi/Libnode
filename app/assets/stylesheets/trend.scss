@@ -1,0 +1,49 @@
+@import "_variables";
+
+.trend-wrapper {
+  .trend-header {
+    height: 40px;
+    background-color: white;
+    .header-title {
+      padding-top: 8px;
+      font-size: 18px;
+      color: $base-form-color;
+      i {
+        margin-left: 100px;
+        color: $base-form-color;
+      }
+    }
+    .header-caption {
+      margin-left: 140px;
+      padding-top: 5px;
+      font-size: 20px;
+    }
+  }
+  #masonry-gallery {
+    margin-top: 25px;
+  }
+  .ranking {
+    p {
+      margin-bottom: 1px;
+      font-weight: bold;
+    }
+    #rank1 {
+      color: white;
+      background-color: gold;
+      z-index: 2;
+    }
+    #rank2 {
+      color: white;
+      background-color: silver;
+    }
+    #rank3 {
+      color: white;
+      background-color: #d87b5f;
+    }
+    img {
+      z-index: 1;
+      margin-bottom: 20px;
+      background-color: white;
+    }
+  }
+}

@@ -9,6 +9,14 @@
       = link_to root_path do
         = icon('fas', 'book')
         | 蔵書一覧
+    li
+      = link_to rankings_path do
+        = icon("fas", "crown")
+        | ランキング
+    li
+      = link_to trends_path do
+        = icon("fas", "angle-double-up")
+        | トレンド
 
     - if user_signed_in?
       = render "layouts/sidebar/login"

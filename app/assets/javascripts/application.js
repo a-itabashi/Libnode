@@ -24,8 +24,10 @@
 //= require header
 //= require import_csv
 //= require modal
+//= require purchase_request
 //= require remove_flash_after_fixed_time
 //= require show_book
+//= require show_rank_book
 //= require sidebar
 //= require vote
 //= require read_qr

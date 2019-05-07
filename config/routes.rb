@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   resources :rankings, only: %i[index]
 
+  resources :trends, only: %i[index show]
+  post 'trends/purchase_request', to: 'trends#purchase_request'
+
   namespace :admin do
     resources :registrations
     resources :users, only: %i[index destroy]

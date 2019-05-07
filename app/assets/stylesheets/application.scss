@@ -24,6 +24,10 @@ i {
   color: white;
 }
 
+.under-key-color {
+  background: linear-gradient(transparent 90%, $base-key-color 90%);
+}
+
 // breakpoints
 
 $S: 20em;  // 320px / 16
@@ -135,3 +139,5 @@ $breakpoint-down: (
 @import "mypage";
 @import "qrcode_reader";
 @import "ranking";
+@import "trend_book_detail";
+@import "trend";

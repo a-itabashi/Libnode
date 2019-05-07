@@ -83,6 +83,5 @@ AllCops:
     - 'bin/*'
     - 'script/**/*'
     - 'vendor/**/*'
-    - 'lib/**/*'
     - '**/Gemfile'
     - !ruby/regexp /old_and_unused\.rb$/

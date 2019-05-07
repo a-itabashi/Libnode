@@ -7,10 +7,6 @@ li
     = icon("fas", "undo")
     | 返す
 li
-  = link_to rankings_path do
-    = icon("fas", "crown")
-    | ランキング
-li
   = link_to user_path(current_user.id) do
     = image_tag current_user.image, class: "user-icon"
     | マイページ
