@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :rankings, only: %i[index]
 
-  resources :trends, only: %i[index]
+  resources :trends, only: %i[index show]
 
   namespace :admin do
     resources :registrations
