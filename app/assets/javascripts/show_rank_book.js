@@ -24,7 +24,7 @@ $(function () {
         $("#book-title").text(title);
         $("#book-author").text(author);
         $("#book-link").attr("href", link).text("Amazonリンク")
-        $("#request-button").text("購入リクエスト")
+        $("#purchase-request-button").text("購入リクエスト")
       }).fail(function() {
     });
   });
