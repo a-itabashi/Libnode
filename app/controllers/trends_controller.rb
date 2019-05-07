@@ -10,12 +10,10 @@ class TrendsController < ApplicationController
 
   def purchase_request
     admin_users = User.admin_users
-
     admin_users.each do |user|
-      PurchaseRequestMailer.purchase_request(user, params[:title], params[:reason])
+      PurchaseRequestMailer.purchase_request(user, params[:title], params[:reason]).deliver
     end
-
-    redirect_back(fallback_location: root_path)
     flash[:success] = "#{params[:title]}の購入リクエストが完了しました"
+    redirect_back(fallback_location: root_path)
   end
 end
