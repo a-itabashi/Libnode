@@ -1,3 +1,5 @@
 class TrendsController < ApplicationController
-  def index; end
+  def index
+    @top_20_books = Trend.top_20
+  end
 end

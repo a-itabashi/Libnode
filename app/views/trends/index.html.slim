@@ -1,1 +1,14 @@
-h1 trenddd
+.container-fluid.trend-wrapper
+  .trend-header
+    .header-title.float-left
+      = icon("fas", "angle-double-up")
+      | トレンドページ
+    .header-caption.float-left.text-center
+      span.under-key-color
+        | Amazon技術書ランキングから旬の技術書をご紹介
+  .row
+    .col-md-9
+      ul#masonry-gallery
+        = render partial: "layouts/book-tiles/trend_book_tile", collection: @top_20_books, as: :book
+    .col-md-3
+        = render "books/book_detail"
