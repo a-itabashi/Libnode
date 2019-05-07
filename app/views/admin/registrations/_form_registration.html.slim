@@ -1,49 +1,85 @@
 p
   .error-area
+= link_to new_admin_csv_path, method: :get do
+  = icon('fas', 'file-csv')
+  | CSVで書籍情報を登録
 = form_with model: @book_registrations_form, url: admin_registrations_path, local: true do |form|
-  .isbn-area style="border: solid 2px #333;"
-    | ISBN番号
-    input type="number" class="mt-3 mb-5 isbn"
-    button.fetch-book.btn.btn-success 以下の項目を自動入力
-  p
-    = form.label "タイトル"
-    = form.text_field :title, id:"book-title"
-  p
-    = form.label "著者"
-    = form.text_field :author, id:"book-author"
-  p
-    = form.label "発売日"
-    = form.date_field :saled_at, id:"book-saled_at"
-  p
-    = form.label "価格"
-    = form.number_field :price, id:"book-price"
-  p
-    = form.label "説明"
-    = form.text_field :description, id:"book-description"
-  p.image-file-field
-    = form.label "画像"
-    = form.file_field :image, class:"mb-3"
-  p.image-text-field
-    = form.label "画像"
-    = form.text_field :image_raw_url, id:"book-image", class:"mb-3"
-  .area
+  table
+    tbody
+      tr
+        h5 書籍情報
+      tr
+        | ISBN番号
+        input type="number" class="mt-3 mb-5 isbn"
+        button.fetch-book.btn.btn-sm.btn-success 以下の項目を自動入力
+      tr
+        td
+          | タイトル
+          span.badge.badge-info 必須
+        td
+          = form.text_field :title, id:"book-title", size: "50x1"
+      tr
+        td
+          | 著者
+          span.badge.badge-secondary 任意
+        td
+          = form.text_field :author, id:"book-author", size: "50x1"
+      tr
+        td
+          | 発売日
+          span.badge.badge-secondary 任意
+        td
+          = form.date_field :saled_at, id:"book-saled_at", size: "50x1"
+      tr
+        td
+          | 価格(円)
+          span.badge.badge-secondary 任意
+        td
+          = form.number_field :price, id:"book-price", size: "50x1"
+      tr
+        td
+          | 説明
+          span.badge.badge-secondary 任意
+        td
+          = form.text_field :description, id:"book-description", size: "50x1"
+      tr.image-file-field
+        td
+          | 画像
+          span.badge.badge-info 必須
+        td
+          = form.file_field :image, class:"mb-3"
+      tr.image-text-field
+        td
+          | 画像
+          span.badge.badge-info 必須
+        td
+          = form.text_field :image_raw_url, id:"book-image", class:"mb-3", size: "50x1"
+      tr.area
 
   = form.fields_for :categories do |category_fields|
-    h5 カテゴリ情報
-    p
-      = category_fields.label "カテゴリ"
-      = category_fields.text_field :name, class:"mb-3", id:"book-category-form"
+    h5.mt-3
+      | カテゴリ情報
+      span.badge.badge-info 必須
+    = category_fields.text_field :name, class:"mb-3", id:"book-category-form"
 
   = form.fields_for :places do |place_fields|
-    h5 書架情報
-    p
-      = place_fields.label "棚"
-      = place_fields.number_field :shelf, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
-    p
-      = place_fields.label "行"
-      = place_fields.number_field :column, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
-    p
-      = place_fields.label "列"
-      = place_fields.number_field :row, placeholder: '2桁未満の整数値を入力してください', style: "width: 300px;"
-
-  = form.submit "登録", class: "btn btn-primary"
+    table
+      tbody
+        tr
+          h5.mt-4
+            | 書架情報
+            span.small-character ※半角数字2桁まで
+        tr
+          td
+            | 棚
+            span.badge.badge-info 必須
+            = place_fields.number_field :shelf, class: "number-field", maxlength: 2, style: "width: 40px;"
+          td
+            | 行
+            span.badge.badge-info 必須
+            = place_fields.number_field :column, class: "number-field", maxlength: 2, style: "width: 40px;"
+          td
+            | 列
+            span.badge.badge-info 必須
+            = place_fields.number_field :row, class: "number-field", maxlength: 2, style: "width: 40px;"
+    = form.submit "登録", class: "btn btn-primary btn-lg rounded-pill mt-5"

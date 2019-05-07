@@ -1,4 +1,5 @@
 $(function () {
+  $(".image-text-field").hide();
   $(".fetch-book").click(function(e) {
     if (e) e.preventDefault();
     let isbn = $(".isbn").val();
@@ -18,6 +19,7 @@ $(function () {
           image,
           // ...inputResponse,
         } = response.params;
+        debugger
         let emptyTarget = new Array(Object.keys(response.params))
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();

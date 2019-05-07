@@ -12,8 +12,8 @@ class Admin::RegistrationsController < Admin::ApplicationController
       redirect_to new_admin_registration_path, success: '書籍の作成が成功しました'
     else
       flash[:danger] = results[:errors]
-      @book_registrations_form = BookRegistrationForm.new
-      redirect_to new_admin_registration_path
+      render 'new'
+      # @book_registrations_form = BookRegistrationForm.new
     end
   end
 

@@ -1,0 +1,49 @@
+@import "_variables";
+
+.registrations-wrapper {
+  .registrations-header {
+    height: 40px;
+    background-color: white;
+    .header-title {
+      padding-top: 8px;
+      font-size: 18px;
+      color: $base-form-color;
+      i {
+        margin-left: 100px;
+        color: $base-form-color;
+      }
+    }
+    .header-caption {
+      margin-left: 220px;
+      padding-top: 5px;
+      font-size: 20px;
+    }
+  }
+  .registrations-container {
+    background-color: white;
+    .error-area {
+      background-color: red;
+      color: white;
+    }
+    a {
+      margin-left: 450px;
+    }
+    i {
+      color: #007bff;
+      margin-right: 2px;
+    }
+    h5 {
+      color: $base-key-color;
+      .small-character {
+        margin-left: 15px;
+        font-size: 70%;
+      }
+    }
+    .number-field {
+      margin-right: 20px;
+    }
+    .btn-primary {
+      margin-left: 270px;
+    }
+  }
+}
