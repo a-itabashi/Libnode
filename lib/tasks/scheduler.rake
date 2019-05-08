@@ -17,9 +17,9 @@ task scraiping_from_Amazon: :environment do
   ActiveRecord::Base.establish_connection(
     adapter: 'postgresql',
     host: '',
-    username: '3isawa',
+    username: 'libnode',
     password: '',
-    database: 'libnode_development'
+    database: 'libnode_pruduction'
   )
   class Trend < ApplicationRecord
     def search
