@@ -1,11 +1,23 @@
-.container-fluid
-  .row
-    = button_to '通常入力', new_admin_registration_path, method: :get
-  .row
-    = form_tag admin_csv_index_path, method: :post, multipart: true do |f|
-      .search_item
-        = text_field_tag 'filename',"", id: "filename", disabled: true
-        = file_field_tag 'books_file', id: "file_input", style: "display: none;", onchange: "file_selected($(this));"
-        = button_tag 'ファイル選択', class: %i[btn-primary csv_input_btn], type: 'button', onclick: "$('#file_input').click();"
-      div
-        button.btn.btn-primary type="submit"  CSVインポート
+.container-fluid.csv-wrapper
+  .csv-header
+    .header-title.float-left
+      = icon("fas", "angle-double-up")
+      | 蔵書登録ページ
+    .header-caption.float-left.text-center
+      span.under-key-color
+        | 書籍情報をLibnodeに新規登録！
+  .container.w-50.csv-container.mt-4
+    .row
+      = link_to '通常入力に戻る', new_admin_registration_path, method: :get, class: "mb-3"
+    .row
+      | CSVファイルの列は、「タイトル」,「著者」,「発売日」,「価格」,「書籍詳細情報」,「画像URL」の順に並べて下さい。
+    .row
+      | タイトルと画像URLは必須となります。
+    .row.mt-5
+      = form_tag admin_csv_index_path, method: :post, multipart: true do |f|
+        .search_item
+          = text_field_tag 'filename',"", id: "filename", disabled: true
+          = file_field_tag 'books_file', id: "file_input", style: "display: none;", onchange: "file_selected($(this));"
+          = button_tag 'ファイル選択', class: "btn-info csv_input_btn", type: 'button', onclick: "$('#file_input').click();"
+        div.mt-3
+          button.btn.btn-primary.btn-lg.rounded-pill.mt-3 type="submit"  CSVインポート
