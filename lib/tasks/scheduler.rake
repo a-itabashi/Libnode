@@ -14,13 +14,13 @@ task scraiping_from_Amazon: :environment do
   require 'mechanize'
   require 'active_record'
 
-  ActiveRecord::Base.establish_connection(
-    adapter: 'postgresql',
-    host: '',
-    username: 'libnode',
-    password: '',
-    database: 'libnode'
-  )
+  # ActiveRecord::Base.establish_connection(
+  #   adapter: 'postgresql',
+  #   host: '',
+  #   username: 'libnode',
+  #   password: '',
+  #   database: 'libnode'
+  # )
   class Trend < ApplicationRecord
     def search
       base_url = 'https://www.amazon.co.jp/gp/bestsellers/books/492350/ref=zg_bs_nav_b_2_466298'
