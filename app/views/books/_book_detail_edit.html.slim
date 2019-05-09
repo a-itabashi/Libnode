@@ -1,40 +1,27 @@
 .book-detail-wrapper.position-fixed style="top:-5px; right:50px; height:100%; width:280px;"
   .container
-    = form_with model: @book_registrations_form, url: admin_registrations_path, method: :patch, class: "update-form", local: true do |form|
-      .d-flex.align-items-center
-        img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
-      p
-        = form.label "タイトル"
-        = form.text_field :title, disabled: true, id:"book-title"
-      p
-        = form.label "著者"
-        = form.text_field :author, disabled: true, id:"book-author"
-      p
-        = form.label "発売日"
-        = form.date_field :saled_at, disabled: true, id:"book-saled_at"
-      = form.fields_for :places do |place_fields|
-        h5 書架情報
-        p
-          = place_fields.label "棚"
-          = place_fields.number_field :shelf, disabled: true, id:"book-shelf"
-        p
-          = place_fields.label "行"
-          = place_fields.number_field :column, disabled: true, id:"book-column"
-        p
-          = place_fields.label "列"
-          = place_fields.number_field :row, disabled: true, id:"book-row"
+    .d-flex.align-items-center
+      img#book-image.mx-auto src="https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png"
 
-      p
-        = form.label "説明"
-        = form.text_field :description, disabled: true, id:"book-description"
+    p
+      input name="title" id="book-title" class="w-100"
+    p
+      input name="author" id="book-author" class="w-100"
+    p
+      input name="saled_at" type="date" id="book-saled_at" class="w-100"
+    p
+      textarea name="description" rows="4" id="book-description" class="w-100"
+    p
+      | 棚
+      input name="shelf" type="number" id="book-shelf" class="w-25"
+      | 行
+      input name="column" type="number" id="book-column" class="w-25"
+      | 列
+      input name="row" type="number" id="book-row" class="w-25"
+    | カテゴリ
+    input name="categories" id="book-categories" class="w-100"
 
-      / = form.fields_for :categories do |category_fields|
-      /   h5 カテゴリ情報
-      /   p
-      /     = category_fields.label "カテゴリ"
-      /     = category_fields.text_field :name, class:"mb-3", id:"book-categories"
-
-      / = form.submit "更新", class: "btn btn-primary btn-update"
-
+    button.btn-update.btn.btn-primary.btn-lg
+      | 更新
     button.book-delete.btn.btn-sm.btn-danger
       | この書籍を削除する

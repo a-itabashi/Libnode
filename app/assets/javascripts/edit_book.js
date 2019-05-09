@@ -20,11 +20,12 @@ $(function () {
           places,
           // ...inputResponse,
         } = response;
-
+        debugger
         let emptyTarget = new Array(Object.keys(response))
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).val("");
         });
+        $(".book-detail-wrapper").show();
         $("#book-title").val(title);
         $("#book-author").val(author);
         $("#book-saled_at").val(saled_at);
