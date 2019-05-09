@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
-  before_save :find_or_create_on_categories
   mount_uploader :image, BookImageUploader
+  before_save :find_or_create_on_categories
 
   has_many :book_categories, dependent: :destroy
   has_many :categories, through: :book_categories
@@ -11,7 +11,8 @@ class Book < ApplicationRecord
   has_many :upvotes, dependent: :destroy
   has_many :borrow_lists, dependent: :destroy
 
-  validates :title, :image, presence: true, presence: { message: 'は必ず入力してください' }
+  validates :title, presence: true, presence: { message: 'は必ず入力してください' }
+  # validates :image, presence: true, presence: { message: 'は必ず入力してください' }, if: proc { |a| a.image_raw_url.blank? }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: proc { |a| a.price.blank? }
 
   scope :upvotes, ->(user) { where(id: user.upvotes.pluck(:book_id)) }
