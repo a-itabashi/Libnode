@@ -1,10 +1,10 @@
 module HeaderHelper
-  def need_header?
+  def header_selector
     if controller.controller_name == 'books' && controller.action_name == 'index' \
       || controller.controller_name == 'books' && controller.action_name == 'edit'
-      true
+      'header_with_searchbox'
     else
-      false
+      'header'
     end
   end
 end

@@ -16,9 +16,9 @@ html
       = render "layouts/sidebar/sidebar"
       #page-content-wrapper
         .page-content.inset
-          - if need_header?
-            header
-              = render "layouts/header"
+          header
+            - h = header_selector
+            = render "layouts/header/#{h}"
           #alert-message
           - flash.each do |key, value|
             - key = "info" if key == "notice"
