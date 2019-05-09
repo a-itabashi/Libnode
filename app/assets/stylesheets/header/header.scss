@@ -1,0 +1,18 @@
+.trend-header {
+  height: 40px;
+  background-color: white;
+  .header-title {
+    padding-top: 8px;
+    font-size: 18px;
+    color: $base-form-color;
+    i {
+      margin-left: 100px;
+      color: $base-form-color;
+    }
+  }
+  .header-caption {
+    margin-left: 140px;
+    padding-top: 5px;
+    font-size: 20px;
+  }
+}
