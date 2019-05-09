@@ -1,13 +1,23 @@
 $(function () {
-  $(".edit-book").click(function(e) {
+  $(".update-book").click(function(e) {
     if (e) e.preventDefault();
-    // if (e) e.stopProvagation();
-    let set_id = $(this).attr('id')
+    let set_id = $(this).attr('id');
+    params = {
+      title: $("#book-title").val(),
+      author: $("#book-author").val(),
+      saled_at: $("#book-saled_at").val(),
+      description: $("#book-description").val(),
+      places: {
+        shelf: $("#book-shelf").val(),
+        row: $("#book-row").val(),
+        column: $("#book-column").val()
+      },
+      categories: $("#book-categories").val().split(',')
+    }
       $.ajax({
-        // TODO: ドメイン名を変更
-        url: `${gon.domain}/books/${set_id}`,
-        type: 'get',
-        data: { set_id },
+        url: `${gon.domain}/admin/registrations/${set_id}`,
+        type: 'patch',
+        data: params,
         dataType: 'json',
       }).done(function(response) {
         const {
@@ -20,7 +30,7 @@ $(function () {
           places,
           // ...inputResponse,
         } = response;
-
+        debugger
         let emptyTarget = new Array(Object.keys(response))
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).val("");
@@ -49,7 +59,7 @@ $(function () {
           $("#book-categories").tagit("createTag", v);
         });
 
-        $(".update-book").attr("id", `${set_id}`)
+        $(".book-delete").attr("id", `${set_id}`)
         $(".book-delete").attr("id", `${set_id}`)
       }).fail(function() {
     });

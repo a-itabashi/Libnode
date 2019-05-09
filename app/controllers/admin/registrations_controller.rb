@@ -17,6 +17,10 @@ class Admin::RegistrationsController < Admin::ApplicationController
     end
   end
 
+  def update
+    binding.pry
+  end
+
   private
 
   def book_registration_form_params

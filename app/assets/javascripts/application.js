@@ -29,6 +29,7 @@
 //= require show_book
 //= require show_rank_book
 //= require sidebar
+//= require update_book
 //= require vote
 //= require read_qr
 //= require jsQR
