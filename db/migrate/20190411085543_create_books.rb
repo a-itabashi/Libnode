@@ -4,11 +4,10 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :title, null: false
       t.string :author
       t.datetime :saled_at
-      t.integer :price
+      t.integer :price, default: 0
       t.text :description
       t.string :image
       t.string :image_raw_url
-      t.integer :borrowed_num, default: 0
 
       t.timestamps
     end

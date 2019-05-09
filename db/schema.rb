@@ -38,11 +38,10 @@ ActiveRecord::Schema.define(version: 2019_05_05_141418) do
     t.string "title", null: false
     t.string "author"
     t.datetime "saled_at"
-    t.integer "price"
+    t.integer "price", default: 0
     t.text "description"
     t.string "image"
     t.string "image_raw_url"
-    t.integer "borrowed_num", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
