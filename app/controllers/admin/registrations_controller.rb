@@ -42,5 +42,4 @@ class Admin::RegistrationsController < Admin::ApplicationController
       places_attributes: %i[shelf column row]
     )
   end
-
 end
