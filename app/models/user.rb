@@ -7,6 +7,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:google_oauth2]
 
   scope :admin_users, -> { where(admin: true) }
+  scope :recentry_upvoted_3, ->(book) { where(id: book.upvotes.order(created_at: :desc).limit(3).pluck(:user_id)) }
 
   def self.from_omniauth(token)
     user = User.where(name: token.info.name).find_by(uid: token.uid)

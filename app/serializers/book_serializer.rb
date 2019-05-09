@@ -28,7 +28,7 @@ class BookSerializer < ActiveModel::Serializer
     {
       is_push: current_user.nil? ? 'none' : object.upvotes.where(user_id: current_user.id).empty?,
       count: object.upvotes.length,
-      recentry_user: User.where(id: object.upvotes.order(created_at: :desc).limit(3).pluck(:user_id)).pluck(:image)
+      recentry_user: User.recentry_upvoted_3(object).pluck(:image)
     }
   end
 

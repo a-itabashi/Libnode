@@ -55,5 +55,13 @@ class Book < ApplicationRecord
         book.categories.pluck(:name).flatten
       end
     end
+
+    def saled_at_formetter(date)
+      if %w[年 月 日].all? { |i| date.include?(i) }
+        Time.strptime(date, '%Y年%m月%d日').strftime('%Y-%m-%d')
+      elsif %w[年 月].all? { |i| date.include?(i) }
+        Time.strptime(date, '%Y年%m月').strftime('%Y-%m')
+      end
+    end
   end
 end
