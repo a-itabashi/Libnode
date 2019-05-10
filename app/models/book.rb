@@ -47,7 +47,7 @@ class Book < ApplicationRecord
 
     def pickup_image(books)
       books.map do |book|
-        book.image.present? ? book.image.url : book.image_raw_url.url
+        book.image.present? ? book.image.url : book.image_raw_url
       end
     end
 

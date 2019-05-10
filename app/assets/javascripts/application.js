@@ -37,6 +37,7 @@
 //= require imagesloaded.pkgd.min
 //= require masonry.pkgd.min
 //= require Chart.min
+//= require chartjs-plugin-colorschemes.min.js
 
 $.ajaxSetup({
   headers: {
