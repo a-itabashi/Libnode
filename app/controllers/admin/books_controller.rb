@@ -1,5 +1,4 @@
 class Admin::BooksController < Admin::ApplicationController
-  before_action :admin?
   before_action :set_book, only: %i[destroy]
 
   def edit

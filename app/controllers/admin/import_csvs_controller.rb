@@ -1,5 +1,4 @@
 class Admin::ImportCsvsController < Admin::ApplicationController
-  before_action :admin?
   require 'csv'
 
   def new
