@@ -18,6 +18,14 @@ Capybara.register_driver :selenium_chrome_headless do |app|
   options.add_argument('--disable-gpu')
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
+
+OmniAuth.configure do |c|
+  c.test_mode = true
+  c.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+                                                         provider: 'google_oauth2',
+                                                         uid: '111111111111111111111'
+                                                       })
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

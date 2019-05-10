@@ -6,5 +6,6 @@ FactoryBot.define do
     price { 5_000 }
     description { 'テスト説明' }
     image { 'https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png' }
+    image_raw_url { 'https://i.gyazo.com/42cf81c98e83d58e52e924b00c9decc8.png' }
   end
 end
