@@ -8,4 +8,5 @@
     p
       a#book-link target="_blank"
 
-    button#purchase-request-button.btn.btn-primary.btn-lg.rounded-pill.mx-auto
+    - if login_user?
+      button#purchase-request-button.btn.btn-primary.btn-lg.rounded-pill.mx-auto
