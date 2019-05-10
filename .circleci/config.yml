@@ -57,10 +57,6 @@ jobs: # a collection of steps
       - run: bundle exec brakeman
 
       - run:
-          name: Database setup
-          command: bundle exec rake db:schema:load --trace
-
-      - run:
           name: Run rspec in parallel
           command: |
             bundle exec rspec --profile 10 \
