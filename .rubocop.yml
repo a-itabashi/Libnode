@@ -20,6 +20,9 @@ AccessorMethodName:
 AndOr:
   Enabled: false
 
+CyclomaticComplexity:
+  Max: 7
+
 # === Style系
 
 # ドキュメント用のコメントは不要
