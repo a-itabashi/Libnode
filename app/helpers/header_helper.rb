@@ -19,8 +19,8 @@ module HeaderHelper
     elsif controller.controller_name == 'registrations' && controller.action_name == 'new' \
       || controller.controller_name == 'import_csvs' && controller.action_name == 'new'
       render(partial: 'layouts/header/header',
-             locals: { icon_type: '',
-                       icon: '',
+             locals: { icon_type: 'fas',
+                       icon: 'book-open',
                        title: '蔵書登録ページ',
                        caption: '書籍情報をLibnodeに新規登録！' })
     end

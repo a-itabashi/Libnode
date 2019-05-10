@@ -1,6 +1,7 @@
-.trend-header {
+.header {
   height: 40px;
   background-color: white;
+  text-align: center;
   .header-title {
     padding-top: 8px;
     font-size: 18px;
@@ -11,7 +12,7 @@
     }
   }
   .header-caption {
-    margin-left: 140px;
+    margin-right: 250px;
     padding-top: 5px;
     font-size: 20px;
   }
