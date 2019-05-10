@@ -15,7 +15,12 @@ class BorrowList < ApplicationRecord
 
   def return_date_must_be_future_date
     unless return_date.nil?
-      errors.add(:error, '過去の日付は表示できません') if return_date <= Time.zone.today
+      errors.add(:error, '過去の日付は表示できません') if format_date(return_date) < format_date(Time.zone.today)
     end
   end
+
+  def format_date(date)
+    date.strftime('%Y/%m/%d')
+  end
+
 end
