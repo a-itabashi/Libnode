@@ -1,5 +1,5 @@
 $(function () {
-  $(".book-detail-wrapper").hide();
-  $(".trend-book-detail-wrapper").hide();
+  $(".book-detail").hide();
+  $(".trend-book-detail").hide();
   $("#purchase-request-modal").hide();
 });

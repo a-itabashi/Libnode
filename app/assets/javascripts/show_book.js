@@ -26,7 +26,8 @@ $(function () {
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
-        $(".book-detail-wrapper").show();
+        $(".book-detail-init").hide();
+        $(".book-detail").show();
         $("#book-title").append(title);
         $("#book-author").append(author);
         $("#book-saled_at").append(saled_at);

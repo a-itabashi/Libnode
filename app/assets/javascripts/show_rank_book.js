@@ -19,8 +19,9 @@ $(function () {
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).empty();
         });
+        $(".trend-book-detail-init").hide();
+        $(".trend-book-detail").show();
         $("#book-image").attr("src", image);
-        $(".trend-book-detail-wrapper").show();
         $("#book-title").text(title);
         $("#book-author").text(author);
         $("#book-link").attr("href", link).text("Amazonリンク")
