@@ -1,5 +1,4 @@
 class Admin::RegistrationsController < Admin::ApplicationController
-
   def new
     @book_registrations_form = BookRegistrationForm.new
   end

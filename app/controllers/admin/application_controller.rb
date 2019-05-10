@@ -1,5 +1,6 @@
 class Admin::ApplicationController < ApplicationController
   before_action :admin?
+
   private
 
   def admin?
