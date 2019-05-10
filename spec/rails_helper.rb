@@ -23,7 +23,11 @@ OmniAuth.configure do |c|
   c.test_mode = true
   c.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
                                                          provider: 'google_oauth2',
-                                                         uid: '111111111111111111111'
+                                                         uid: '111111111111111111111',
+                                                         info: {
+                                                           email: 'test@example.com',
+                                                           name: 'テストユーザー'
+                                                         }
                                                        })
 end
 # Add additional requires below this line. Rails is not loaded until this point!
