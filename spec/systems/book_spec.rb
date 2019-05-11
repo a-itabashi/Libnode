@@ -18,7 +18,7 @@ describe '書籍', type: :system do
 
       it '書籍詳細が表示される' do
         first('.show-book').click
-        sleep 1.0
+        sleep 2.0
         expect(page).to have_content book_a.author
       end
 
