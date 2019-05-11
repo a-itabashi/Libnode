@@ -9,13 +9,12 @@ jobs: # a collection of steps
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: circleci-demo-ruby
-          RAILS_ENV: test
+          PGUSER: root
       - image: circleci/postgres:10.5-alpine # database image
         environment: # environment variables for database
-          POSTGRES_USER: circleci-demo-ruby
+          POSTGRES_USER: root
           POSTGRES_DB: libnode_test
-          POSTGRES_PASSWORD: ""
+          POSTGRES_PASSWORD: password
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
 
