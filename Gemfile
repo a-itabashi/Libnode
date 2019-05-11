@@ -139,3 +139,6 @@ gem 'chart-js-rails'
 
 # スクレイピング
 gem 'mechanize'
+
+# runtimeエラーを回避
+gem 'therubyracer', platforms: :ruby
