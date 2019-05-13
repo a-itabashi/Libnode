@@ -41,38 +41,9 @@ jobs: # a collection of steps
           name: Bundle Install
           command: bundle check || bundle install
 
-      # Store bundle cache
-      - save_cache:
-          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-
       - run: bundle exec rubocop
 
       - run: bundle exec brakeman
-
-      - run: #STABLE
-          name: Install Chromedriver latest version
-          command: |
-            sudo apt-get update
-            sudo apt-get clean
-            sudo apt-get install libappindicator3-1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libxss1 libxtst6 xdg-utils
-            sudo apt --fix-broken install
-            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-            sudo dpkg -i google-chrome.deb
-            sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
-            rm google-chrome.deb
-      - run: #BETA
-          name: Install Chromedriver latest version
-          command: |
-            sudo apt-get update
-            sudo apt-get clean
-            sudo apt-get install libappindicator3-1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libxss1 libxtst6 xdg-utils
-            sudo apt --fix-broken install
-            curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
-            sudo dpkg -i google-chrome.deb
-            sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome-beta/google-chrome-beta
-            rm google-chrome.deb
 
       - run:
           name: Wait for DB
@@ -87,13 +58,8 @@ jobs: # a collection of steps
           command: bin/rails db:schema:load --trace
 
       - run:
-          name: bundle install
-          command: bundle install --path vendor/bundle
-
-      - run:
           name: run tests
-          command: |
-            bundle exec rspec
+          command: bundle exec rspec spec/models
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
