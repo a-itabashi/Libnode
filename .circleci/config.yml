@@ -55,7 +55,7 @@ jobs: # a collection of steps
           name: Install Chromedriver latest version
           command: |
             sudo apt-get update
-            sudo apt-get install libgconf2-4 libnss3-1d libxss1
+            sudo apt-get install libgconf2-4 libxss1
             curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome.deb
             sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
@@ -64,7 +64,7 @@ jobs: # a collection of steps
           name: Install Chromedriver latest version
           command: |
             sudo apt-get update
-            sudo apt-get install libgconf2-4 libnss3-1d libxss1
+            sudo apt-get install libgconf2-4 libxss1
             curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
             sudo dpkg -i google-chrome.deb
             sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome-beta/google-chrome-beta
