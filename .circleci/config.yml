@@ -56,7 +56,8 @@ jobs: # a collection of steps
           command: |
             sudo apt-get update
             sudo apt-get clean
-            sudo apt-get install libgconf2-4 libxss1
+            sudo apt-get install libappindicator3-1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libxss1 libxtst6 xdg-utils
+            sudo apt --fix-broken install
             curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
             sudo dpkg -i google-chrome.deb
             sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome/google-chrome
@@ -66,7 +67,8 @@ jobs: # a collection of steps
           command: |
             sudo apt-get update
             sudo apt-get clean
-            sudo apt-get install libgconf2-4 libxss1
+            sudo apt-get install libappindicator3-1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libnspr4 libnss3 libx11-xcb1 libxss1 libxtst6 xdg-utils
+            sudo apt --fix-broken install
             curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb
             sudo dpkg -i google-chrome.deb
             sudo sed -i 's|HERE/chrome"|HERE/chrome" --no-sandbox|g' /opt/google/chrome-beta/google-chrome-beta
