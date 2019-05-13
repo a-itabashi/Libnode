@@ -46,6 +46,11 @@ group :development, :test do
   gem "database_cleaner"
   gem "launchy"
   gem 'selenium-webdriver'
+  gem 'capistrano', '3.6.0' # capistranoのツール一式
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -140,5 +145,6 @@ gem 'chart-js-rails'
 # スクレイピング
 gem 'mechanize'
 
-# runtimeエラーを回避
-gem 'therubyracer', platforms: :ruby
+# デプロイ関係
+gem 'unicorn'
+gem 'mini_racer', platforms: :ruby
