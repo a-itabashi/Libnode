@@ -29,6 +29,7 @@
 //= require show_book
 //= require show_rank_book
 //= require sidebar
+//= require tutorial
 //= require vote
 //= require read_qr
 //= require jsQR
@@ -37,7 +38,9 @@
 //= require imagesloaded.pkgd.min
 //= require masonry.pkgd.min
 //= require Chart.min
-//= require chartjs-plugin-colorschemes.min.js
+//= require chartjs-plugin-colorschemes.min
+//= require jquery.cookie-1.4.1.min
+//= require intro
 
 $.ajaxSetup({
   headers: {

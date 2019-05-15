@@ -6,17 +6,20 @@
         | Libnode
   ul#sidebar.sidebar-nav
     li
-      = link_to root_path do
-        = icon('fas', 'book')
-        | 蔵書一覧
+      .row#introjs-step1
+        = link_to root_path do
+          = icon('fas', 'book')
+          | 蔵書一覧
     li
-      = link_to rankings_path do
-        = icon("fas", "crown")
-        | ランキング
+      .row#introjs-step4
+        = link_to rankings_path do
+          = icon("fas", "crown")
+          | ランキング
     li
-      = link_to trends_path do
-        = icon("fas", "angle-double-up")
-        | トレンド
+      .row#introjs-step5
+        = link_to trends_path do
+          = icon("fas", "angle-double-up")
+          | トレンド
 
     - if user_signed_in?
       = render "layouts/sidebar/login"
