@@ -30,7 +30,7 @@ class Admin::UsersController < Admin::ApplicationController
 
   def application_owner?
     unless current_user.name == '三澤直弥'
-      flash[:danger] = "現在この機能は限られたユーザーのみ実行可能にしています"
+      flash[:danger] = '現在この機能は限られたユーザーのみ実行可能にしています'
       redirect_back(fallback_location: root_path)
     end
   end
