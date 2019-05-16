@@ -31,25 +31,31 @@ titles = [
   "わかばちゃんと学ぶGit使い方入門",
   "オブジェクト指向設計実践ガイド",
   "Python機械学習プログラミング第2版",
-  "アルゴリズム図鑑 絵で見てわかる26のアルゴリズム"
+  "アルゴリズム図鑑 絵で見てわかる26のアルゴリズム",
+  "ゼロから作るDeep Learning",
+  "リーダブルコード",
+  "エリック・エヴァンスのドメイン駆動設計",
+  "プログラミングコンテストチャレンジブック第2版",
+  "合格対策 AWS認定ソリューションアーキテクト - アソシエイト",
+  "実践ドメイン駆動設計",
+  "SQLアンチパターン",
+  "マイクロサービスアーキテクチャ",
+  "Web　API：The　Good　Parts",
+  "Amazon Web Services 基礎からのネットワーク＆サーバー構築　改訂版",
+  "現場で役立つシステム設計の原則",
+  "Webを支える技術"
 ]
 
-# images = [
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/1/1.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/2/2.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/3/3.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/4/4.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/5/5.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/6/6.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/7/7.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/8/8.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/9/9.jpg",
-#   "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/10/10.jpg"
-# ]
-10.times do |n|
+images = [
+  "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/1/1.jpg",
+
+
+22.times do |n|
   # S3へアップロードが必要な時に使用
-  book_a = FactoryBot.create(:book, title: titles[n], image: File.open("./public/uploads/tmp/#{n+1}.jpg"))
-  if n < 5
+  # book_a = FactoryBot.create(:book, title: titles[n], image: File.open("./public/uploads/tmp/#{n+1}.jpg"))
+
+  book_a = FactoryBot.create(:book, title: titles[n], image: "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/#{n + 1}/#{n + 1}.jpg")
+  if n < 12
     FactoryBot.create(:book_category, book: book_a, category: category_a)
   else
     FactoryBot.create(:book_category, book: book_a, category: category_b)
