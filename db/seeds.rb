@@ -50,7 +50,7 @@ titles = [
   # S3へアップロードが必要な時に使用
   # book_a = FactoryBot.create(:book, title: titles[n], image: File.open("./public/uploads/tmp/#{n+1}.jpg"))
 
-  book_a = FactoryBot.create(:book, title: titles[n], image: "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/#{n + 1}/#{n + 1}.jpg")
+  book_a = FactoryBot.create(:book, title: titles[n], image_raw_url: "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/#{n + 1}/#{n + 1}.jpg")
   if n < 12
     FactoryBot.create(:book_category, book: book_a, category: category_a)
   else
