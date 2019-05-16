@@ -2,6 +2,10 @@ $(function(){
   if ($.cookie('LibnodeFlg') != 'on') {
     tutorial();
   }
+
+  $('.header-help').click(function() {
+    tutorial();
+  })
 });
 
 function tutorial() {

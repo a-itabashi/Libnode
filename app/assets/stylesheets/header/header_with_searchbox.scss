@@ -49,4 +49,12 @@ header {
     margin-top: 7px;
     margin-left: 15px;
   }
+  .header-help {
+    i {
+      margin-left: 900px;
+      margin-top: 10px;
+      cursor: pointer;
+      color: $base-key-color;
+    }
+  }
 }
