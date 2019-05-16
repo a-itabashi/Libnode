@@ -11,6 +11,7 @@ $(function () {
         dataType: 'json',
       }).done(function(response) {
         const {
+          id,
           title,
           author,
           saled_at,
@@ -30,6 +31,7 @@ $(function () {
         $(".book-detail").show();
         $("#book-title").append(title);
         $("#book-author").append(author);
+        $("#book-id").append(`書籍番号: ${id}`);
         $("#book-saled_at").append(saled_at);
         $("#book-description").append(description);
 
