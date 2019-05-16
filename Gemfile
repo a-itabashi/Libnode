@@ -150,3 +150,6 @@ gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+
+# 定期実行
+gem 'whenever'
