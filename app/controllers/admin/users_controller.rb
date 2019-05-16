@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: %i[become_admin_user become_normal_user destroy]
+  before_action :application_owner?
 
   def index
     @users = User.all
@@ -25,5 +26,12 @@ class Admin::UsersController < Admin::ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def application_owner?
+    unless current_user.name == '三澤直弥'
+      flash[:danger] = "現在この機能は限られたユーザーのみ実行可能にしています"
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
