@@ -2,7 +2,7 @@ class BorrowList < ApplicationRecord
   belongs_to :book
   belongs_to :user
 
-  validates :book_id, uniqueness: { scope: :user_id }, on: :create, unless: :all_books_returned?
+  validates :book_id, uniqueness: true, on: :create, unless: :all_books_returned?, uniqueness: { message: 'は既に借りられています' }
   # validates :book_id, :user_id, :return_date, presence: true
   validates :user_id, :return_date, presence: true
   validate :return_date_must_be_future_date
