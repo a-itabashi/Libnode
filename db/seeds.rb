@@ -46,10 +46,6 @@ titles = [
   "Webを支える技術"
 ]
 
-images = [
-  "https://s3-ap-northeast-1.amazonaws.com/libnode-development/uploads/book/image/1/1.jpg",
-
-
 22.times do |n|
   # S3へアップロードが必要な時に使用
   # book_a = FactoryBot.create(:book, title: titles[n], image: File.open("./public/uploads/tmp/#{n+1}.jpg"))
