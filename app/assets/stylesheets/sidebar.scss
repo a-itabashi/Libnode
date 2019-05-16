@@ -120,19 +120,21 @@
 }
 
 .borrowed-book {
-  height: 45vh;
+  height: 38vh;
   overflow: scroll;
-  margin: 2px;
+  margin: 5px;
   background-color: #fff;
   border-radius: 10px;
   color: #212529;
-  &.none {
+  .none {
     text-align: center;
   }
-  &.return-date {
+  .return-date {
+    margin-top: 3px;
+    font-size: 13px;
     font-weight: 600;
   }
-  &.book-title {
+  .book-title {
     padding-bottom: 10px;
   }
 }

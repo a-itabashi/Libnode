@@ -25,15 +25,4 @@ li
       = button_to "蔵書編集", admin_books_edit_path, class:"dropdown-item", method:"get"
       = button_to "ユーザー管理", admin_users_path, class:"dropdown-item", method:"get"
 
-h5#borrowed-book-title 借りている本
-.borrowed-book
-  - return_dates = current_user.borrow_lists.where(is_return: false).pluck(:return_date)
-  - books = Book.find(current_user.borrow_lists.where(is_return: false).pluck(:book_id)).pluck(:title)
-  - unless books.present?
-    .none
-      | 無し
-  - return_dates.zip(books).each do |date, title|
-    .return-date
-      = "・ #{simple_time(date)}まで"
-    .book-title
-      = title
+= render "layouts/sidebar/borrowed_list"
