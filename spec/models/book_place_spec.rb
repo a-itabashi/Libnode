@@ -5,7 +5,6 @@ RSpec.describe BookPlace, type: :model do
   let!(:place) { FactoryBot.create(:place) }
   let!(:place_2) { FactoryBot.create(:place) }
 
-
   it '書籍-場所中間テーブルを作成できる' do
     book_place = FactoryBot.create(:book_place, book_id: book.id, place_id: place.id)
     expect(book_place).to be_valid
