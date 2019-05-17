@@ -36,7 +36,6 @@ describe '書籍', type: :system do
         sleep 1.0
         expect(page).to have_content '検索結果1件'
         first('.show-book').click
-
       end
     end
   end
