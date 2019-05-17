@@ -28,6 +28,16 @@ describe '書籍', type: :system do
         sleep 1.0
         expect(page).to have_content '検索結果1件'
       end
+
+      it '書籍カテゴリで検索できる' do
+        visit root_path
+        select 'カテゴリA', from: 'q_categories_id_eq'
+        first('.fa-search').click
+        sleep 1.0
+        expect(page).to have_content '検索結果1件'
+        first('.show-book').click
+
+      end
     end
   end
 
@@ -36,15 +46,6 @@ describe '書籍', type: :system do
       it 'いいねボタンが表示されない' do
         expect(page).not_to have_selector '.upvote-button'
       end
-
-      # it '書籍が借りられない' do
-      #   first('.show-book').click
-      #   click_on '借りる'
-      #   sleep 0.5
-      #   fill_in 'borrow_list[return_date]', with: '0020200202'
-      #   click_on 'Save Borrow list'
-      #   expect(page).to have_selector '.alert-danger', text: 'You need to sign in or sign up before continuing.'
-      # end
     end
   end
 end

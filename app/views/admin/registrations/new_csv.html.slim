@@ -4,7 +4,7 @@
     .row
       | CSVファイルの列は、「タイトル」,「著者」,「発売日」,「価格」,「書籍詳細情報」,「画像URL」の順に並べて下さい。
     .row
-      | タイトルと画像URLは必須となります。
+      | ※タイトルと画像URLは必須となります。
     .row.mt-5
       = form_tag admin_csv_index_path, method: :post, multipart: true do |f|
         .search_item
