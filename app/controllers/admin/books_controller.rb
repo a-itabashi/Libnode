@@ -1,5 +1,6 @@
 class Admin::BooksController < Admin::ApplicationController
   before_action :set_book, only: %i[destroy]
+  before_action :application_owner?
 
   def edit
     @books = Book.all
@@ -29,4 +30,10 @@ class Admin::BooksController < Admin::ApplicationController
   # def book_params
   #   params.require(:book).permit(:)
   # end
+  def application_owner?
+    unless current_user.name == '三澤直弥'
+      flash[:danger] = '現在この機能は限られた管理者のみ実行可能にしています'
+      redirect_back(fallback_location: root_path)
+    end
+  end
 end
