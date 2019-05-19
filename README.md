@@ -8,6 +8,8 @@
 こちらのアカウントをご利用下さい。  
 - メールアドレス: 3isawa.libnode[**at mark**]gmail.com  
 - パスワード: thisismysecretpasswordthatisverysecure
+**動作確認済み環境**
+- GoogleChrome(バージョン: 74.0.3729.131)
 
 ## アプリ概要
 とあるプログラミングスクールやIT企業に社内ツールとして置かれる事を想定した、  
