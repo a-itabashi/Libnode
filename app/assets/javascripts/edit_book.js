@@ -25,6 +25,8 @@ $(function () {
         emptyTarget[0].forEach(function(v){
           $(`#book-${v}`).val("");
         });
+        $(".book-detail-init").hide();
+        $(".book-edit").show();
         $("#book-title").val(title);
         $("#book-author").val(author);
         $("#book-saled_at").val(saled_at);
