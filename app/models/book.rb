@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
-  before_save :find_or_create_on_categories
   mount_uploader :image, BookImageUploader
 
   has_many :book_categories, dependent: :destroy
@@ -12,7 +11,7 @@ class Book < ApplicationRecord
   has_many :borrow_lists, dependent: :destroy
 
   validates :title, presence: true, presence: { message: 'は必ず入力してください' }
-  validates :image, presence: true, presence: { message: 'は必ず入力してください' }, if: proc { |a| a.image_raw_url.blank? }
+  # validates :image, presence: true, presence: { message: 'は必ず入力してください' }, if: proc { |a| a.image_raw_url.blank? }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: proc { |a| a.price.blank? }
 
   scope :upvotes, ->(user) { where(id: user.upvotes.pluck(:book_id)) }
@@ -21,16 +20,6 @@ class Book < ApplicationRecord
   scope :top_5_borrowed, -> { find(BorrowList.group(:book_id).order('count(book_id) desc').limit(5).pluck(:book_id)) }
 
   private
-
-  def find_or_create_on_categories
-    if categories.present?
-      category_arr = categories&.map do |category|
-        category_arr = category.name.split(',')
-        category_arr.map { |c| Category.find_or_initialize_by(name: c) }
-      end
-      self.categories = category_arr[0]
-    end
-  end
 
   class << self
     def upvoted_count(books)

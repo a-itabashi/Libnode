@@ -1,9 +1,9 @@
-class BookRegistrationForm
+class BookUpdateForm
   include ActiveModel::Model
 
   concerning :BookBuilder do
     def book
-      @book ||= Book.new
+      @book ||= Book.find(book_params[:id])
     end
   end
 
@@ -28,17 +28,17 @@ class BookRegistrationForm
     end
 
     def places_attributes=(attributes)
-      @places_attributes = Place.new(attributes)
+      @places_attributes = Place.find_or_initialize_by(attributes)
     end
   end
 
-  attr_accessor :title, :author, :saled_at, :price, :description, :image, :image_raw_url
+  attr_accessor :id, :title, :author, :saled_at, :price, :description, :image_raw_url
 
-  def save
+  def update
     book.assign_attributes(book_params)
     build_informations
     {
-      success: !!book.save,
+      success: !!book.save(book_params),
       errors: book.errors.full_messages
     }
   end
@@ -47,18 +47,24 @@ class BookRegistrationForm
 
   def book_params
     {
+      id: id,
       title: title,
       author: author,
       saled_at: saled_at,
       price: price,
       description: description,
-      image: image,
       image_raw_url: image_raw_url
     }
   end
 
   def build_informations
+    clear_attributes
     book.categories << categories
     book.places << places
+  end
+
+  def clear_attributes
+    book.categories.clear
+    book.places.claer
   end
 end

@@ -3,16 +3,20 @@ $(function () {
     if (e) e.preventDefault();
     let set_id = $(this).attr('id');
     params = {
-      title: $("#book-title").val(),
-      author: $("#book-author").val(),
-      saled_at: $("#book-saled_at").val(),
-      description: $("#book-description").val(),
-      places: {
-        shelf: $("#book-shelf").val(),
-        row: $("#book-row").val(),
-        column: $("#book-column").val()
-      },
-      categories: $("#book-categories").val().split(',')
+      book_registration_form_update: {
+        id: set_id,
+        title: $("#book-title").val(),
+        image_raw_url: $("#book-image").attr("src"),
+        author: $("#book-author").val(),
+        saled_at: $("#book-saled_at").val(),
+        description: $("#book-description").val(),
+        places_attributes: {
+          shelf: $("#book-shelf").val(),
+          row: $("#book-row").val(),
+          column: $("#book-column").val()
+        },
+        categories_attributes: { name: $("#book-categories").val() }
+      }
     }
       $.ajax({
         url: `${gon.domain}/admin/registrations/${set_id}`,

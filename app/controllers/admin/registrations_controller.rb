@@ -16,7 +16,10 @@ class Admin::RegistrationsController < Admin::ApplicationController
   end
 
   def update
-    binding.pry
+    @book_registrations_form = BookUpdateForm.new(book_registration_form_update_params)
+    results = @book_registrations_form.update
+    # render json: results
+    redirect_to edit_admin_registration_path
   end
 
   private
@@ -24,6 +27,14 @@ class Admin::RegistrationsController < Admin::ApplicationController
   def book_registration_form_params
     params.require(:book_registration_form).permit(
       %i[title author saled_at price description image image_raw_url],
+      categories_attributes: %i[name],
+      places_attributes: %i[shelf column row]
+    )
+  end
+
+  def book_registration_form_update_params
+    params.require(:book_registration_form_update).permit(
+      %i[id title image author saled_at price description image image_raw_url categories],
       categories_attributes: %i[name],
       places_attributes: %i[shelf column row]
     )
