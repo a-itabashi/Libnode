@@ -65,6 +65,6 @@ class BookUpdateForm
 
   def clear_attributes
     book.categories.clear
-    book.places.claer
+    book.places.clear
   end
 end
