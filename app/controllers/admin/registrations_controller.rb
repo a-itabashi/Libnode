@@ -11,15 +11,17 @@ class Admin::RegistrationsController < Admin::ApplicationController
     else
       flash[:danger] = results[:errors]
       render 'new'
-      # @book_registrations_form = BookRegistrationForm.new
     end
   end
 
   def update
     @book_registrations_form = BookUpdateForm.new(book_registration_form_update_params)
-    results = @book_registrations_form.update
-    # render json: results
-    redirect_to edit_admin_registration_path
+    if @book_registrations_form.update
+      flash[:success] = '書籍の更新に成功しました！'
+      head :ok
+    else
+      flash[:danger] = '書籍の更新に失敗しました！'
+      head :bad_request
   end
 
   private
