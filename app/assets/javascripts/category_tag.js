@@ -4,9 +4,9 @@ $(document).ready(function() {
     type: "get",
     dataType: 'json',
     success: function (data) {
-        $("#book-category-form").tagit({
-            availableTags: data
-        })
+      $("#book-category-form").tagit({
+        availableTags: data
+      })
     }
   })
 })

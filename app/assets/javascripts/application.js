@@ -30,6 +30,7 @@
 //= require show_rank_book
 //= require sidebar
 //= require tutorial
+//= require update_book
 //= require vote
 //= require read_qr
 //= require jsQR
