@@ -10,8 +10,8 @@ class Book < ApplicationRecord
   has_many :upvotes, dependent: :destroy
   has_many :borrow_lists, dependent: :destroy
 
-  validates :title, presence: true, presence: { message: 'は必ず入力してください' }
-  validates :image, on: :create, presence: true, presence: { message: 'は必ず入力してください' }, if: proc { |a| a.image_raw_url.blank? }
+  validates :title, presence: true
+  validates :image, on: :create, presence: true, if: proc { |a| a.image_raw_url.blank? }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: proc { |a| a.price.blank? }
 
   scope :upvotes, ->(user) { where(id: user.upvotes.pluck(:book_id)) }
