@@ -22,6 +22,7 @@ class Admin::RegistrationsController < Admin::ApplicationController
     else
       flash[:danger] = '書籍の更新に失敗しました！'
       head :bad_request
+    end
   end
 
   private
