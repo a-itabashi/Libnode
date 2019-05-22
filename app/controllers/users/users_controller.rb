@@ -1,17 +1,20 @@
 class Users::UsersController < ApplicationController
-  def show
+  include BorrowedChart
+  include UpvoteChart
+  before_action :set_user
+  before_action :set_borrowed_chart, only: %i[show borrowed_books]
+  before_action :set_upvote_chart, only: %i[show upvotes]
+
+  def show; end
+
+  def upvotes; end
+
+  def borrowed_books; end
+
+  private
+
+  def set_user
     @user = User.find(params[:id])
-    set_upvote_chart
-    set_borrowed_chart
   end
 
-  def upvotes
-    @user = User.find(params[:id])
-    set_upvote_chart
-  end
-
-  def borrowed_books
-    @user = User.find(params[:id])
-    set_borrowed_chart
-  end
 end

@@ -19,28 +19,6 @@ class ApplicationController < ActionController::Base
     @search_books = @search.result
   end
 
-  def set_upvote_chart
-    books = Book.upvotes(@user)
-    book_categories = Book.pickup_category_name(books)
-    @upvote_categories = book_categories.uniq
-    @upvote_datas = Category.how_many_contains(book_categories, @upvote_categories)
-
-    gon.upvote_categories = @upvote_categories
-    gon.upvote_datas = @upvote_datas
-    @upvote_count = @user.upvotes.count
-  end
-
-  def set_borrowed_chart
-    books = Book.borrowed(@user)
-    book_categories = Book.pickup_category_name(books)
-    @borrowed_categories = book_categories.uniq
-    @borrowed_datas = Category.how_many_contains(book_categories, @borrowed_categories)
-
-    gon.borrowed_categories = @borrowed_categories
-    gon.borrowed_datas = @borrowed_datas
-    @borrowed_count = @user.borrow_lists.count
-  end
-
   # ログイン後のリダイレクト先をオーバーライド
   def after_sign_in_path_for(_resource)
     root_path
