@@ -1,13 +1,12 @@
-class Admin::ImportCsvsController < Admin::ApplicationController
-  require 'csv'
+require 'csv'
 
+class Admin::ImportCsvsController < Admin::ApplicationController
   def new
     render 'admin/registrations/new_csv'
   end
 
   def create
     registered_count = import_books
-    # TODO: マジックナンバーを無くす
     if registered_count.to_s.length > 10
       redirect_to new_admin_csv_path, notice: registered_count.to_s
     else
@@ -29,7 +28,6 @@ class Admin::ImportCsvsController < Admin::ApplicationController
                               saled_at: row['saled_at'],
                               price: row['price'],
                               description: row['description'],
-                              # TODO: 適切？
                               image_raw_url: row['image'] })
       end
     end

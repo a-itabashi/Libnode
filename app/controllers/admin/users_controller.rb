@@ -20,18 +20,11 @@ class Admin::UsersController < Admin::ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
-
   def user_params
     params.require(:user).permit(:name, :email)
   end
 
-  def application_owner?
-    unless current_user.name == '三澤直弥'
-      flash[:danger] = '現在この機能は限られた管理者のみ実行可能にしています'
-      redirect_back(fallback_location: root_path)
-    end
+  def set_user
+    @user = User.find(params[:id])
   end
 end

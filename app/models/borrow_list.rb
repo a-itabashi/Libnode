@@ -6,6 +6,8 @@ class BorrowList < ApplicationRecord
   validates :user_id, :return_date, presence: true
   validate :return_date_must_be_future_date
 
+  scope :not_return_book, ->(book_id) { where(book_id: book_id).find_by(is_return: false) unless book_id.empty? }
+
   private
 
   def all_returned?

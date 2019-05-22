@@ -10,5 +10,9 @@ class Category < ApplicationRecord
         target.count(word)
       end
     end
+
+    def all_category_name
+      Category.all.map(&:name)
+    end
   end
 end
