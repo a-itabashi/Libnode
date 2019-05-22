@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_gon
-  before_action :set_search
 
   add_flash_types :success, :info, :warning, :danger
 
@@ -12,11 +11,6 @@ class ApplicationController < ActionController::Base
 
   def set_gon
     gon.domain = ENV['DOMAIN']
-  end
-
-  def set_search
-    @search = Book.ransack(params[:q])
-    @search_books = @search.result
   end
 
   # ログイン後のリダイレクト先をオーバーライド
