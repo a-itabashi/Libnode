@@ -1,3 +1,6 @@
+[![ruby version](https://img.shields.io/badge/Ruby-v2.5.5-green.svg)](https://www.ruby-lang.org/ja/)
+[![rails version](https://img.shields.io/badge/Rails-v5.2.3-brightgreen.svg)](http://rubyonrails.org/)
+[![CircleCI](https://circleci.com/gh/3isawa/Libnode.svg?style=svg)](https://circleci.com/gh/3isawa/Libnode)
 # README
 
 ## アプリ名: Libnode
@@ -7,7 +10,7 @@
 テスト用に管理者権限を付与したアカウントをご用意しましたので、
 こちらのアカウントをご利用下さい。  
 - メールアドレス: 3isawa.libnode[**at mark**]gmail.com  
-- パスワード: thisismysecretpasswordthatisverysecure
+- パスワード: thisismysecretpasswordthatisverysecure  
 **動作確認済み環境**
 - GoogleChrome(バージョン: 74.0.3729.131)
 
