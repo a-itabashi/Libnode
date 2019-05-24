@@ -2,6 +2,9 @@ $(function() {
   const modals = ["borrow", "return"];
 
   modals.forEach(function(v) {
+    if (`#${v}-modal` == window.location.hash) {
+      $(`#${v}-modal`).modal("show");
+    }
 
     $(`.${v}-button`).click(function(e) {
       modals.forEach(function (v) {
@@ -9,6 +12,7 @@ $(function() {
         $(".book-number").val("")
       });
       $(`#${v}-modal`).modal("show", e.target);
+      history.pushState(null, null, `#${v}-modal`);
     });
 
     $(`.${v}-detail`).click(function() {
@@ -16,6 +20,7 @@ $(function() {
       $(`#${v}-modal`).modal("show");
       $(".book-number").val(set_id);
       $('input[name="borrow_list[book_id]"]').val(set_id);
+      history.pushState(null, null, `#${v}-modal`);
     });
 
     $(`#${v}-modal`).on("show.bs.modal", function (event) {
@@ -30,6 +35,7 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
+    history.replaceState(null,null,"/");
 
     if (target == "borrow"){
       v = document.getElementsByTagName("video")[0]
@@ -44,11 +50,6 @@ function hideModal (target) {
   });
 
   $("#borrow-list-submit-button").click(function(e) {
-    // if (e) e.preventDefault();
-    //1 ajax
-    //2 body確認
-    //3-1 body 正常ならとじる
-    //3-2 body 正常じゃないなら閉じずにbutton復活
     $(`#${target}-modal`).modal("hide");
   });
 };
