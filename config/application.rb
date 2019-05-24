@@ -26,6 +26,7 @@ module Libnode
         request_specs: false
       g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
+    config.autoload_paths += Dir["#{config.root}/app/validators"]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
