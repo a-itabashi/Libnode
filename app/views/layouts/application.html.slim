@@ -9,8 +9,8 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render "layouts/borrow/borrow_modal"
-    = render "layouts/return/return_modal"
+    = render "borrow/borrow_modal"
+    = render "return/return_modal"
     = render "trends/purchase_request_modal"
     #wrapper.active
       = render "layouts/sidebar/sidebar"

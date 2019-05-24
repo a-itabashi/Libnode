@@ -5,11 +5,17 @@ class Users::UsersController < ApplicationController
   before_action :set_borrowed_chart, only: %i[show borrowed_books]
   before_action :set_upvote_chart, only: %i[show upvotes]
 
-  def show; end
+  def show
+    render 'users/show'
+  end
 
-  def upvotes; end
+  def upvotes
+    render 'users/upvotes'
+  end
 
-  def borrowed_books; end
+  def borrowed_books
+    render 'users/borrowed_books'
+  end
 
   private
 

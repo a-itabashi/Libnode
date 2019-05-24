@@ -2,7 +2,7 @@
   .row
     .col-md-9
       ul#masonry-gallery
-        = render partial: "layouts/book-tiles/book_tile", collection: @books, as: :book
+        = render partial: "books/book_tile", collection: @books, as: :book
     .col-md-3
       - if controller.controller_name == "books" && controller.action_name == "edit"
         = render "books/book_detail_edit"

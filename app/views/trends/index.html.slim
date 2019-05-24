@@ -1,7 +1,7 @@
   .row
     .col-md-9
       ul#masonry-gallery
-        = render partial: "layouts/book-tiles/trend_book_tile", collection: @top_20_books, as: :book
+        = render partial: "trends/trend_book_tile", collection: @top_20_books, as: :book
     .col-md-3
         = render "trend_book_detail"
         = render "trend_book_detail_init"
