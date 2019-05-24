@@ -4,7 +4,6 @@ $(function () {
     // if (e) e.stopProvagation();
     let set_id = $(this).attr('id')
       $.ajax({
-        // TODO: ドメイン名を変更
         url: `${gon.domain}/books/${set_id}`,
         type: 'get',
         data: { set_id },
@@ -26,7 +25,7 @@ $(function () {
           $(`#book-${v}`).val("");
         });
 
-        $(".book-detail-init").hide();
+        $(".book-detail-edit-init").hide();
         $(".book-edit").show();
         $("#book-title").val(title);
         $("#book-author").val(author);

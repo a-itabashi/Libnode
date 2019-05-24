@@ -6,6 +6,7 @@
     .col-md-3
       - if controller.controller_name == "books" && controller.action_name == "edit"
         = render "books/book_detail_edit"
+        = render "books/book_detail_edit_init"
       - else
         = render "books/book_detail"
-      = render "books/book_detail_init"
+        = render "books/book_detail_init"

@@ -6,10 +6,6 @@
   width: 290px;
   vertical-align: middle;
   position: fixed;
-  // 下に書く
-  @include mq-down(lg) {
-    display: none;
-  }
   .container {
     height: 85%;
     margin-top: 50px;
@@ -61,5 +57,19 @@
     color:#fff;
     font-size:12px;
     list-style: none;
+  }
+}
+
+.book-detail-wrapper.book-edit , .book-detail-edit-init{
+  .container {
+    height: 95%;
+    margin-top: 0px;
+    padding-top: 0px;
+    button {
+      margin-left: 27px;
+    }
+    .update-book {
+      margin-top: -7px;
+    }
   }
 }

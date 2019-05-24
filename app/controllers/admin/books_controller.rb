@@ -2,7 +2,6 @@ class Admin::BooksController < Admin::ApplicationController
   before_action :set_book, only: %i[destroy]
 
   def edit
-    # @books = Book.all
     @search = Book.ransack(params[:q])
     @books = @search.result
     render 'books/index'
