@@ -51,10 +51,3 @@ task scraiping_from_Amazon: :environment do
 
   Trend.new.search
 end
-
-# Libnodeと関係無し。HerokuにデプロイしたポートフォリオサイトのAPIをスリープさせないためのtask。
-task do_not_sleep: :environment do
-  require 'net/http'
-
-  Net::HTTP.get('https://portfolioapi3isawa.herokuapp.com/v1/works')
-end
