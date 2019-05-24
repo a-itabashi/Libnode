@@ -15,24 +15,23 @@
 //= require popper.min
 //= require bootstrap
 //= require activestorage
-//= require book-tile
-//= require category_tag
+//= require admin/category_tag
+//= require admin/delete_book
+//= require admin/edit_book
+//= require admin/fetch_book
+//= require admin/import_csv
+//= require admin/update_book
+//= require books/book-tile
+//= require books/show_book
+//= require books/vote
+//= require modals/modal
+//= require modals/read_qr
+//= require trends/purchase_request
+//= require trends/show_rank_book
 //= require common
-//= require delete_book
-//= require edit_book
-//= require fetch_book
 //= require header
-//= require import_csv
-//= require modal
-//= require purchase_request
-//= require remove_flash_after_fixed_time
-//= require show_book
-//= require show_rank_book
 //= require sidebar
 //= require tutorial
-//= require update_book
-//= require vote
-//= require read_qr
 //= require jsQR
 //= require jquery-ui
 //= require tag-it
@@ -42,13 +41,3 @@
 //= require chartjs-plugin-colorschemes.min
 //= require jquery.cookie-1.4.1.min
 //= require intro
-
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
-$(function () {
-  $("[data-toggle=popover]").popover()
-})
