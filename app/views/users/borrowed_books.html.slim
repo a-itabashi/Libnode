@@ -1,4 +1,3 @@
-= javascript_include_tag 'draw_chart.js'
 .container-fluid.mypage-wrapper
   .row.profile-wrapper
     .col-md-2
@@ -16,4 +15,4 @@
         h3
           = "合計 #{Book.where(id: @user.borrow_lists.pluck(:book_id)).pluck(:price).sum}円分"
   .row.mt-5
-    = render partial: "layouts/book-tiles/book_tile_without_filter", collection: Book.where(id: @user.borrow_lists.pluck(:book_id)), as: :book
+    = render partial: "users/book_tile_without_filter", collection: Book.where(id: @user.borrow_lists.pluck(:book_id)), as: :book

@@ -5,23 +5,21 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "_variables";
-
-@import "book_detail";
-@import "book_tile";
 @import "common";
+@import "sidebar";
+@import "admin/import_csv";
+@import "admin/registrations";
+@import "admin/tag_it_override";
+@import "books/book_detail";
+@import "books/book_tile";
 @import "header/header_with_searchbox";
 @import "header/header";
-@import "import_csv";
-@import "modal";
-@import "mypage";
-@import "qrcode_reader";
-@import "ranking";
-@import "registrations";
-@import "responsive";
-@import "sidebar";
-@import "tag_it_override";
-@import "trend_book_detail";
-@import "trend";
+@import "modals/modal";
+@import "modals/qrcode_reader";
+@import "rankings/ranking";
+@import "trends/trend_book_detail";
+@import "trends/trend";
+@import "users/mypage";
 
 body {
   background-color: #EFF3F6;
