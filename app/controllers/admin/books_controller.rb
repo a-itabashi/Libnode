@@ -5,7 +5,6 @@ class Admin::BooksController < Admin::ApplicationController
     @search = Book.ransack(params[:q])
     @books = @search.result
     render 'books/index'
-
   end
 
   def destroy
