@@ -2,7 +2,7 @@ $(function() {
   const modals = ["borrow", "return"];
 
   modals.forEach(function(v) {
-    if (`#${v}-modal` == window.location.hash) {
+    if (window.location.hash == `#${v}-modal`) {
       $(`#${v}-modal`).modal("show");
     }
 
