@@ -7,7 +7,7 @@
 ## URL: http://libnode.net
 **動作確認用アカウント**  
 本アプリケーションはGoogleアカウントを使用してログインする想定で作成しております。  
-テスト用に管理者権限を付与したアカウントをご用意しましたので、
+テスト用に管理者権限を付与したアカウントを用意しましたので、
 こちらのアカウントをご利用下さい。  
 - メールアドレス: 3isawa.libnode[**at mark**]gmail.com  
 - パスワード: thisismysecretpasswordthatisverysecure  
@@ -23,6 +23,8 @@
 <img src="https://i.gyazo.com/df003ac546e356cc340c7c9f1e1353b5.png" width="400px">
 
 ## 機能および使用した技術
+YouTube動画でも説明をしています。  
+https://youtu.be/z6J88IuUBSE  
 
 - Googleアカウントを利用したログイン  
   - **devise**、**omniauth**を使用。
