@@ -5,11 +5,11 @@ $(function () {
 
   $("#purchase-request-button").click(function(e) {
     $("#purchase-request-modal").modal("show", e.target);
-    window.history.pushState(null, null, "#purchase-request-modal");
+    (history || window.history).pushState(null, null, "#purchase-request-modal");
     $("#request-book-title").val(e.target.parentElement.children[1].textContent);
   });
 
   $("#purchase-request-modal").on("hide.bs.modal", function () {
-    window.history.replaceState(null,null,"/");
+    (history || window.history).replaceState(null,null,"/");
   });
 });

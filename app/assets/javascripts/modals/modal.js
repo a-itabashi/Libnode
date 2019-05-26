@@ -12,7 +12,7 @@ $(function() {
         $(".book-number").val("")
       });
       $(`#${v}-modal`).modal("show", e.target);
-      history.pushState(null, null, `#${v}-modal`);
+      (history || window.history).pushState(null, null, `#${v}-modal`);
     });
 
     $(`.${v}-detail`).click(function() {
@@ -20,7 +20,7 @@ $(function() {
       $(`#${v}-modal`).modal("show");
       $(".book-number").val(set_id);
       $('input[name="borrow_list[book_id]"]').val(set_id);
-      history.pushState(null, null, `#${v}-modal`);
+      (history || window.history).pushState(null, null, `#${v}-modal`);
     });
 
     $(`#${v}-modal`).on("show.bs.modal", function (event) {
@@ -35,7 +35,7 @@ $(function() {
 
 function hideModal (target) {
   $(`#${target}-modal`).on("hide.bs.modal", function () {
-    history.replaceState(null,null,"/");
+    (history || window.history).replaceState(null,null,"/");
 
     if (target == "borrow"){
       v = document.getElementsByTagName("video")[0]
