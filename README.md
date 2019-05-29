@@ -4,13 +4,14 @@
 # README
 
 ## アプリ名: Libnode
-## URL: http://libnode.net
+## URL: https://libnode.net
 **動作確認用アカウント**  
 本アプリケーションはGoogleアカウントを使用してログインする想定で作成しております。  
 テスト用に管理者権限を付与したアカウントを用意しましたので、
 こちらのアカウントをご利用下さい。  
 - メールアドレス: 3isawa.libnode[**at mark**]gmail.com  
-- パスワード: thisismysecretpasswordthatisverysecure  
+- パスワード: thisismysecretpasswordthatisverysecure 
+
 **動作確認済み環境**
 - GoogleChrome(バージョン: 74.0.3729.131)
 
@@ -30,7 +31,6 @@ https://youtu.be/z6J88IuUBSE
   - **devise**、**omniauth**を使用。
 - 書籍の貸出・返却
   - **jsQR**ライブラリを用いることで、WEBカメラからQRコード読み取りが可能。
-    - ※現在デプロイ先がhttps可していないことに関連して機能をお試し頂くことができません(現在https化対応中です)
     - テスト用QRコード(以下の様なQRコードを各書籍の裏側に貼り付ける事を想定しております)  
     半角数字で123456789という値をQRコードに変換しました。  
     (当該アプリケーションでは半角数字以外読み取り不可にしています)  
@@ -76,11 +76,14 @@ https://youtu.be/z6J88IuUBSE
 - データベース
   - PostgreSQL  
     - 一部uuidを用いたid管理
-- インフラ
-  - AWS EC2  
-    - 独自ドメインにも対応
+- インフラ・クラウド
+  - AWS EC2
+     - 独自ドメインにも対応
   - AWS S3
     - 画像クラウドストレージ
+  - AWS ELB
+  - AWS Route53
+  - Amazon Certification Manager
   - Nginx
   - Unicorn
 
