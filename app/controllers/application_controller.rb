@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
 
   def set_gon
     gon.domain = ENV['DOMAIN']
-    render partial: "layouts/gon_partial"
   end
 
   # ログイン後のリダイレクト先をオーバーライド
