@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def set_gon
     # gon.domain = ENV['DOMAIN']
-    gon.domain = '//libnode.net'
+    gon.domain = '//libnode.com'
   end
 
   # ログイン後のリダイレクト先をオーバーライド
