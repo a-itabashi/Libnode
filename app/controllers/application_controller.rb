@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_gon
-    # gon.domain = ENV['DOMAIN']
-    gon.domain = '//libnode.com'
+    gon.domain = ENV['DOMAIN']
+    render partial: "layouts/gon_partial"
   end
 
   # ログイン後のリダイレクト先をオーバーライド
