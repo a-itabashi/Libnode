@@ -2,7 +2,7 @@
 [![rails version](https://img.shields.io/badge/Rails-v5.2.3-brightgreen.svg)](http://rubyonrails.org/)
 [![CircleCI](https://circleci.com/gh/3isawa/Libnode.svg?style=svg)](https://circleci.com/gh/3isawa/Libnode)
 # README
-# テスト
+
 ## アプリ名: Libnode
 ## URL: https://libnode.net
 **動作確認用アカウント**
