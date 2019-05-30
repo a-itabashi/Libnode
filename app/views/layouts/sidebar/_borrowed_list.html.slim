@@ -1,7 +1,7 @@
 h5#borrowed-book-title 借りている本
 .borrowed-book
-  - return_dates = BorrowList.return_date_of_borrowing_books(current_user)
-  - books = Book.find(BorrowList.book_id_of_borrowing_books(current_user)).pluck(:title)
+  - return_dates = BorrowList.return_date_of_borrowing(current_user)
+  - books = Book.find(BorrowList.book_id_of_borrowing(current_user)).pluck(:title)
   - unless books.present?
     .none
       | 無し

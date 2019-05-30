@@ -7,8 +7,8 @@ class BorrowList < ApplicationRecord
   validate :return_date_must_be_future_date
 
   scope :not_return_book, ->(book_id) { where(book_id: book_id).find_by(is_return: false) unless book_id.empty? }
-  scope :return_date_of_borrowing_books, ->(user) { where(user: user.id).where(is_return: false).pluck(:return_date).reverse }
-  scope :book_id_of_borrowing_books, ->(user) { where(user: user.id).where(is_return: false).pluck(:book_id).reverse }
+  scope :return_date_of_borrowing, ->(user) { where(user: user.id).where(is_return: false).pluck(:return_date).reverse }
+  scope :book_id_of_borrowing, ->(user) { where(user: user.id).where(is_return: false).pluck(:book_id).reverse }
 
   private
 
