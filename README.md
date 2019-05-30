@@ -59,9 +59,10 @@ https://youtu.be/z6J88IuUBSE
 - チュートリアル機能
   - **Intro.js**を使用したチュートリアルを作成。
   - **jquery.cookie.js**でcookieを扱い、初回ログイン時は自動的にチュートリアルを開始。
-- CIを実践
+- CI・CDを実践
   - **CircleCIで**上で**rubocop**や**breakman**、**RSpec**でソースコードを解析。
     - RSpecでは単体テスト及び統合テストを実施。
+  - 解析をパスしたものをAWS CodeDeploy経由でリリース
 
 ## 他に使用した技術
 - フロントエンド
@@ -83,6 +84,7 @@ https://youtu.be/z6J88IuUBSE
     - 画像クラウドストレージ
   - AWS ELB
   - AWS Route53
+  - AWS CodeDeploy
   - Amazon Certification Manager
     - https化に対応
   - Nginx
