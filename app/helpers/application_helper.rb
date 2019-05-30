@@ -10,4 +10,8 @@ module ApplicationHelper
   def admin_user?
     current_user.admin == true
   end
+
+  def total_number_of_books(count)
+    "合計: #{count}冊"
+  end
 end

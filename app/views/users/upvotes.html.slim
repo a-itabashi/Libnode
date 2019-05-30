@@ -12,4 +12,4 @@
         h3.mt-4
           = "いいねした本 #{@upvote_count}冊"
   .row.mt-5
-    = render partial: "users/book_tile_without_filter", collection: Book.where(id: @user.upvotes.pluck(:book_id)), as: :book
+    = render partial: "users/book_tile_without_filter", collection: Book.upvotes(@user), as: :book

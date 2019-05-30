@@ -1,2 +1,2 @@
-li id="#{book.id}" class="masonry-item #{controller.action_name == 'edit' ? "edit-book" : "show-book"}"
+li.masonry-item
   img src="#{book.image.present? ? book.image : book.image_raw_url}"
