@@ -7,8 +7,8 @@
 ## URL: https://libnode.net
 **動作確認用アカウント**  
 本アプリケーションはGoogleアカウントを使用してログインする想定で作成しております。  
-テスト用に管理者権限を付与したアカウントを用意しましたので、
-こちらのアカウントをご利用下さい。  
+テスト用に管理者権限を付与したアカウントを作成しましたので、
+よろしければこちらのアカウントをご利用下さい。  
 - メールアドレス: 3isawa.libnode[**at mark**]gmail.com  
 - パスワード: thisismysecretpasswordthatisverysecure 
 
@@ -84,6 +84,7 @@ https://youtu.be/z6J88IuUBSE
   - AWS ELB
   - AWS Route53
   - Amazon Certification Manager
+    - https化に対応
   - Nginx
   - Unicorn
 
