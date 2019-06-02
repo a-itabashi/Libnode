@@ -153,3 +153,4 @@ gem 'bcrypt_pbkdf'
 
 # 定期実行
 gem 'whenever'
+gem 'activesupport'
