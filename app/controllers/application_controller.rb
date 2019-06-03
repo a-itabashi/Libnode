@@ -12,14 +12,4 @@ class ApplicationController < ActionController::Base
   def set_gon
     gon.domain = ENV['DOMAIN']
   end
-
-  # ログイン後のリダイレクト先をオーバーライド
-  def after_sign_in_path_for(_resource)
-    root_path
-  end
-
-  # ログアウト後のリダイレクト先をオーバーライド
-  def after_sign_out_path_for(_resource)
-    root_path
-  end
 end
