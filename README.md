@@ -24,15 +24,14 @@
 <img src="https://i.gyazo.com/df003ac546e356cc340c7c9f1e1353b5.png" width="400px">
 
 ## 機能および使用した技術
-YouTube動画でも説明をしています。
-https://youtu.be/z6J88IuUBSE
+**YouTube動画でも説明をしています**  
+**https://youtu.be/z6J88IuUBSE**
 
 - Googleアカウントを利用したログイン
   - **devise**、**omniauth**を使用。
 - 書籍の貸出・返却
   - **jsQR**ライブラリを用いることで、WEBカメラからQRコード読み取りが可能。
-    - テスト用QRコード(以下の様なQRコードを各書籍の裏側に貼り付ける事を想定しております)
-    半角数字で123456789という値をQRコードに変換しました。
+    - テスト用QRコード半角数字で123456789という値をQRコードに変換しました。  
     (当該アプリケーションでは半角数字以外読み取り不可にしています)
     https://i.gyazo.com/5833aeaa8889e1c61443189babf24c3b.png
   - **Action Mailer**と**whenever**を組み合わて、
